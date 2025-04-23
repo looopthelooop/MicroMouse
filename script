@@ -1,0 +1,10 @@
+config load "C:\Repos\MicroMouse\MicroMouse.ioc"
+project toolchain STM32CubeIDE
+
+SetStructure Advanced
+
+project setCustomFWPath "C:\Users\galgi\STM32Cube\Repository\STM32Cube_FW_L4_V1.17.2"
+
+project generate 
+
+exit wait
