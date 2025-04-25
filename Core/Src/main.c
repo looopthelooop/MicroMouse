@@ -309,6 +309,42 @@ void MX_I2C1_Init(void)
   /* Peripheral clock enable */
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_I2C1);
 
+  /* I2C1 DMA Init */
+
+  /* I2C1_RX Init */
+  LL_DMA_SetPeriphRequest(DMA2, LL_DMA_CHANNEL_6, LL_DMA_REQUEST_5);
+
+  LL_DMA_SetDataTransferDirection(DMA2, LL_DMA_CHANNEL_6, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+
+  LL_DMA_SetChannelPriorityLevel(DMA2, LL_DMA_CHANNEL_6, LL_DMA_PRIORITY_LOW);
+
+  LL_DMA_SetMode(DMA2, LL_DMA_CHANNEL_6, LL_DMA_MODE_CIRCULAR);
+
+  LL_DMA_SetPeriphIncMode(DMA2, LL_DMA_CHANNEL_6, LL_DMA_PERIPH_NOINCREMENT);
+
+  LL_DMA_SetMemoryIncMode(DMA2, LL_DMA_CHANNEL_6, LL_DMA_MEMORY_INCREMENT);
+
+  LL_DMA_SetPeriphSize(DMA2, LL_DMA_CHANNEL_6, LL_DMA_PDATAALIGN_BYTE);
+
+  LL_DMA_SetMemorySize(DMA2, LL_DMA_CHANNEL_6, LL_DMA_MDATAALIGN_BYTE);
+
+  /* I2C1_TX Init */
+  LL_DMA_SetPeriphRequest(DMA2, LL_DMA_CHANNEL_7, LL_DMA_REQUEST_5);
+
+  LL_DMA_SetDataTransferDirection(DMA2, LL_DMA_CHANNEL_7, LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
+
+  LL_DMA_SetChannelPriorityLevel(DMA2, LL_DMA_CHANNEL_7, LL_DMA_PRIORITY_LOW);
+
+  LL_DMA_SetMode(DMA2, LL_DMA_CHANNEL_7, LL_DMA_MODE_CIRCULAR);
+
+  LL_DMA_SetPeriphIncMode(DMA2, LL_DMA_CHANNEL_7, LL_DMA_PERIPH_NOINCREMENT);
+
+  LL_DMA_SetMemoryIncMode(DMA2, LL_DMA_CHANNEL_7, LL_DMA_MEMORY_INCREMENT);
+
+  LL_DMA_SetPeriphSize(DMA2, LL_DMA_CHANNEL_7, LL_DMA_PDATAALIGN_BYTE);
+
+  LL_DMA_SetMemorySize(DMA2, LL_DMA_CHANNEL_7, LL_DMA_MDATAALIGN_BYTE);
+
   /* USER CODE BEGIN I2C1_Init 1 */
 
   /* USER CODE END I2C1_Init 1 */
@@ -642,6 +678,7 @@ void MX_DMA_Init(void)
   /* Init with LL driver */
   /* DMA controller clock enable */
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
+  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA2);
 
   /* DMA interrupt init */
   /* DMA1_Channel1_IRQn interrupt configuration */
@@ -653,6 +690,12 @@ void MX_DMA_Init(void)
   /* DMA1_Channel7_IRQn interrupt configuration */
   NVIC_SetPriority(DMA1_Channel7_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
   NVIC_EnableIRQ(DMA1_Channel7_IRQn);
+  /* DMA2_Channel6_IRQn interrupt configuration */
+  NVIC_SetPriority(DMA2_Channel6_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_EnableIRQ(DMA2_Channel6_IRQn);
+  /* DMA2_Channel7_IRQn interrupt configuration */
+  NVIC_SetPriority(DMA2_Channel7_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_EnableIRQ(DMA2_Channel7_IRQn);
 
 }
 
@@ -677,7 +720,7 @@ void MX_GPIO_Init(void)
   LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_0|LL_GPIO_PIN_11|LL_GPIO_PIN_12);
 
   /**/
-  LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_1|LL_GPIO_PIN_3|LL_GPIO_PIN_5);
+  LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_5);
 
   /**/
   GPIO_InitStruct.Pin = LL_GPIO_PIN_0|LL_GPIO_PIN_11|LL_GPIO_PIN_12;
@@ -688,13 +731,13 @@ void MX_GPIO_Init(void)
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /**/
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_0|LL_GPIO_PIN_4;
+  GPIO_InitStruct.Pin = LL_GPIO_PIN_0|LL_GPIO_PIN_1|LL_GPIO_PIN_3|LL_GPIO_PIN_4;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /**/
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_1|LL_GPIO_PIN_3|LL_GPIO_PIN_5;
+  GPIO_InitStruct.Pin = LL_GPIO_PIN_5;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;

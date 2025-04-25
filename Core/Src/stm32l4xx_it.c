@@ -278,6 +278,32 @@ __attribute__((weak)) void TIM6_DAC_IRQHandler (void)
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
+/**
+  * @brief This function handles DMA2 channel6 global interrupt.
+  */
+__attribute__((weak)) void DMA2_Channel6_IRQHandler (void)
+{
+  /* USER CODE BEGIN DMA2_Channel6_IRQn 0 */
+
+  /* USER CODE END DMA2_Channel6_IRQn 0 */
+  /* USER CODE BEGIN DMA2_Channel6_IRQn 1 */
+
+  /* USER CODE END DMA2_Channel6_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA2 channel7 global interrupt.
+  */
+__attribute__((weak)) void DMA2_Channel7_IRQHandler (void)
+{
+  /* USER CODE BEGIN DMA2_Channel7_IRQn 0 */
+
+  /* USER CODE END DMA2_Channel7_IRQn 0 */
+  /* USER CODE BEGIN DMA2_Channel7_IRQn 1 */
+
+  /* USER CODE END DMA2_Channel7_IRQn 1 */
+}
+
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */

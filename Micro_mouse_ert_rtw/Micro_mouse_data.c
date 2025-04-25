@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.16
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Fri Apr 25 14:35:29 2025
+ * C/C++ source code generated on : Fri Apr 25 15:54:46 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -21,7 +21,7 @@
 
 /* Invariant block signals (default storage) */
 const ConstB_Micro_mouse_T Micro_mouse_ConstB = {
-  true                                 /* '<S4>/NOT' */
+  true                                 /* '<S2>/NOT' */
 };
 
 /*
