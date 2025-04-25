@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.7
+ * Model version                  : 1.11
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Wed Apr 23 18:17:43 2025
+ * C/C++ source code generated on : Fri Apr 25 14:35:29 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -74,22 +74,42 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  uint16_T AnalogtoDigitalConverter[5];/* '<S5>/Analog to Digital Converter' */
+  uint32_T Gain1[5];                   /* '<Root>/Gain1' */
+  uint32_T Gain5[5];                   /* '<Root>/Gain5' */
+  uint16_T AnalogtoDigitalConverter[5];/* '<S7>/Analog to Digital Converter' */
+  boolean_T DigitalPortRead;           /* '<S11>/Digital Port Read' */
+  boolean_T DigitalPortRead_k;         /* '<S9>/Digital Port Read' */
 } B_Micro_mouse_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  stm32cube_blocks_AnalogInput__T obj; /* '<S5>/Analog to Digital Converter' */
-  stm32cube_blocks_PWMOutput_Mi_T obj_e;/* '<S17>/PWM Output' */
-  stm32cube_blocks_PWMOutput_Mi_T obj_j;/* '<S11>/PWM Output' */
+  stm32cube_blocks_AnalogInput__T obj; /* '<S7>/Analog to Digital Converter' */
+  stm32cube_blocks_PWMOutput_Mi_T obj_e;/* '<S23>/PWM Output' */
+  stm32cube_blocks_PWMOutput_Mi_T obj_j;/* '<S17>/PWM Output' */
   struct {
     void *LoggedData;
-  } Scope_PWORK;                       /* '<Root>/Scope' */
+  } Scope3_PWORK;                      /* '<Root>/Scope3' */
+
+  struct {
+    void *LoggedData;
+  } Scope7_PWORK;                      /* '<Root>/Scope7' */
+
+  struct {
+    void *LoggedData;
+  } Scope8_PWORK;                      /* '<Root>/Scope8' */
+
+  struct {
+    void *LoggedData;
+  } Scope1_PWORK;                      /* '<Root>/Scope1' */
+
+  struct {
+    void *LoggedData;
+  } Scope2_PWORK;                      /* '<Root>/Scope2' */
 } DW_Micro_mouse_T;
 
 /* Invariant block signals (default storage) */
 typedef struct {
-  const boolean_T NOT;                 /* '<S2>/NOT' */
+  const boolean_T NOT;                 /* '<S4>/NOT' */
 } ConstB_Micro_mouse_T;
 
 /* Real-time Model Data Structure */
@@ -148,6 +168,16 @@ extern volatile boolean_T stopRequested;
 extern volatile boolean_T runModel;
 
 /*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<Root>/Signal Conversion' : Eliminate redundant signal conversion block
+ * Block '<Root>/Signal Conversion1' : Eliminate redundant signal conversion block
+ * Block '<Root>/Signal Conversion2' : Eliminate redundant signal conversion block
+ * Block '<Root>/Signal Conversion3' : Eliminate redundant signal conversion block
+ * Block '<Root>/Signal Conversion4' : Eliminate redundant signal conversion block
+ */
+
+/*-
  * The generated code includes comments that allow you to trace directly
  * back to the appropriate location in the model.  The basic format
  * is <system>/block_name, where system is the system number (uniquely
@@ -163,22 +193,28 @@ extern volatile boolean_T runModel;
  *
  * '<Root>' : 'Micro_mouse'
  * '<S1>'   : 'Micro_mouse/Analog to Digital Converter'
- * '<S2>'   : 'Micro_mouse/Left Motor'
- * '<S3>'   : 'Micro_mouse/Right Motor'
- * '<S4>'   : 'Micro_mouse/Analog to Digital Converter/ECSoC'
- * '<S5>'   : 'Micro_mouse/Analog to Digital Converter/ECSoC/ECSimCodegen'
- * '<S6>'   : 'Micro_mouse/Left Motor/Digital Port Write'
- * '<S7>'   : 'Micro_mouse/Left Motor/PWM Output'
- * '<S8>'   : 'Micro_mouse/Left Motor/Digital Port Write/ECSoC'
- * '<S9>'   : 'Micro_mouse/Left Motor/Digital Port Write/ECSoC/ECSimCodegen'
- * '<S10>'  : 'Micro_mouse/Left Motor/PWM Output/ECSoC'
- * '<S11>'  : 'Micro_mouse/Left Motor/PWM Output/ECSoC/ECSimCodegen'
- * '<S12>'  : 'Micro_mouse/Right Motor/Digital Port Write'
- * '<S13>'  : 'Micro_mouse/Right Motor/PWM Output'
- * '<S14>'  : 'Micro_mouse/Right Motor/Digital Port Write/ECSoC'
- * '<S15>'  : 'Micro_mouse/Right Motor/Digital Port Write/ECSoC/ECSimCodegen'
- * '<S16>'  : 'Micro_mouse/Right Motor/PWM Output/ECSoC'
- * '<S17>'  : 'Micro_mouse/Right Motor/PWM Output/ECSoC/ECSimCodegen'
+ * '<S2>'   : 'Micro_mouse/Digital Port Read'
+ * '<S3>'   : 'Micro_mouse/Digital Port Read1'
+ * '<S4>'   : 'Micro_mouse/Left Motor'
+ * '<S5>'   : 'Micro_mouse/Right Motor'
+ * '<S6>'   : 'Micro_mouse/Analog to Digital Converter/ECSoC'
+ * '<S7>'   : 'Micro_mouse/Analog to Digital Converter/ECSoC/ECSimCodegen'
+ * '<S8>'   : 'Micro_mouse/Digital Port Read/ECSoC'
+ * '<S9>'   : 'Micro_mouse/Digital Port Read/ECSoC/ECSimCodegen'
+ * '<S10>'  : 'Micro_mouse/Digital Port Read1/ECSoC'
+ * '<S11>'  : 'Micro_mouse/Digital Port Read1/ECSoC/ECSimCodegen'
+ * '<S12>'  : 'Micro_mouse/Left Motor/Digital Port Write'
+ * '<S13>'  : 'Micro_mouse/Left Motor/PWM Output'
+ * '<S14>'  : 'Micro_mouse/Left Motor/Digital Port Write/ECSoC'
+ * '<S15>'  : 'Micro_mouse/Left Motor/Digital Port Write/ECSoC/ECSimCodegen'
+ * '<S16>'  : 'Micro_mouse/Left Motor/PWM Output/ECSoC'
+ * '<S17>'  : 'Micro_mouse/Left Motor/PWM Output/ECSoC/ECSimCodegen'
+ * '<S18>'  : 'Micro_mouse/Right Motor/Digital Port Write'
+ * '<S19>'  : 'Micro_mouse/Right Motor/PWM Output'
+ * '<S20>'  : 'Micro_mouse/Right Motor/Digital Port Write/ECSoC'
+ * '<S21>'  : 'Micro_mouse/Right Motor/Digital Port Write/ECSoC/ECSimCodegen'
+ * '<S22>'  : 'Micro_mouse/Right Motor/PWM Output/ECSoC'
+ * '<S23>'  : 'Micro_mouse/Right Motor/PWM Output/ECSoC/ECSimCodegen'
  */
 #endif                                 /* Micro_mouse_h_ */
 
