@@ -1,0 +1,5 @@
+rt_nonfinite.o: C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rt_nonfinite.c \
+ C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rtwtypes.h \
+ C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rt_nonfinite.h
+C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rtwtypes.h:
+C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rt_nonfinite.h:

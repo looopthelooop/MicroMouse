@@ -4,6 +4,8 @@ xcp_ext_mode.o
 Micro_mouse.o
 Micro_mouse_data.o
 ert_main.o
+rtGetInf.o
+rt_nonfinite.o
 xcp_ext_common.o
 xcp_ext_classic_trigger.o
 xcp.o

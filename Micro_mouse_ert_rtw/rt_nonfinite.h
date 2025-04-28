@@ -3,7 +3,7 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: Micro_mouse_data.c
+ * File: rt_nonfinite.h
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
@@ -17,12 +17,22 @@
  * Validation result: Not run
  */
 
-#include "Micro_mouse.h"
+#ifndef rt_nonfinite_h_
+#define rt_nonfinite_h_
+#include "rtwtypes.h"
 
-/* Invariant block signals (default storage) */
-const ConstB_Micro_mouse_T Micro_mouse_ConstB = {
-  true                                 /* '<S2>/NOT' */
-};
+extern real_T rtInf;
+extern real_T rtMinusInf;
+extern real_T rtNaN;
+extern real32_T rtInfF;
+extern real32_T rtMinusInfF;
+extern real32_T rtNaNF;
+extern boolean_T rtIsInf(real_T value);
+extern boolean_T rtIsInfF(real32_T value);
+extern boolean_T rtIsNaN(real_T value);
+extern boolean_T rtIsNaNF(real32_T value);
+
+#endif                                 /* rt_nonfinite_h_ */
 
 /*
  * File trailer for generated code.

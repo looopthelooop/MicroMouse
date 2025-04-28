@@ -3,7 +3,7 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: Micro_mouse_data.c
+ * File: rtGetInf.h
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
@@ -17,12 +17,17 @@
  * Validation result: Not run
  */
 
-#include "Micro_mouse.h"
+#ifndef rtGetInf_h_
+#define rtGetInf_h_
+#include "rt_nonfinite.h"
+#include "rtwtypes.h"
 
-/* Invariant block signals (default storage) */
-const ConstB_Micro_mouse_T Micro_mouse_ConstB = {
-  true                                 /* '<S2>/NOT' */
-};
+extern real_T rtGetInf(void);
+extern real32_T rtGetInfF(void);
+extern real_T rtGetMinusInf(void);
+extern real32_T rtGetMinusInfF(void);
+
+#endif                                 /* rtGetInf_h_ */
 
 /*
  * File trailer for generated code.
