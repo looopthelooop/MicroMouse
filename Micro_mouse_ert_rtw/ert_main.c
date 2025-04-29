@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon Apr 28 11:13:01 2025
+ * C/C++ source code generated on : Tue Apr 29 10:29:49 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -53,6 +53,7 @@ int main(int argc, char **argv)
   /* Initialize variables */
   stopRequested = false;
   runModel = false;
+  MW_EnableNVICPeripheral();
 
 #if !defined(MW_FREERTOS) && defined(MW_MULTI_TASKING_MODE) && (MW_MULTI_TASKING_MODE == 1)
 
@@ -82,6 +83,7 @@ int main(int argc, char **argv)
     return (errorCode);
   }
 
+  Micro_mouse_configure_interrupts();
   Micro_mouse_initialize();
   __disable_irq();
   __enable_irq();
@@ -141,6 +143,8 @@ int main(int argc, char **argv)
 #endif
 
   ;
+  Micro_mouse_unconfigure_interrupts();
+  MW_DisableNVICPeripheral();
   __disable_irq();
   return 0;
 }
