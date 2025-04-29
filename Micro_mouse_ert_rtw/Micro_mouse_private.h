@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.23
+ * Model version                  : 1.19
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Apr 29 10:29:49 2025
+ * C/C++ source code generated on : Mon Apr 28 11:13:01 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -91,6 +91,10 @@ preprocessor word size checks.
 #endif
 
 /* Skipping ulong_long/long_long check: insufficient preprocessor integer range. */
+
+/* private model entry point functions */
+extern void Micro_mouse_derivatives(void);
+
 #endif                                 /* Micro_mouse_private_h_ */
 
 /*

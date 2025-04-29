@@ -18,19 +18,10 @@ function [taskInfo, numtask, isDeploymentDiagram]=coder_instr_task_info()
             taskInfo(2).entryPoints = {};
             taskInfo(2).nonFcnCallPartitionName = 'Cont';
 
-            taskInfo(3).samplePeriod = -1.0;
-            taskInfo(3).sampleOffset = -2.0;
-
-                taskInfo(3).taskPrio = 30;
-
-                taskInfo(3).taskName = ['SubRate' '2'];
-            taskInfo(3).entryPoints = {};
-            taskInfo(3).nonFcnCallPartitionName = '';
 
 
 
-
-    numtask = 3;
+    numtask = 2;
     for i = 1:numtask
     if ( 0 == isnumeric(taskInfo(i).samplePeriod) )
     taskInfo(i).samplePeriod = evalin('base', 'str2double(taskInfo(i).samplePeriod)');
