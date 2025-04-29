@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon Apr 28 11:13:01 2025
+ * C/C++ source code generated on : Tue Apr 29 14:07:24 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,7 +20,6 @@
 #ifndef Micro_mouse_private_h_
 #define Micro_mouse_private_h_
 #include "rtwtypes.h"
-#include "multiword_types.h"
 #include "Micro_mouse_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
@@ -32,10 +31,6 @@
 
 #ifndef rtmIsMinorTimeStep
 #define rtmIsMinorTimeStep(rtm)        (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
-#endif
-
-#ifndef rtmSetTFinal
-#define rtmSetTFinal(rtm, val)         ((rtm)->Timing.tFinal = (val))
 #endif
 
 #ifndef rtmSetTPtr
@@ -91,10 +86,6 @@ preprocessor word size checks.
 #endif
 
 /* Skipping ulong_long/long_long check: insufficient preprocessor integer range. */
-
-/* private model entry point functions */
-extern void Micro_mouse_derivatives(void);
-
 #endif                                 /* Micro_mouse_private_h_ */
 
 /*

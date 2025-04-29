@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon Apr 28 11:13:01 2025
+ * C/C++ source code generated on : Tue Apr 29 14:07:24 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -21,10 +21,6 @@
 #define Micro_mouse_types_h_
 #include "rtwtypes.h"
 #include "stm_timer_ll.h"
-#include "stm_adc_ll.h"
-
-/* Custom Type definition for MATLABSystem: '<S6>/Analog to Digital Converter' */
-#include "stm_adc_ll.h"
 #include "stm_adc_ll.h"
 #ifndef struct_tag_GSKovyH6bCN42HwFzVB4DE
 #define struct_tag_GSKovyH6bCN42HwFzVB4DE
@@ -43,6 +39,9 @@ typedef struct tag_GSKovyH6bCN42HwFzVB4DE stm32cube_blocks_DigitalPortR_T;
 
 #endif                             /* typedef_stm32cube_blocks_DigitalPortR_T */
 
+/* Custom Type definition for MATLABSystem: '<S6>/Analog to Digital Converter' */
+#include "stm_adc_ll.h"
+#include "stm_adc_ll.h"
 #ifndef struct_tag_tsKyPuhWUdS8zBSeRGR2aC
 #define struct_tag_tsKyPuhWUdS8zBSeRGR2aC
 
@@ -60,7 +59,7 @@ typedef struct tag_tsKyPuhWUdS8zBSeRGR2aC stm32cube_blocks_DigitalPortW_T;
 
 #endif                             /* typedef_stm32cube_blocks_DigitalPortW_T */
 
-/* Custom Type definition for MATLABSystem: '<S30>/PWM Output' */
+/* Custom Type definition for MATLABSystem: '<S26>/PWM Output' */
 #include "stm_timer_ll.h"
 #include "stm_timer_ll.h"
 #ifndef struct_tag_0RzKA0TA5eXyA1b3sjyvMG

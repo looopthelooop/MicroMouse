@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.23
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon Apr 28 11:13:01 2025
+ * C/C++ source code generated on : Tue Apr 29 14:07:24 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,6 +20,11 @@
 #ifndef rtmodel_h_
 #define rtmodel_h_
 #include "Micro_mouse.h"
+
+/* Macros generated for backwards compatibility  */
+#ifndef rtmGetStopRequested
+#define rtmGetStopRequested(rtm)       ((void*) 0)
+#endif
 #endif                                 /* rtmodel_h_ */
 
 /*
