@@ -2,8 +2,10 @@ Micro_mouse_data.o: \
  C:/Repos/MicroMouse/Micro_mouse_ert_rtw/Micro_mouse_data.c \
  C:/Repos/MicroMouse/Micro_mouse_ert_rtw/Micro_mouse.h \
  C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rtwtypes.h \
- C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_continuous.h \
+ C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_extmode.h \
  C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rtwtypes.h \
+ C:/Program\ Files/MATLAB/R2024b/simulink/include/sysran_types.h \
+ C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_continuous.h \
  C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_solver.h \
  C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_continuous.h \
  C:/Repos/MicroMouse/Core/Inc/main.h \
@@ -59,8 +61,10 @@ Micro_mouse_data.o: \
  C:/Repos/MicroMouse/Micro_mouse_ert_rtw/MW_target_hardware_resources.h
 C:/Repos/MicroMouse/Micro_mouse_ert_rtw/Micro_mouse.h:
 C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rtwtypes.h:
-C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_continuous.h:
+C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_extmode.h:
 C:/Repos/MicroMouse/Micro_mouse_ert_rtw/rtwtypes.h:
+C:/Program\ Files/MATLAB/R2024b/simulink/include/sysran_types.h:
+C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_continuous.h:
 C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_solver.h:
 C:/Program\ Files/MATLAB/R2024b/simulink/include/rtw_continuous.h:
 C:/Repos/MicroMouse/Core/Inc/main.h:

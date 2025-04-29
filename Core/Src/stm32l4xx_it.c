@@ -220,6 +220,26 @@ __attribute__((weak)) void EXTI0_IRQHandler (void)
 }
 
 /**
+  * @brief This function handles EXTI line3 interrupt.
+  */
+__attribute__((weak)) void EXTI3_IRQHandler (void)
+{
+  /* USER CODE BEGIN EXTI3_IRQn 0 */
+
+  /* USER CODE END EXTI3_IRQn 0 */
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_3) != RESET)
+  {
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_3);
+    /* USER CODE BEGIN LL_EXTI_LINE_3 */
+
+    /* USER CODE END LL_EXTI_LINE_3 */
+  }
+  /* USER CODE BEGIN EXTI3_IRQn 1 */
+
+  /* USER CODE END EXTI3_IRQn 1 */
+}
+
+/**
   * @brief This function handles DMA1 channel1 global interrupt.
   */
 __attribute__((weak)) void DMA1_Channel1_IRQHandler (void)

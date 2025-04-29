@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.23
+ * Model version                  : 1.30
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Apr 29 14:07:24 2025
+ * C/C++ source code generated on : Tue Apr 29 19:44:56 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -19,12 +19,16 @@
 
 #include "Micro_mouse.h"
 #include "rtwtypes.h"
+#include "xcp.h"
+#include "ext_mode.h"
 #include "MW_target_hardware_resources.h"
 
 volatile int IsrOverrun = 0;
 static boolean_T OverrunFlag = 0;
 void rt_OneStep(void)
 {
+  extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T) 0;
+
   /* Check for overrun. Protect OverrunFlag against preemption */
   if (OverrunFlag++) {
     IsrOverrun = 1;
@@ -33,9 +37,13 @@ void rt_OneStep(void)
   }
 
   __enable_irq();
+  currentTime = (extmodeSimulationTime_T) Micro_mouse_M->Timing.taskTime0;
   Micro_mouse_step();
 
   /* Get model outputs here */
+
+  /* Trigger External Mode event */
+  extmodeEvent(0, currentTime);
   __disable_irq();
   OverrunFlag--;
 }
@@ -46,6 +54,7 @@ int main(int argc, char **argv)
 {
   float modelBaseRate = 0.01;
   float systemClock = 32.0;
+  extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
 
   /* Initialize variables */
   stopRequested = false;
@@ -73,17 +82,53 @@ int main(int argc, char **argv)
   MX_ADC1_Init();
   MX_TIM16_Init();
   rtmSetErrorStatus(Micro_mouse_M, 0);
+
+  /* Parse External Mode command line arguments */
+  errorCode = extmodeParseArgs(0, NULL);
+  if (errorCode != EXTMODE_SUCCESS) {
+    return (errorCode);
+  }
+
   Micro_mouse_configure_interrupts();
   Micro_mouse_initialize();
   __disable_irq();
+  __enable_irq();
+
+  /* External Mode initialization */
+  errorCode = extmodeInit(Micro_mouse_M->extModeInfo, &rtmGetTFinal
+    (Micro_mouse_M));
+  if (errorCode != EXTMODE_SUCCESS) {
+    /* Code to handle External Mode initialization errors
+       may be added here */
+  }
+
+  if (errorCode == EXTMODE_SUCCESS) {
+    /* Wait until a Start or Stop Request has been received from the Host */
+    extmodeWaitForHostRequest(EXTMODE_WAIT_FOREVER);
+    if (extmodeStopRequested()) {
+      rtmSetStopRequested(Micro_mouse_M, true);
+    }
+  }
+
+  __disable_irq();
   ARMCM_SysTick_Config(modelBaseRate);
   runModel =
-    rtmGetErrorStatus(Micro_mouse_M) == (NULL);
+    !extmodeSimulationComplete()&& !extmodeStopRequested()&&
+    !rtmGetStopRequested(Micro_mouse_M);
   __enable_irq();
   __enable_irq();
   while (runModel) {
+    /* Run External Mode background activities */
+    errorCode = extmodeBackgroundRun();
+    if (errorCode != EXTMODE_SUCCESS && errorCode != EXTMODE_EMPTY) {
+      /* Code to handle External Mode background task errors
+         may be added here */
+    }
+
     stopRequested = !(
-                      rtmGetErrorStatus(Micro_mouse_M) == (NULL));
+                      !extmodeSimulationComplete()&& !extmodeStopRequested()&&
+                      !rtmGetStopRequested(Micro_mouse_M));
+    runModel = !(stopRequested);
     if (stopRequested) {
       SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
     }
@@ -93,6 +138,9 @@ int main(int argc, char **argv)
 
   /* Terminate model */
   Micro_mouse_terminate();
+
+  /* External Mode reset */
+  extmodeReset();
 
 #if !defined(MW_FREERTOS) && !defined(USE_RTX)
 
