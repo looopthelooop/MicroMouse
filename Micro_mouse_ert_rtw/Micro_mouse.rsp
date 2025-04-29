@@ -3,7 +3,6 @@ stm_timer_ll.o
 xcp_ext_mode.o
 mw_stm32_nvic.o
 Micro_mouse.o
-Micro_mouse_data.o
 ert_main.o
 xcp_ext_common.o
 xcp_ext_classic_trigger.o
