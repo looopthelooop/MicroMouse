@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.33
+ * Model version                  : 1.40
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Apr 29 20:19:01 2025
+ * C/C++ source code generated on : Fri May  2 14:46:39 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -78,14 +78,19 @@
 /* Block signals (default storage) */
 typedef struct {
   uint64_T Gain;                       /* '<S1>/Gain' */
-  real_T Ratio;                        /* '<S7>/Ratio' */
-  real_T Ratio_l;                      /* '<S8>/Ratio' */
+  real_T Ratio;                        /* '<S8>/Ratio' */
   real_T Sum1;                         /* '<Root>/Sum1' */
-  real_T OutportBufferForPosition;     /* '<S138>/Discrete-Time Integrator' */
+  real_T Saturation1;                  /* '<Root>/Saturation1' */
+  real_T Ratio_p;                      /* '<S7>/Ratio' */
+  real_T Sum;                          /* '<Root>/Sum' */
+  real_T TmpRTBAtScopeInport1;         /* '<S8>/Triggered Subsystem' */
+  real_T DiscreteTimeIntegrator;       /* '<S138>/Discrete-Time Integrator' */
+  real_T OutportBufferForPosition;     /* '<S138>/OutportBufferForPosition' */
   real_T OutportBufferForPosition_a;   /* '<S120>/Discrete-Time Integrator' */
   uint32_T SignalConversion4;          /* '<S6>/Signal Conversion4' */
   uint32_T SignalConversion;           /* '<S6>/Signal Conversion' */
   uint32_T Sum2;                       /* '<S1>/Sum2' */
+  boolean_T DigitalPortRead;           /* '<S149>/Digital Port Read' */
 } B_Micro_mouse_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -95,23 +100,27 @@ typedef struct {
   stm32cube_blocks_PWMOutput_Mi_T obj_g;/* '<S126>/PWM Output' */
   real_T Integrator_DSTATE;            /* '<S43>/Integrator' */
   real_T Filter_DSTATE;                /* '<S38>/Filter' */
-  real_T Integrator_DSTATE_e;          /* '<S95>/Integrator' */
-  real_T Filter_DSTATE_d;              /* '<S90>/Filter' */
+  real_T Integrator_DSTATE_j;          /* '<S95>/Integrator' */
+  real_T Filter_DSTATE_h;              /* '<S90>/Filter' */
   real_T DiscreteTimeIntegrator_DSTATE;/* '<S138>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_DSTATE_g;/* '<S120>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_PREV_U;/* '<S138>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_PREV_U_p;/* '<S120>/Discrete-Time Integrator' */
   struct {
     void *LoggedData;
-  } Scope1_PWORK;                      /* '<Root>/Scope1' */
-
-  struct {
-    void *LoggedData;
   } Scope_PWORK;                       /* '<S1>/Scope' */
 
   struct {
     void *LoggedData;
-  } Scope2_PWORK;                      /* '<Root>/Scope2' */
+  } Scope2_PWORK;                      /* '<S1>/Scope2' */
+
+  struct {
+    void *LoggedData[2];
+  } Scope1_PWORK;                      /* '<S1>/Scope1' */
+
+  struct {
+    void *LoggedData;
+  } Scope2_PWORK_n;                    /* '<Root>/Scope2' */
 
   struct {
     void *LoggedData;
@@ -119,11 +128,11 @@ typedef struct {
 
   struct {
     void *LoggedData;
-  } Scope2_PWORK_n;                    /* '<S1>/Scope2' */
+  } Scope_PWORK_i;                     /* '<S8>/Scope' */
 
   struct {
-    void *LoggedData[2];
-  } Scope1_PWORK_m;                    /* '<S1>/Scope1' */
+    void *LoggedData;
+  } Scope_PWORK_l;                     /* '<S138>/Scope' */
 
   uint32_T TriggeredSubsystem_PREV_T;  /* '<S8>/Triggered Subsystem' */
   uint32_T TriggeredSubsystem_PREV_T_c;/* '<S7>/Triggered Subsystem' */
@@ -134,11 +143,6 @@ typedef struct {
   boolean_T TriggeredSubsystem_RESET_ELAPS_;/* '<S8>/Triggered Subsystem' */
   boolean_T TriggeredSubsystem_RESET_ELAP_c;/* '<S7>/Triggered Subsystem' */
 } DW_Micro_mouse_T;
-
-/* External inputs (root inport signals with default storage) */
-typedef struct {
-  real_T Ref;                          /* '<Root>/Ref' */
-} ExtU_Micro_mouse_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
@@ -192,9 +196,6 @@ extern B_Micro_mouse_T Micro_mouse_B;
 /* Block states (default storage) */
 extern DW_Micro_mouse_T Micro_mouse_DW;
 
-/* External inputs (root inport signals with default storage) */
-extern ExtU_Micro_mouse_T Micro_mouse_U;
-
 /* External outputs (root outports fed by signals with default storage) */
 extern ExtY_Micro_mouse_T Micro_mouse_Y;
 
@@ -241,9 +242,7 @@ extern "C"
  * Block '<S136>/TSamp' : Unused code path elimination
  * Block '<S136>/UD' : Unused code path elimination
  * Block '<S40>/Integral Gain' : Eliminated nontunable gain of 1
- * Block '<S48>/Proportional Gain' : Eliminated nontunable gain of 1
  * Block '<S92>/Integral Gain' : Eliminated nontunable gain of 1
- * Block '<S100>/Proportional Gain' : Eliminated nontunable gain of 1
  */
 
 /*-
