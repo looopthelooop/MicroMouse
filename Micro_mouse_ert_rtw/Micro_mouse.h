@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.40
+ * Model version                  : 1.43
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Fri May  2 14:46:39 2025
+ * C/C++ source code generated on : Sun May  4 16:21:55 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -22,8 +22,6 @@
 #ifndef Micro_mouse_COMMON_INCLUDES_
 #define Micro_mouse_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#include "rtw_extmode.h"
-#include "sysran_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
 #include "math.h"
@@ -32,17 +30,10 @@
 
 #include "mw_stm32_nvic.h"
 #include "Micro_mouse_types.h"
+#include <stddef.h>
 #include "MW_target_hardware_resources.h"
 
 /* Macros for accessing real-time model data structure */
-#ifndef rtmGetFinalTime
-#define rtmGetFinalTime(rtm)           ((rtm)->Timing.tFinal)
-#endif
-
-#ifndef rtmGetRTWExtModeInfo
-#define rtmGetRTWExtModeInfo(rtm)      ((rtm)->extModeInfo)
-#endif
-
 #ifndef rtmGetErrorStatus
 #define rtmGetErrorStatus(rtm)         ((rtm)->errorStatus)
 #endif
@@ -51,46 +42,10 @@
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
 
-#ifndef rtmGetStopRequested
-#define rtmGetStopRequested(rtm)       ((rtm)->Timing.stopRequestedFlag)
-#endif
-
-#ifndef rtmSetStopRequested
-#define rtmSetStopRequested(rtm, val)  ((rtm)->Timing.stopRequestedFlag = (val))
-#endif
-
-#ifndef rtmGetStopRequestedPtr
-#define rtmGetStopRequestedPtr(rtm)    (&((rtm)->Timing.stopRequestedFlag))
-#endif
-
-#ifndef rtmGetT
-#define rtmGetT(rtm)                   ((rtm)->Timing.taskTime0)
-#endif
-
-#ifndef rtmGetTFinal
-#define rtmGetTFinal(rtm)              ((rtm)->Timing.tFinal)
-#endif
-
-#ifndef rtmGetTPtr
-#define rtmGetTPtr(rtm)                (&(rtm)->Timing.taskTime0)
-#endif
-
 /* Block signals (default storage) */
 typedef struct {
-  uint64_T Gain;                       /* '<S1>/Gain' */
-  real_T Ratio;                        /* '<S8>/Ratio' */
-  real_T Sum1;                         /* '<Root>/Sum1' */
-  real_T Saturation1;                  /* '<Root>/Saturation1' */
-  real_T Ratio_p;                      /* '<S7>/Ratio' */
-  real_T Sum;                          /* '<Root>/Sum' */
-  real_T TmpRTBAtScopeInport1;         /* '<S8>/Triggered Subsystem' */
-  real_T DiscreteTimeIntegrator;       /* '<S138>/Discrete-Time Integrator' */
-  real_T OutportBufferForPosition;     /* '<S138>/OutportBufferForPosition' */
+  real_T OutportBufferForPosition;     /* '<S138>/Discrete-Time Integrator' */
   real_T OutportBufferForPosition_a;   /* '<S120>/Discrete-Time Integrator' */
-  uint32_T SignalConversion4;          /* '<S6>/Signal Conversion4' */
-  uint32_T SignalConversion;           /* '<S6>/Signal Conversion' */
-  uint32_T Sum2;                       /* '<S1>/Sum2' */
-  boolean_T DigitalPortRead;           /* '<S149>/Digital Port Read' */
 } B_Micro_mouse_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -106,38 +61,8 @@ typedef struct {
   real_T DiscreteTimeIntegrator_DSTATE_g;/* '<S120>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_PREV_U;/* '<S138>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_PREV_U_p;/* '<S120>/Discrete-Time Integrator' */
-  struct {
-    void *LoggedData;
-  } Scope_PWORK;                       /* '<S1>/Scope' */
-
-  struct {
-    void *LoggedData;
-  } Scope2_PWORK;                      /* '<S1>/Scope2' */
-
-  struct {
-    void *LoggedData[2];
-  } Scope1_PWORK;                      /* '<S1>/Scope1' */
-
-  struct {
-    void *LoggedData;
-  } Scope2_PWORK_n;                    /* '<Root>/Scope2' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_j;                     /* '<Root>/Scope' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_i;                     /* '<S8>/Scope' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_l;                     /* '<S138>/Scope' */
-
   uint32_T TriggeredSubsystem_PREV_T;  /* '<S8>/Triggered Subsystem' */
   uint32_T TriggeredSubsystem_PREV_T_c;/* '<S7>/Triggered Subsystem' */
-  int8_T TriggeredSubsystem_SubsysRanBC;/* '<S8>/Triggered Subsystem' */
-  int8_T TriggeredSubsystem_SubsysRanB_a;/* '<S7>/Triggered Subsystem' */
   uint8_T DiscreteTimeIntegrator_SYSTEM_E;/* '<S138>/Discrete-Time Integrator' */
   uint8_T DiscreteTimeIntegrator_SYSTEM_o;/* '<S120>/Discrete-Time Integrator' */
   boolean_T TriggeredSubsystem_RESET_ELAPS_;/* '<S8>/Triggered Subsystem' */
@@ -152,27 +77,7 @@ typedef struct {
 
 /* Real-time Model Data Structure */
 struct tag_RTM_Micro_mouse_T {
-  const char_T *errorStatus;
-  RTWExtModeInfo *extModeInfo;
-
-  /*
-   * Sizes:
-   * The following substructure contains sizes information
-   * for many of the model attributes such as inputs, outputs,
-   * dwork, sample times, etc.
-   */
-  struct {
-    uint32_T checksums[4];
-  } Sizes;
-
-  /*
-   * SpecialInfo:
-   * The following substructure contains special information
-   * related to other components that are dependent on RTW.
-   */
-  struct {
-    const void *mappingInfo;
-  } SpecialInfo;
+  const char_T * volatile errorStatus;
 
   /*
    * Timing:
@@ -180,13 +85,9 @@ struct tag_RTM_Micro_mouse_T {
    * the timing information for the model.
    */
   struct {
-    time_T taskTime0;
     uint32_T clockTick0;
-    time_T stepSize0;
     uint32_T clockTick1;
     uint32_T clockTick2;
-    time_T tFinal;
-    boolean_T stopRequestedFlag;
   } Timing;
 };
 
@@ -230,9 +131,17 @@ extern "C"
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
+ * Block '<S1>/Gain' : Unused code path elimination
+ * Block '<S1>/Scope' : Unused code path elimination
+ * Block '<S1>/Scope1' : Unused code path elimination
+ * Block '<S1>/Scope2' : Unused code path elimination
+ * Block '<S1>/Sum2' : Unused code path elimination
+ * Block '<S6>/Gain2' : Unused code path elimination
+ * Block '<S6>/Signal Conversion' : Unused code path elimination
  * Block '<S6>/Signal Conversion1' : Unused code path elimination
  * Block '<S6>/Signal Conversion2' : Unused code path elimination
  * Block '<S6>/Signal Conversion3' : Unused code path elimination
+ * Block '<S6>/Signal Conversion4' : Unused code path elimination
  * Block '<S118>/Data Type Duplicate' : Unused code path elimination
  * Block '<S118>/Diff' : Unused code path elimination
  * Block '<S118>/TSamp' : Unused code path elimination
@@ -241,7 +150,13 @@ extern "C"
  * Block '<S136>/Diff' : Unused code path elimination
  * Block '<S136>/TSamp' : Unused code path elimination
  * Block '<S136>/UD' : Unused code path elimination
+ * Block '<S8>/Scope' : Unused code path elimination
+ * Block '<S138>/Scope' : Unused code path elimination
+ * Block '<Root>/Scope' : Unused code path elimination
+ * Block '<Root>/Scope2' : Unused code path elimination
+ * Block '<S36>/Derivative Gain' : Eliminated nontunable gain of 1
  * Block '<S40>/Integral Gain' : Eliminated nontunable gain of 1
+ * Block '<S88>/Derivative Gain' : Eliminated nontunable gain of 1
  * Block '<S92>/Integral Gain' : Eliminated nontunable gain of 1
  */
 
