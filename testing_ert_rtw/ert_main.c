@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'testing'.
  *
- * Model version                  : 1.3
+ * Model version                  : 1.5
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon May  5 10:12:22 2025
+ * C/C++ source code generated on : Mon May  5 14:35:01 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -27,8 +27,6 @@ volatile int IsrOverrun = 0;
 static boolean_T OverrunFlag = 0;
 void rt_OneStep(void)
 {
-  extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T) 0;
-
   /* Check for overrun. Protect OverrunFlag against preemption */
   if (OverrunFlag++) {
     IsrOverrun = 1;
@@ -37,13 +35,9 @@ void rt_OneStep(void)
   }
 
   __enable_irq();
-  currentTime = (extmodeSimulationTime_T) testing_M->Timing.taskTime0;
   testing_step();
 
   /* Get model outputs here */
-
-  /* Trigger External Mode event */
-  extmodeEvent(0, currentTime);
   __disable_irq();
   OverrunFlag--;
 }

@@ -1,0 +1,7 @@
+rtGetInf.o: C:/repo/MicroMouse/testing_ert_rtw/rtGetInf.c \
+ C:/repo/MicroMouse/testing_ert_rtw/rtwtypes.h \
+ C:/repo/MicroMouse/testing_ert_rtw/rtGetInf.h \
+ C:/repo/MicroMouse/testing_ert_rtw/rt_nonfinite.h
+C:/repo/MicroMouse/testing_ert_rtw/rtwtypes.h:
+C:/repo/MicroMouse/testing_ert_rtw/rtGetInf.h:
+C:/repo/MicroMouse/testing_ert_rtw/rt_nonfinite.h:

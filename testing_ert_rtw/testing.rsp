@@ -3,6 +3,8 @@ stm_timer_ll.o
 xcp_ext_mode.o
 mw_stm32_nvic.o
 ert_main.o
+rtGetInf.o
+rt_nonfinite.o
 testing.o
 xcp_ext_common.o
 xcp_ext_classic_trigger.o

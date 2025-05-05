@@ -7,9 +7,9 @@
  *
  * Code generation for model "testing".
  *
- * Model version              : 1.3
+ * Model version              : 1.5
  * Simulink Coder version : 24.2 (R2024b) 21-Jun-2024
- * C source code generated on : Mon May  5 10:12:22 2025
+ * C source code generated on : Mon May  5 14:35:01 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -43,7 +43,7 @@ typedef real_T extmodeClassicTriggerSignal_T;
 #define XCP_UINT32_MAX                 0xFFFFFFFFU
 
 /** External Mode Base rate event id */
-#define EXTMODE_BASE_RATE_EVENT_ID     0
+#define EXTMODE_BASE_RATE_EVENT_ID     1
 
 /** External Mode Max Event Id */
 #define EXTMODE_MAX_EVENT_ID           0xFF

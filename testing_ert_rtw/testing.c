@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'testing'.
  *
- * Model version                  : 1.3
+ * Model version                  : 1.5
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon May  5 10:12:22 2025
+ * C/C++ source code generated on : Mon May  5 14:35:01 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -43,30 +43,28 @@ static RT_MODEL_testing_T testing_M_;
 RT_MODEL_testing_T *const testing_M = &testing_M_;
 
 /* Forward declaration for local functions */
-static void testing_SystemCore_setup(stm32cube_blocks_AnalogInput__T *obj);
-static void testing_PWMOutput_setupImpl_o(stm32cube_blocks_PWMOutput_te_T *obj);
 static void testing_PWMOutput_setupImpl(stm32cube_blocks_PWMOutput_te_T *obj);
-static void testing_SystemCore_setup(stm32cube_blocks_AnalogInput__T *obj)
+static void testing_PWMOutput_setupImpl_o(stm32cube_blocks_PWMOutput_te_T *obj);
+static void testing_SystemCore_setup(stm32cube_blocks_AnalogInput__T *obj);
+static void testing_PWMOutput_setupImpl(stm32cube_blocks_PWMOutput_te_T *obj)
 {
-  ADC_Type_T adcStructLoc;
-  obj->isSetupComplete = false;
+  TIM_Type_T b;
+  boolean_T isSlaveModeTriggerEnabled;
 
-  /* Start for MATLABSystem: '<S115>/Analog to Digital Converter' */
-  obj->isInitialized = 1;
-  adcStructLoc.InternalBufferPtr = (void*)(&obj->ADCInternalBuffer[0]);
-  adcStructLoc.InjectedNoOfConversion = 0U;
-  adcStructLoc.peripheralPtr = ADC1;
-  adcStructLoc.dmaPeripheralPtr = DMA1;
-  adcStructLoc.dmastream = LL_DMA_CHANNEL_1;
-  adcStructLoc.DataTransferMode = ADC_DR_TRANSFER;
-  adcStructLoc.DmaTransferMode = ADC_DMA_TRANSFER_UNLIMITED;
-  adcStructLoc.InternalBufferSize = 5U;
-  adcStructLoc.RegularNoOfConversion = 5U;
-  obj->ADCHandle = ADC_Handle_Init(&adcStructLoc, ADC_DMA_INTERRUPT_MODE, 1,
-    ADC_TRIGGER_AND_READ, LL_ADC_REG_SEQ_SCAN_ENABLE_5RANKS);
-  enableADC(obj->ADCHandle);
-  startADCConversionForExternalTrigger(obj->ADCHandle, 1);
-  obj->isSetupComplete = true;
+  /* Start for MATLABSystem: '<S126>/PWM Output' */
+  b.PeripheralPtr = TIM16;
+  b.isCenterAlignedMode = false;
+
+  /* Start for MATLABSystem: '<S126>/PWM Output' */
+  b.repetitionCounter = 0U;
+  obj->TimerHandle = Timer_Handle_Init(&b);
+  enableTimerInterrupts(obj->TimerHandle, 0);
+  enableTimerChannel1(obj->TimerHandle, ENABLE_CH);
+  isSlaveModeTriggerEnabled = isSlaveTriggerModeEnabled(obj->TimerHandle);
+  if (!isSlaveModeTriggerEnabled) {
+    /* Start for MATLABSystem: '<S126>/PWM Output' */
+    enableCounter(obj->TimerHandle, false);
+  }
 }
 
 static void testing_PWMOutput_setupImpl_o(stm32cube_blocks_PWMOutput_te_T *obj)
@@ -90,273 +88,293 @@ static void testing_PWMOutput_setupImpl_o(stm32cube_blocks_PWMOutput_te_T *obj)
   }
 }
 
-static void testing_PWMOutput_setupImpl(stm32cube_blocks_PWMOutput_te_T *obj)
+static void testing_SystemCore_setup(stm32cube_blocks_AnalogInput__T *obj)
 {
-  TIM_Type_T b;
-  boolean_T isSlaveModeTriggerEnabled;
+  ADC_Type_T adcStructLoc;
+  obj->isSetupComplete = false;
 
-  /* Start for MATLABSystem: '<S126>/PWM Output' */
-  b.PeripheralPtr = TIM16;
-  b.isCenterAlignedMode = false;
-
-  /* Start for MATLABSystem: '<S126>/PWM Output' */
-  b.repetitionCounter = 0U;
-  obj->TimerHandle = Timer_Handle_Init(&b);
-  enableTimerInterrupts(obj->TimerHandle, 0);
-  enableTimerChannel1(obj->TimerHandle, ENABLE_CH);
-  isSlaveModeTriggerEnabled = isSlaveTriggerModeEnabled(obj->TimerHandle);
-  if (!isSlaveModeTriggerEnabled) {
-    /* Start for MATLABSystem: '<S126>/PWM Output' */
-    enableCounter(obj->TimerHandle, false);
-  }
+  /* Start for MATLABSystem: '<S116>/Analog to Digital Converter' */
+  obj->isInitialized = 1;
+  adcStructLoc.InternalBufferPtr = (void*)(&obj->ADCInternalBuffer[0]);
+  adcStructLoc.InjectedNoOfConversion = 0U;
+  adcStructLoc.peripheralPtr = ADC1;
+  adcStructLoc.dmaPeripheralPtr = DMA1;
+  adcStructLoc.dmastream = LL_DMA_CHANNEL_1;
+  adcStructLoc.DataTransferMode = ADC_DR_TRANSFER;
+  adcStructLoc.DmaTransferMode = ADC_DMA_TRANSFER_UNLIMITED;
+  adcStructLoc.InternalBufferSize = 5U;
+  adcStructLoc.RegularNoOfConversion = 5U;
+  obj->ADCHandle = ADC_Handle_Init(&adcStructLoc, ADC_DMA_INTERRUPT_MODE, 1,
+    ADC_TRIGGER_AND_READ, LL_ADC_REG_SEQ_SCAN_ENABLE_5RANKS);
+  enableADC(obj->ADCHandle);
+  startADCConversionForExternalTrigger(obj->ADCHandle, 1);
+  obj->isSetupComplete = true;
 }
 
 /* Model step function */
 void testing_step(void)
 {
-  GPIO_TypeDef * portNameLoc;
+  /* local block i/o variables */
   real_T rtb_FilterCoefficient;
-  real_T rtb_FilterCoefficient_i;
-  real_T rtb_Saturation;
-  real_T rtb_TmpRTBAtRatioInport1;
-  real_T rtb_TmpRTBAtTriggeredSubsystemO;
-  int32_T i;
-  uint32_T rtb_Gain2[5];
-  uint16_T rtb_AnalogtoDigitalConverter_0[5];
+  real_T rtb_FilterCoefficient_d;
+  real_T rtb_IntegralGain;
+  real_T rtb_IntegralGain_p;
+  real_T rtb_delta_h;
 
-  /* MATLABSystem: '<S115>/Analog to Digital Converter' */
-  regularReadADCDMA(testing_DW.obj.ADCHandle, ADC_TRIGGER_AND_READ,
-                    &rtb_AnalogtoDigitalConverter_0[0]);
+  {
+    GPIO_TypeDef * portNameLoc;
+    real_T rtb_Abs1;
+    real_T rtb_SineWave;
+    real_T rtb_TmpRTBAtTriggeredSubsystemO;
+    real_T *lastU;
+    int32_T i;
+    uint32_T rtb_Gain2[5];
+    uint16_T rtb_AnalogtoDigitalConverter_0[5];
+    boolean_T rtb_Compare;
 
-  /* Gain: '<S6>/Gain2' incorporates:
-   *  MATLABSystem: '<S115>/Analog to Digital Converter'
-   */
-  for (i = 0; i < 5; i++) {
-    rtb_Gain2[i] = 54080U * rtb_AnalogtoDigitalConverter_0[i];
-  }
+    /* RateTransition generated from: '<S8>/Triggered Subsystem' */
+    rtb_TmpRTBAtTriggeredSubsystemO = testing_B.OutportBufferForPosition;
 
-  /* End of Gain: '<S6>/Gain2' */
+    /* Gain: '<S8>/Ratio' */
+    testing_B.Ratio = 15.25916431743614 * rtb_TmpRTBAtTriggeredSubsystemO;
 
-  /* SignalConversion: '<S6>/Signal Conversion4' */
-  testing_B.SignalConversion4 = rtb_Gain2[0];
+    /* Outport: '<Root>/position' */
+    testing_Y.position = testing_B.Ratio;
 
-  /* SignalConversion: '<S6>/Signal Conversion' */
-  testing_B.SignalConversion = rtb_Gain2[4];
-
-  /* Sum: '<S1>/Sum2' incorporates:
-   *  SignalConversion: '<S6>/Signal Conversion'
-   *  SignalConversion: '<S6>/Signal Conversion4'
-   */
-  testing_B.Sum2 = testing_B.SignalConversion4 - testing_B.SignalConversion;
-
-  /* Gain: '<S1>/Gain' incorporates:
-   *  Sum: '<S1>/Sum2'
-   */
-  testing_B.Gain = 3435973837ULL * testing_B.Sum2;
-
-  /* RateTransition generated from: '<S8>/Ratio' */
-  rtb_TmpRTBAtRatioInport1 = testing_B.OutportBufferForPosition;
-
-  /* Gain: '<S8>/Ratio' */
-  testing_B.Ratio = 15.25916431743614 * rtb_TmpRTBAtRatioInport1;
-
-  /* SampleTimeMath: '<S136>/TSamp'
-   *
-   * About '<S136>/TSamp':
-   *  y = u * K where K = 1 / ( w * Ts )
-   *   */
-  rtb_TmpRTBAtRatioInport1 = testing_B.Ratio * 100.0;
-
-  /* Sum: '<S136>/Diff' incorporates:
-   *  UnitDelay: '<S136>/UD'
-   *
-   * Block description for '<S136>/Diff':
-   *
-   *  Add in CPU
-   *
-   * Block description for '<S136>/UD':
-   *
-   *  Store in Global RAM
-   */
-  testing_B.Diff = rtb_TmpRTBAtRatioInport1 - testing_DW.UD_DSTATE;
-
-  /* Sum: '<Root>/Sum1' incorporates:
-   *  Constant: '<Root>/Constant'
-   */
-  testing_B.Sum1 = 20.0 - testing_B.Diff;
-
-  /* Gain: '<S46>/Filter Coefficient' incorporates:
-   *  DiscreteIntegrator: '<S38>/Filter'
-   *  Gain: '<S36>/Derivative Gain'
-   *  Sum: '<S38>/SumD'
-   */
-  rtb_FilterCoefficient = (0.0 * testing_B.Sum1 - testing_DW.Filter_DSTATE) *
-    100.0;
-
-  /* Sum: '<S52>/Sum' incorporates:
-   *  DiscreteIntegrator: '<S43>/Integrator'
-   */
-  testing_B.Saturation1 = (testing_B.Sum1 + testing_DW.Integrator_DSTATE) +
-    rtb_FilterCoefficient;
-
-  /* Saturate: '<Root>/Saturation1' */
-  if (testing_B.Saturation1 > 99.0) {
-    /* Sum: '<S52>/Sum' incorporates:
-     *  Saturate: '<Root>/Saturation1'
+    /* Gain: '<S9>/Ratio' incorporates:
+     *  DiscreteIntegrator: '<S9>/Discrete-Time Integrator'
      */
-    testing_B.Saturation1 = 99.0;
-  } else if (testing_B.Saturation1 < -99.0) {
-    /* Sum: '<S52>/Sum' incorporates:
-     *  Saturate: '<Root>/Saturation1'
+    testing_B.Ratio_p = 15.25916431743614 *
+      testing_DW.DiscreteTimeIntegrator_DSTATE;
+
+    /* Outport: '<Root>/position1' */
+    testing_Y.position1 = testing_B.Ratio_p;
+
+    /* Derivative: '<Root>/Derivative' */
+    rtb_TmpRTBAtTriggeredSubsystemO = testing_M->Timing.t[0];
+    if ((testing_DW.TimeStampA >= rtb_TmpRTBAtTriggeredSubsystemO) &&
+        (testing_DW.TimeStampB >= rtb_TmpRTBAtTriggeredSubsystemO)) {
+      /* Derivative: '<Root>/Derivative' */
+      testing_B.Derivative = 0.0;
+    } else {
+      rtb_Abs1 = testing_DW.TimeStampA;
+      lastU = &testing_DW.LastUAtTimeA;
+      if (testing_DW.TimeStampA < testing_DW.TimeStampB) {
+        if (testing_DW.TimeStampB < rtb_TmpRTBAtTriggeredSubsystemO) {
+          rtb_Abs1 = testing_DW.TimeStampB;
+          lastU = &testing_DW.LastUAtTimeB;
+        }
+      } else if (testing_DW.TimeStampA >= rtb_TmpRTBAtTriggeredSubsystemO) {
+        rtb_Abs1 = testing_DW.TimeStampB;
+        lastU = &testing_DW.LastUAtTimeB;
+      }
+
+      /* Derivative: '<Root>/Derivative' */
+      testing_B.Derivative = (testing_B.Ratio_p - *lastU) /
+        (rtb_TmpRTBAtTriggeredSubsystemO - rtb_Abs1);
+    }
+
+    /* End of Derivative: '<Root>/Derivative' */
+
+    /* Outport: '<Root>/Out1' */
+    testing_Y.Out1 = testing_B.Derivative;
+
+    /* Sin: '<Root>/Sine Wave' */
+    rtb_SineWave = sin(testing_M->Timing.t[0]) * 10.0 + 20.0;
+
+    /* Gain: '<S47>/Filter Coefficient' incorporates:
+     *  DiscreteIntegrator: '<S39>/Filter'
+     *  Gain: '<S37>/Derivative Gain'
+     *  Sum: '<Root>/Sum'
+     *  Sum: '<S39>/SumD'
      */
-    testing_B.Saturation1 = -99.0;
+    rtb_FilterCoefficient = (0.0 * rtb_SineWave - testing_DW.Filter_DSTATE) *
+      100.0;
+
+    /* Sum: '<S53>/Sum' incorporates:
+     *  DiscreteIntegrator: '<S44>/Integrator'
+     *  Sum: '<Root>/Sum'
+     */
+    testing_B.Saturation1 = (rtb_SineWave + testing_DW.Integrator_DSTATE) +
+      rtb_FilterCoefficient;
+
+    /* Saturate: '<Root>/Saturation1' */
+    if (testing_B.Saturation1 > 99.0) {
+      /* Sum: '<S53>/Sum' incorporates:
+       *  Saturate: '<Root>/Saturation1'
+       */
+      testing_B.Saturation1 = 99.0;
+    } else if (testing_B.Saturation1 < -99.0) {
+      /* Sum: '<S53>/Sum' incorporates:
+       *  Saturate: '<Root>/Saturation1'
+       */
+      testing_B.Saturation1 = -99.0;
+    }
+
+    /* End of Saturate: '<Root>/Saturation1' */
+    /* Gain: '<S99>/Filter Coefficient' incorporates:
+     *  DiscreteIntegrator: '<S91>/Filter'
+     *  Gain: '<S89>/Derivative Gain'
+     *  Sum: '<Root>/Sum1'
+     *  Sum: '<S91>/SumD'
+     */
+    rtb_FilterCoefficient_d = (0.0 * rtb_SineWave - testing_DW.Filter_DSTATE_o) *
+      100.0;
+
+    /* Sum: '<S105>/Sum' incorporates:
+     *  DiscreteIntegrator: '<S96>/Integrator'
+     *  Sum: '<Root>/Sum1'
+     */
+    rtb_TmpRTBAtTriggeredSubsystemO = (rtb_SineWave +
+      testing_DW.Integrator_DSTATE_d) + rtb_FilterCoefficient_d;
+
+    /* Saturate: '<Root>/Saturation' */
+    if (rtb_TmpRTBAtTriggeredSubsystemO > 99.0) {
+      rtb_TmpRTBAtTriggeredSubsystemO = 99.0;
+    } else if (rtb_TmpRTBAtTriggeredSubsystemO < -99.0) {
+      rtb_TmpRTBAtTriggeredSubsystemO = -99.0;
+    }
+
+    /* End of Saturate: '<Root>/Saturation' */
+
+    /* Abs: '<Root>/Abs1' */
+    rtb_Abs1 = fabs(testing_B.Saturation1);
+
+    /* RelationalOperator: '<S2>/Compare' incorporates:
+     *  Constant: '<S2>/Constant'
+     */
+    rtb_Compare = (testing_B.Saturation1 > 0.0);
+
+    /* Gain: '<S41>/Integral Gain' incorporates:
+     *  Gain: '<S93>/Integral Gain'
+     *  Sum: '<Root>/Sum'
+     */
+    rtb_IntegralGain = 0.0 * rtb_SineWave;
+
+    /* Gain: '<S93>/Integral Gain' */
+    rtb_IntegralGain_p = rtb_IntegralGain;
+
+    /* MATLABSystem: '<S126>/PWM Output' incorporates:
+     *  Abs: '<Root>/Abs'
+     */
+    setDutyCycleInPercentageChannel1(testing_DW.obj_n.TimerHandle, fabs
+      (rtb_TmpRTBAtTriggeredSubsystemO));
+
+    /* MATLABSystem: '<S124>/Digital Port Write' incorporates:
+     *  Constant: '<S3>/Constant'
+     *  RelationalOperator: '<S3>/Compare'
+     */
+    portNameLoc = GPIOA;
+    if (rtb_TmpRTBAtTriggeredSubsystemO < 0.0) {
+      i = 4096;
+    } else {
+      i = 0;
+    }
+
+    LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)i);
+    LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)i & 4096U);
+
+    /* End of MATLABSystem: '<S124>/Digital Port Write' */
+    /* RateTransition generated from: '<S9>/Discrete-Time Integrator' */
+    rtb_delta_h = testing_B.delta;
+
+    /* MATLABSystem: '<S144>/PWM Output' */
+    setDutyCycleInPercentageChannel1(testing_DW.obj_i.TimerHandle, rtb_Abs1);
+
+    /* MATLABSystem: '<S142>/Digital Port Write' */
+    portNameLoc = GPIOA;
+    if (rtb_Compare) {
+      i = 2048;
+    } else {
+      i = 0;
+    }
+
+    LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)i);
+    LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)i & 2048U);
+
+    /* End of MATLABSystem: '<S142>/Digital Port Write' */
+
+    /* MATLABSystem: '<S116>/Analog to Digital Converter' */
+    regularReadADCDMA(testing_DW.obj.ADCHandle, ADC_TRIGGER_AND_READ,
+                      &rtb_AnalogtoDigitalConverter_0[0]);
+
+    /* Gain: '<S7>/Gain2' incorporates:
+     *  MATLABSystem: '<S116>/Analog to Digital Converter'
+     */
+    for (i = 0; i < 5; i++) {
+      rtb_Gain2[i] = 54080U * rtb_AnalogtoDigitalConverter_0[i];
+    }
+
+    /* End of Gain: '<S7>/Gain2' */
+
+    /* SignalConversion: '<S7>/Signal Conversion4' */
+    testing_B.SignalConversion4 = rtb_Gain2[0];
+
+    /* SignalConversion: '<S7>/Signal Conversion' */
+    testing_B.SignalConversion = rtb_Gain2[4];
+
+    /* Sum: '<S1>/Sum2' incorporates:
+     *  SignalConversion: '<S7>/Signal Conversion'
+     *  SignalConversion: '<S7>/Signal Conversion4'
+     */
+    testing_B.Sum2 = testing_B.SignalConversion4 - testing_B.SignalConversion;
+
+    /* Gain: '<S1>/Gain' incorporates:
+     *  Sum: '<S1>/Sum2'
+     */
+    testing_B.Gain = 3435973837ULL * testing_B.Sum2;
   }
 
-  /* End of Saturate: '<Root>/Saturation1' */
+  {
+    real_T *lastU;
 
-  /* MATLABSystem: '<S142>/Digital Port Write' incorporates:
-   *  Constant: '<S2>/Constant'
-   *  RelationalOperator: '<S2>/Compare'
-   */
-  portNameLoc = GPIOA;
-  if (testing_B.Saturation1 > 0.0) {
-    i = 2048;
-  } else {
-    i = 0;
+    /* Update for DiscreteIntegrator: '<S9>/Discrete-Time Integrator' */
+    testing_DW.DiscreteTimeIntegrator_DSTATE += 0.01 * rtb_delta_h;
+
+    /* Update for Derivative: '<Root>/Derivative' */
+    if (testing_DW.TimeStampA == (rtInf)) {
+      testing_DW.TimeStampA = testing_M->Timing.t[0];
+      lastU = &testing_DW.LastUAtTimeA;
+    } else if (testing_DW.TimeStampB == (rtInf)) {
+      testing_DW.TimeStampB = testing_M->Timing.t[0];
+      lastU = &testing_DW.LastUAtTimeB;
+    } else if (testing_DW.TimeStampA < testing_DW.TimeStampB) {
+      testing_DW.TimeStampA = testing_M->Timing.t[0];
+      lastU = &testing_DW.LastUAtTimeA;
+    } else {
+      testing_DW.TimeStampB = testing_M->Timing.t[0];
+      lastU = &testing_DW.LastUAtTimeB;
+    }
+
+    *lastU = testing_B.Ratio_p;
+
+    /* End of Update for Derivative: '<Root>/Derivative' */
+
+    /* Update for DiscreteIntegrator: '<S44>/Integrator' */
+    testing_DW.Integrator_DSTATE += 0.01 * rtb_IntegralGain;
+
+    /* Update for DiscreteIntegrator: '<S39>/Filter' */
+    testing_DW.Filter_DSTATE += 0.01 * rtb_FilterCoefficient;
+
+    /* Update for DiscreteIntegrator: '<S96>/Integrator' */
+    testing_DW.Integrator_DSTATE_d += 0.01 * rtb_IntegralGain_p;
+
+    /* Update for DiscreteIntegrator: '<S91>/Filter' */
+    testing_DW.Filter_DSTATE_o += 0.01 * rtb_FilterCoefficient_d;
   }
 
-  LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)i);
-  LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)i & 2048U);
+  {                                    /* Sample time: [0.01s, 0.0s] */
+    extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
+    extmodeSimulationTime_T extmodeTime = (extmodeSimulationTime_T)
+      ((testing_M->Timing.clockTick1) * 0.01);
 
-  /* End of MATLABSystem: '<S142>/Digital Port Write' */
-  /* MATLABSystem: '<S144>/PWM Output' incorporates:
-   *  Abs: '<Root>/Abs1'
-   */
-  setDutyCycleInPercentageChannel1(testing_DW.obj_i.TimerHandle, fabs
-    (testing_B.Saturation1));
-
-  /* Outport: '<Root>/speed' */
-  testing_Y.speed = testing_B.Diff;
-
-  /* Outport: '<Root>/position1' */
-  testing_Y.position1 = testing_B.Ratio;
-
-  /* RateTransition generated from: '<S7>/Triggered Subsystem' */
-  rtb_TmpRTBAtTriggeredSubsystemO = testing_B.OutportBufferForPosition_a;
-
-  /* Gain: '<S7>/Ratio' */
-  testing_B.Ratio_c = 15.25916431743614 * rtb_TmpRTBAtTriggeredSubsystemO;
-
-  /* SampleTimeMath: '<S118>/TSamp'
-   *
-   * About '<S118>/TSamp':
-   *  y = u * K where K = 1 / ( w * Ts )
-   *   */
-  rtb_TmpRTBAtTriggeredSubsystemO = testing_B.Ratio_c * 100.0;
-
-  /* Sum: '<S118>/Diff' incorporates:
-   *  UnitDelay: '<S118>/UD'
-   *
-   * Block description for '<S118>/Diff':
-   *
-   *  Add in CPU
-   *
-   * Block description for '<S118>/UD':
-   *
-   *  Store in Global RAM
-   */
-  testing_B.Diff_a = rtb_TmpRTBAtTriggeredSubsystemO - testing_DW.UD_DSTATE_f;
-
-  /* Sum: '<Root>/Sum' incorporates:
-   *  Constant: '<Root>/Constant'
-   */
-  testing_B.Sum = 20.0 - testing_B.Diff_a;
-
-  /* Gain: '<S98>/Filter Coefficient' incorporates:
-   *  DiscreteIntegrator: '<S90>/Filter'
-   *  Gain: '<S88>/Derivative Gain'
-   *  Sum: '<S90>/SumD'
-   */
-  rtb_FilterCoefficient_i = (0.0 * testing_B.Sum - testing_DW.Filter_DSTATE_d) *
-    100.0;
-
-  /* Sum: '<S104>/Sum' incorporates:
-   *  DiscreteIntegrator: '<S95>/Integrator'
-   */
-  rtb_Saturation = (testing_B.Sum + testing_DW.Integrator_DSTATE_m) +
-    rtb_FilterCoefficient_i;
-
-  /* Saturate: '<Root>/Saturation' */
-  if (rtb_Saturation > 99.0) {
-    rtb_Saturation = 99.0;
-  } else if (rtb_Saturation < -99.0) {
-    rtb_Saturation = -99.0;
+    /* Trigger External Mode event */
+    errorCode = extmodeEvent(1, extmodeTime);
+    if (errorCode != EXTMODE_SUCCESS) {
+      /* Code to handle External Mode event errors
+         may be added here */
+    }
   }
-
-  /* End of Saturate: '<Root>/Saturation' */
-
-  /* MATLABSystem: '<S124>/Digital Port Write' incorporates:
-   *  Constant: '<S3>/Constant'
-   *  RelationalOperator: '<S3>/Compare'
-   */
-  portNameLoc = GPIOA;
-  if (rtb_Saturation < 0.0) {
-    i = 4096;
-  } else {
-    i = 0;
-  }
-
-  LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)i);
-  LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)i & 4096U);
-
-  /* End of MATLABSystem: '<S124>/Digital Port Write' */
-
-  /* MATLABSystem: '<S126>/PWM Output' incorporates:
-   *  Abs: '<Root>/Abs'
-   */
-  setDutyCycleInPercentageChannel1(testing_DW.obj_n.TimerHandle, fabs
-    (rtb_Saturation));
-
-  /* Outport: '<Root>/speed2' */
-  testing_Y.speed2 = testing_B.Diff_a;
-
-  /* Outport: '<Root>/position' */
-  testing_Y.position = testing_B.Ratio_c;
-
-  /* RateTransition generated from: '<S8>/Scope' */
-  testing_B.TmpRTBAtScopeInport1 = testing_B.OutportBufferForPosition;
-
-  /* Update for UnitDelay: '<S136>/UD'
-   *
-   * Block description for '<S136>/UD':
-   *
-   *  Store in Global RAM
-   */
-  testing_DW.UD_DSTATE = rtb_TmpRTBAtRatioInport1;
-
-  /* Update for DiscreteIntegrator: '<S43>/Integrator' incorporates:
-   *  Gain: '<S40>/Integral Gain'
-   */
-  testing_DW.Integrator_DSTATE += 0.0 * testing_B.Sum1 * 0.01;
-
-  /* Update for DiscreteIntegrator: '<S38>/Filter' */
-  testing_DW.Filter_DSTATE += 0.01 * rtb_FilterCoefficient;
-
-  /* Update for UnitDelay: '<S118>/UD'
-   *
-   * Block description for '<S118>/UD':
-   *
-   *  Store in Global RAM
-   */
-  testing_DW.UD_DSTATE_f = rtb_TmpRTBAtTriggeredSubsystemO;
-
-  /* Update for DiscreteIntegrator: '<S90>/Filter' */
-  testing_DW.Filter_DSTATE_d += 0.01 * rtb_FilterCoefficient_i;
-
-  /* Update for DiscreteIntegrator: '<S95>/Integrator' incorporates:
-   *  Gain: '<S92>/Integral Gain'
-   */
-  testing_DW.Integrator_DSTATE_m += 0.0 * testing_B.Sum * 0.01;
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -364,27 +382,51 @@ void testing_step(void)
    * and "Timing.stepSize0". Size of "clockTick0" ensures timer will not
    * overflow during the application lifespan selected.
    */
-  testing_M->Timing.taskTime0 =
+  testing_M->Timing.t[0] =
     ((time_T)(++testing_M->Timing.clockTick0)) * testing_M->Timing.stepSize0;
+
+  {
+    /* Update absolute timer for sample time: [0.01s, 0.0s] */
+    /* The "clockTick1" counts the number of times the code of this task has
+     * been executed. The resolution of this integer timer is 0.01, which is the step size
+     * of the task. Size of "clockTick1" ensures timer will not overflow during the
+     * application lifespan selected.
+     */
+    testing_M->Timing.clockTick1++;
+  }
 }
 
 /* Model initialize function */
 void testing_initialize(void)
 {
   /* Registration code */
-  rtmSetTFinal(testing_M, -1);
+  {
+    /* Setup solver object */
+    rtsiSetSimTimeStepPtr(&testing_M->solverInfo, &testing_M->Timing.simTimeStep);
+    rtsiSetTPtr(&testing_M->solverInfo, &rtmGetTPtr(testing_M));
+    rtsiSetStepSizePtr(&testing_M->solverInfo, &testing_M->Timing.stepSize0);
+    rtsiSetErrorStatusPtr(&testing_M->solverInfo, (&rtmGetErrorStatus(testing_M)));
+    rtsiSetRTModelPtr(&testing_M->solverInfo, testing_M);
+  }
+
+  rtsiSetSimTimeStep(&testing_M->solverInfo, MAJOR_TIME_STEP);
+  rtsiSetIsMinorTimeStepWithModeChange(&testing_M->solverInfo, false);
+  rtsiSetIsContModeFrozen(&testing_M->solverInfo, false);
+  rtsiSetSolverName(&testing_M->solverInfo,"FixedStepDiscrete");
+  rtmSetTPtr(testing_M, &testing_M->Timing.tArray[0]);
+  rtmSetTFinal(testing_M, 20.0);
   testing_M->Timing.stepSize0 = 0.01;
 
   /* External mode info */
-  testing_M->Sizes.checksums[0] = (2683025217U);
-  testing_M->Sizes.checksums[1] = (2617316880U);
-  testing_M->Sizes.checksums[2] = (3519869461U);
-  testing_M->Sizes.checksums[3] = (4156398876U);
+  testing_M->Sizes.checksums[0] = (3843680989U);
+  testing_M->Sizes.checksums[1] = (3491648164U);
+  testing_M->Sizes.checksums[2] = (1384151119U);
+  testing_M->Sizes.checksums[3] = (4127796207U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
     static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[14];
+    static const sysRanDType *systemRan[15];
     testing_M->extModeInfo = (&rt_ExtModeInfo);
     rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
     systemRan[0] = &rtAlwaysEnabled;
@@ -401,32 +443,16 @@ void testing_initialize(void)
     systemRan[11] = (sysRanDType *)&testing_DW.TriggeredSubsystem_SubsysRanBC;
     systemRan[12] = (sysRanDType *)&testing_DW.TriggeredSubsystem_SubsysRanBC;
     systemRan[13] = (sysRanDType *)&testing_DW.TriggeredSubsystem_SubsysRanBC;
+    systemRan[14] = (sysRanDType *)&testing_DW.TriggeredSubsystem1_SubsysRanBC;
     rteiSetModelMappingInfoPtr(testing_M->extModeInfo,
       &testing_M->SpecialInfo.mappingInfo);
     rteiSetChecksumsPtr(testing_M->extModeInfo, testing_M->Sizes.checksums);
     rteiSetTPtr(testing_M->extModeInfo, rtmGetTPtr(testing_M));
   }
 
-  /* SystemInitialize for S-Function (HardwareInterrupt_sfun): '<S140>/Hardware Interrupt' incorporates:
-   *  SubSystem: '<S8>/Triggered Subsystem'
-   */
-
-  /* System initialize for function-call system: '<S8>/Triggered Subsystem' */
-  testing_M->Timing.clockTick2 = testing_M->Timing.clockTick0;
-
-  /* End of SystemInitialize for S-Function (HardwareInterrupt_sfun): '<S140>/Hardware Interrupt' */
-
-  /* Start for MATLABSystem: '<S115>/Analog to Digital Converter' */
-  testing_DW.obj.isInitialized = 0;
-  testing_DW.obj.matlabCodegenIsDeleted = false;
-  testing_SystemCore_setup(&testing_DW.obj);
-
-  /* Start for MATLABSystem: '<S144>/PWM Output' */
-  testing_DW.obj_i.matlabCodegenIsDeleted = false;
-  testing_DW.obj_i.isSetupComplete = false;
-  testing_DW.obj_i.isInitialized = 1;
-  testing_PWMOutput_setupImpl_o(&testing_DW.obj_i);
-  testing_DW.obj_i.isSetupComplete = true;
+  /* InitializeConditions for Derivative: '<Root>/Derivative' */
+  testing_DW.TimeStampA = (rtInf);
+  testing_DW.TimeStampB = (rtInf);
 
   /* Start for MATLABSystem: '<S126>/PWM Output' */
   testing_DW.obj_n.matlabCodegenIsDeleted = false;
@@ -435,20 +461,19 @@ void testing_initialize(void)
   testing_PWMOutput_setupImpl(&testing_DW.obj_n);
   testing_DW.obj_n.isSetupComplete = true;
 
+  /* Start for MATLABSystem: '<S144>/PWM Output' */
+  testing_DW.obj_i.matlabCodegenIsDeleted = false;
+  testing_DW.obj_i.isSetupComplete = false;
+  testing_DW.obj_i.isInitialized = 1;
+  testing_PWMOutput_setupImpl_o(&testing_DW.obj_i);
+  testing_DW.obj_i.isSetupComplete = true;
+
+  /* Start for MATLABSystem: '<S116>/Analog to Digital Converter' */
+  testing_DW.obj.isInitialized = 0;
+  testing_DW.obj.matlabCodegenIsDeleted = false;
+  testing_SystemCore_setup(&testing_DW.obj);
+
   /* Enable for S-Function (HardwareInterrupt_sfun): '<S122>/Hardware Interrupt' incorporates:
-   *  SubSystem: '<S7>/Triggered Subsystem'
-   */
-
-  /* Enable for function-call system: '<S7>/Triggered Subsystem' */
-  testing_M->Timing.clockTick1 = testing_M->Timing.clockTick0;
-  testing_DW.TriggeredSubsystem_RESET_ELAP_d = true;
-
-  /* Enable for DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
-  testing_DW.DiscreteTimeIntegrator_SYSTEM_e = 1U;
-
-  /* End of Enable for S-Function (HardwareInterrupt_sfun): '<S122>/Hardware Interrupt' */
-
-  /* Enable for S-Function (HardwareInterrupt_sfun): '<S140>/Hardware Interrupt' incorporates:
    *  SubSystem: '<S8>/Triggered Subsystem'
    */
 
@@ -456,36 +481,15 @@ void testing_initialize(void)
   testing_M->Timing.clockTick2 = testing_M->Timing.clockTick0;
   testing_DW.TriggeredSubsystem_RESET_ELAPS_ = true;
 
-  /* Enable for DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
+  /* Enable for DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
   testing_DW.DiscreteTimeIntegrator_SYSTEM_E = 1U;
 
-  /* End of Enable for S-Function (HardwareInterrupt_sfun): '<S140>/Hardware Interrupt' */
+  /* End of Enable for S-Function (HardwareInterrupt_sfun): '<S122>/Hardware Interrupt' */
 }
 
 /* Model terminate function */
 void testing_terminate(void)
 {
-  /* Terminate for MATLABSystem: '<S115>/Analog to Digital Converter' */
-  if (!testing_DW.obj.matlabCodegenIsDeleted) {
-    testing_DW.obj.matlabCodegenIsDeleted = true;
-    if ((testing_DW.obj.isInitialized == 1) && testing_DW.obj.isSetupComplete) {
-      ADC_Handle_Deinit(testing_DW.obj.ADCHandle, ADC_DMA_INTERRUPT_MODE, 1);
-    }
-  }
-
-  /* End of Terminate for MATLABSystem: '<S115>/Analog to Digital Converter' */
-  /* Terminate for MATLABSystem: '<S144>/PWM Output' */
-  if (!testing_DW.obj_i.matlabCodegenIsDeleted) {
-    testing_DW.obj_i.matlabCodegenIsDeleted = true;
-    if ((testing_DW.obj_i.isInitialized == 1) &&
-        testing_DW.obj_i.isSetupComplete) {
-      disableCounter(testing_DW.obj_i.TimerHandle);
-      disableTimerInterrupts(testing_DW.obj_i.TimerHandle, 0);
-      disableTimerChannel1(testing_DW.obj_i.TimerHandle, ENABLE_CH);
-    }
-  }
-
-  /* End of Terminate for MATLABSystem: '<S144>/PWM Output' */
   /* Terminate for MATLABSystem: '<S126>/PWM Output' */
   if (!testing_DW.obj_n.matlabCodegenIsDeleted) {
     testing_DW.obj_n.matlabCodegenIsDeleted = true;
@@ -498,6 +502,28 @@ void testing_terminate(void)
   }
 
   /* End of Terminate for MATLABSystem: '<S126>/PWM Output' */
+  /* Terminate for MATLABSystem: '<S144>/PWM Output' */
+  if (!testing_DW.obj_i.matlabCodegenIsDeleted) {
+    testing_DW.obj_i.matlabCodegenIsDeleted = true;
+    if ((testing_DW.obj_i.isInitialized == 1) &&
+        testing_DW.obj_i.isSetupComplete) {
+      disableCounter(testing_DW.obj_i.TimerHandle);
+      disableTimerInterrupts(testing_DW.obj_i.TimerHandle, 0);
+      disableTimerChannel1(testing_DW.obj_i.TimerHandle, ENABLE_CH);
+    }
+  }
+
+  /* End of Terminate for MATLABSystem: '<S144>/PWM Output' */
+
+  /* Terminate for MATLABSystem: '<S116>/Analog to Digital Converter' */
+  if (!testing_DW.obj.matlabCodegenIsDeleted) {
+    testing_DW.obj.matlabCodegenIsDeleted = true;
+    if ((testing_DW.obj.isInitialized == 1) && testing_DW.obj.isSetupComplete) {
+      ADC_Handle_Deinit(testing_DW.obj.ADCHandle, ADC_DMA_INTERRUPT_MODE, 1);
+    }
+  }
+
+  /* End of Terminate for MATLABSystem: '<S116>/Analog to Digital Converter' */
 }
 
 void testing_configure_interrupts(void)
@@ -527,55 +553,55 @@ void EXTI3_IRQHandler(void)
 
         /* S-Function (HardwareInterrupt_sfun): '<S122>/Hardware Interrupt' */
 
-        /* Output and update for function-call system: '<S7>/Triggered Subsystem' */
+        /* Output and update for function-call system: '<S8>/Triggered Subsystem' */
         {
-          uint32_T TriggeredSubsystem_ELAPS_T_c;
+          uint32_T TriggeredSubsystem_ELAPS_T;
           uint32_T pinReadLoc;
-          testing_M->Timing.clockTick1 = testing_M->Timing.clockTick0;
-          if (testing_DW.TriggeredSubsystem_RESET_ELAP_d) {
-            TriggeredSubsystem_ELAPS_T_c = 0U;
+          testing_M->Timing.clockTick2 = testing_M->Timing.clockTick0;
+          if (testing_DW.TriggeredSubsystem_RESET_ELAPS_) {
+            TriggeredSubsystem_ELAPS_T = 0U;
           } else {
-            TriggeredSubsystem_ELAPS_T_c = testing_M->Timing.clockTick1 -
-              testing_DW.TriggeredSubsystem_PREV_T_k;
+            TriggeredSubsystem_ELAPS_T = testing_M->Timing.clockTick2 -
+              testing_DW.TriggeredSubsystem_PREV_T;
           }
 
-          testing_DW.TriggeredSubsystem_PREV_T_k = testing_M->Timing.clockTick1;
-          testing_DW.TriggeredSubsystem_RESET_ELAP_d = false;
+          testing_DW.TriggeredSubsystem_PREV_T = testing_M->Timing.clockTick2;
+          testing_DW.TriggeredSubsystem_RESET_ELAPS_ = false;
 
           /* DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
-          if (testing_DW.DiscreteTimeIntegrator_SYSTEM_e == 0) {
+          if (testing_DW.DiscreteTimeIntegrator_SYSTEM_E == 0) {
             /* DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
             testing_DW.DiscreteTimeIntegrator_DSTATE_e += 0.01 * (real_T)
-              TriggeredSubsystem_ELAPS_T_c *
-              testing_DW.DiscreteTimeIntegrator_PREV_U_m;
+              TriggeredSubsystem_ELAPS_T
+              * testing_DW.DiscreteTimeIntegrator_PREV_U;
           }
 
           /* End of DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
 
           /* SignalConversion generated from: '<S120>/Position' */
-          testing_B.OutportBufferForPosition_a =
+          testing_B.OutportBufferForPosition =
             testing_DW.DiscreteTimeIntegrator_DSTATE_e;
 
           /* MATLABSystem: '<S131>/Digital Port Read' */
-          TriggeredSubsystem_ELAPS_T_c = LL_GPIO_ReadInputPort(GPIOB);
+          TriggeredSubsystem_ELAPS_T = LL_GPIO_ReadInputPort(GPIOB);
 
           /* MATLABSystem: '<S133>/Digital Port Read' */
           pinReadLoc = LL_GPIO_ReadInputPort(GPIOB);
 
           /* Update for DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
-          testing_DW.DiscreteTimeIntegrator_SYSTEM_e = 0U;
+          testing_DW.DiscreteTimeIntegrator_SYSTEM_E = 0U;
 
           /* MATLAB Function: '<S120>/MATLAB Function' incorporates:
            *  MATLABSystem: '<S131>/Digital Port Read'
            *  MATLABSystem: '<S133>/Digital Port Read'
            * */
-          if (((TriggeredSubsystem_ELAPS_T_c & 8U) != 0U) == ((pinReadLoc & 16U)
+          if (((TriggeredSubsystem_ELAPS_T & 8U) != 0U) == ((pinReadLoc & 16U)
                != 0U)) {
             /* Update for DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
-            testing_DW.DiscreteTimeIntegrator_PREV_U_m = 1.0;
+            testing_DW.DiscreteTimeIntegrator_PREV_U = 1.0;
           } else {
             /* Update for DiscreteIntegrator: '<S120>/Discrete-Time Integrator' */
-            testing_DW.DiscreteTimeIntegrator_PREV_U_m = -1.0;
+            testing_DW.DiscreteTimeIntegrator_PREV_U = -1.0;
           }
 
           /* End of MATLAB Function: '<S120>/MATLAB Function' */
@@ -585,9 +611,9 @@ void EXTI3_IRQHandler(void)
         /* End of Outputs for S-Function (HardwareInterrupt_sfun): '<S122>/Hardware Interrupt' */
       }
 
-      currentTime = (extmodeSimulationTime_T) ((testing_M->Timing.clockTick1) *
+      currentTime = (extmodeSimulationTime_T) ((testing_M->Timing.clockTick2) *
         0.01);
-      extmodeEvent(1,currentTime);
+      extmodeEvent(2,currentTime);
     }
   }
 
@@ -606,25 +632,19 @@ void EXTI0_IRQHandler(void)
     LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_0);
     if (1 == runModel) {
       {
+        testing_M->Timing.clockTick3 = testing_M->Timing.clockTick0;
+
         /* Reset subsysRan breadcrumbs */
         srClearBC(testing_DW.TriggeredSubsystem_SubsysRanBC);
 
+        /* Reset subsysRan breadcrumbs */
+        srClearBC(testing_DW.TriggeredSubsystem1_SubsysRanBC);
+
         /* S-Function (HardwareInterrupt_sfun): '<S140>/Hardware Interrupt' */
 
-        /* Output and update for function-call system: '<S8>/Triggered Subsystem' */
+        /* Output and update for function-call system: '<S9>/Triggered Subsystem' */
         {
-          uint32_T TriggeredSubsystem_ELAPS_T;
           uint32_T pinReadLoc;
-          testing_M->Timing.clockTick2 = testing_M->Timing.clockTick0;
-          if (testing_DW.TriggeredSubsystem_RESET_ELAPS_) {
-            TriggeredSubsystem_ELAPS_T = 0U;
-          } else {
-            TriggeredSubsystem_ELAPS_T = testing_M->Timing.clockTick2 -
-              testing_DW.TriggeredSubsystem_PREV_T;
-          }
-
-          testing_DW.TriggeredSubsystem_PREV_T = testing_M->Timing.clockTick2;
-          testing_DW.TriggeredSubsystem_RESET_ELAPS_ = false;
 
           /* MATLABSystem: '<S149>/Digital Port Read' */
           pinReadLoc = LL_GPIO_ReadInputPort(GPIOB);
@@ -635,50 +655,31 @@ void EXTI0_IRQHandler(void)
           /* MATLABSystem: '<S151>/Digital Port Read' */
           pinReadLoc = LL_GPIO_ReadInputPort(GPIOB);
 
-          /* DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
-          if (testing_DW.DiscreteTimeIntegrator_SYSTEM_E != 0) {
-            /* DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
-            testing_B.DiscreteTimeIntegrator =
-              testing_DW.DiscreteTimeIntegrator_DSTATE;
-          } else {
-            /* DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
-            testing_B.DiscreteTimeIntegrator = 0.01 * (real_T)
-              TriggeredSubsystem_ELAPS_T
-              * testing_DW.DiscreteTimeIntegrator_PREV_U +
-              testing_DW.DiscreteTimeIntegrator_DSTATE;
-          }
-
-          /* End of DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
-
-          /* SignalConversion generated from: '<S138>/Position' */
-          testing_B.OutportBufferForPosition = testing_B.DiscreteTimeIntegrator;
-
-          /* Update for DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
-          testing_DW.DiscreteTimeIntegrator_SYSTEM_E = 0U;
-          testing_DW.DiscreteTimeIntegrator_DSTATE =
-            testing_B.DiscreteTimeIntegrator;
-
-          /* MATLAB Function: '<S138>/MATLAB Function' incorporates:
+          /* MATLAB Function: '<S137>/MATLAB Function' incorporates:
            *  MATLABSystem: '<S151>/Digital Port Read'
            * */
           if (((pinReadLoc & 2U) != 0U) == (int32_T)testing_B.DigitalPortRead) {
-            /* Update for DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
-            testing_DW.DiscreteTimeIntegrator_PREV_U = -1.0;
+            testing_B.delta = -1.0;
           } else {
-            /* Update for DiscreteIntegrator: '<S138>/Discrete-Time Integrator' */
-            testing_DW.DiscreteTimeIntegrator_PREV_U = 1.0;
+            testing_B.delta = 1.0;
           }
 
-          /* End of MATLAB Function: '<S138>/MATLAB Function' */
+          /* End of MATLAB Function: '<S137>/MATLAB Function' */
           testing_DW.TriggeredSubsystem_SubsysRanBC = 4;
         }
+
+        /* Output and update for function-call system: '<S9>/Triggered Subsystem1' */
+
+        /* Sum: '<S138>/Sum of Elements' */
+        testing_B.SumofElements = testing_B.delta;
+        testing_DW.TriggeredSubsystem1_SubsysRanBC = 4;
 
         /* End of Outputs for S-Function (HardwareInterrupt_sfun): '<S140>/Hardware Interrupt' */
       }
 
-      currentTime = (extmodeSimulationTime_T) ((testing_M->Timing.clockTick2) *
+      currentTime = (extmodeSimulationTime_T) ((testing_M->Timing.clockTick3) *
         0.01);
-      extmodeEvent(2,currentTime);
+      extmodeEvent(3,currentTime);
     }
   }
 

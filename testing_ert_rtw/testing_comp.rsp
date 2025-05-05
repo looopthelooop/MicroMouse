@@ -1,6 +1,6 @@
--IC:/Users/ofekn/Desktop/micro_mouse/MicroMouse
+-IC:/repo/MicroMouse
 -IC:/ProgramData/MATLAB/SupportPackages/R2024b/toolbox/shared/supportpackages/stm32/include
--IC:/Users/ofekn/Desktop/micro_mouse/MicroMouse/testing_ert_rtw
+-IC:/repo/MicroMouse/testing_ert_rtw
 -I"C:/Program Files/MATLAB/R2024b/extern/include"
 -I"C:/Program Files/MATLAB/R2024b/simulink/include"
 -I"C:/Program Files/MATLAB/R2024b/rtw/c/src"
