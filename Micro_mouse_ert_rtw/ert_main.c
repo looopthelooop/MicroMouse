@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.40
+ * Model version                  : 1.42
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Fri May  2 14:46:39 2025
+ * C/C++ source code generated on : Tue May  6 10:23:15 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -27,8 +27,6 @@ volatile int IsrOverrun = 0;
 static boolean_T OverrunFlag = 0;
 void rt_OneStep(void)
 {
-  extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T) 0;
-
   /* Check for overrun. Protect OverrunFlag against preemption */
   if (OverrunFlag++) {
     IsrOverrun = 1;
@@ -37,13 +35,9 @@ void rt_OneStep(void)
   }
 
   __enable_irq();
-  currentTime = (extmodeSimulationTime_T) Micro_mouse_M->Timing.taskTime0;
   Micro_mouse_step();
 
   /* Get model outputs here */
-
-  /* Trigger External Mode event */
-  extmodeEvent(0, currentTime);
   __disable_irq();
   OverrunFlag--;
 }

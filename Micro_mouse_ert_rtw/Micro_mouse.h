@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.40
+ * Model version                  : 1.42
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Fri May  2 14:46:39 2025
+ * C/C++ source code generated on : Tue May  6 10:23:15 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -27,6 +27,7 @@
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
 #include "math.h"
+#include "ext_mode.h"
 #include "main.h"
 #endif                                 /* Micro_mouse_COMMON_INCLUDES_ */
 
@@ -64,7 +65,7 @@
 #endif
 
 #ifndef rtmGetT
-#define rtmGetT(rtm)                   ((rtm)->Timing.taskTime0)
+#define rtmGetT(rtm)                   (rtmGetTPtr((rtm))[0])
 #endif
 
 #ifndef rtmGetTFinal
@@ -72,40 +73,35 @@
 #endif
 
 #ifndef rtmGetTPtr
-#define rtmGetTPtr(rtm)                (&(rtm)->Timing.taskTime0)
+#define rtmGetTPtr(rtm)                ((rtm)->Timing.t)
 #endif
 
 /* Block signals (default storage) */
 typedef struct {
   uint64_T Gain;                       /* '<S1>/Gain' */
-  real_T Ratio;                        /* '<S8>/Ratio' */
+  real_T Ratio;                        /* '<S10>/Ratio' */
+  real_T Diff;                         /* '<S4>/Diff' */
   real_T Sum1;                         /* '<Root>/Sum1' */
   real_T Saturation1;                  /* '<Root>/Saturation1' */
-  real_T Ratio_p;                      /* '<S7>/Ratio' */
-  real_T Sum;                          /* '<Root>/Sum' */
-  real_T TmpRTBAtScopeInport1;         /* '<S8>/Triggered Subsystem' */
-  real_T DiscreteTimeIntegrator;       /* '<S138>/Discrete-Time Integrator' */
-  real_T OutportBufferForPosition;     /* '<S138>/OutportBufferForPosition' */
-  real_T OutportBufferForPosition_a;   /* '<S120>/Discrete-Time Integrator' */
-  uint32_T SignalConversion4;          /* '<S6>/Signal Conversion4' */
-  uint32_T SignalConversion;           /* '<S6>/Signal Conversion' */
+  real_T Ratio_p;                      /* '<S9>/Ratio' */
+  real_T UnitDelay;                    /* '<S34>/Unit Delay' */
+  real_T UnitDelay_j;                  /* '<S17>/Unit Delay' */
+  uint32_T SignalConversion4;          /* '<S8>/Signal Conversion4' */
+  uint32_T SignalConversion;           /* '<S8>/Signal Conversion' */
   uint32_T Sum2;                       /* '<S1>/Sum2' */
-  boolean_T DigitalPortRead;           /* '<S149>/Digital Port Read' */
 } B_Micro_mouse_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  stm32cube_blocks_AnalogInput__T obj;/* '<S115>/Analog to Digital Converter' */
-  stm32cube_blocks_PWMOutput_Mi_T obj_j;/* '<S144>/PWM Output' */
-  stm32cube_blocks_PWMOutput_Mi_T obj_g;/* '<S126>/PWM Output' */
-  real_T Integrator_DSTATE;            /* '<S43>/Integrator' */
-  real_T Filter_DSTATE;                /* '<S38>/Filter' */
-  real_T Integrator_DSTATE_j;          /* '<S95>/Integrator' */
-  real_T Filter_DSTATE_h;              /* '<S90>/Filter' */
-  real_T DiscreteTimeIntegrator_DSTATE;/* '<S138>/Discrete-Time Integrator' */
-  real_T DiscreteTimeIntegrator_DSTATE_g;/* '<S120>/Discrete-Time Integrator' */
-  real_T DiscreteTimeIntegrator_PREV_U;/* '<S138>/Discrete-Time Integrator' */
-  real_T DiscreteTimeIntegrator_PREV_U_p;/* '<S120>/Discrete-Time Integrator' */
+  stm32cube_blocks_AnalogInput__T obj; /* '<S13>/Analog to Digital Converter' */
+  stm32cube_blocks_PWMOutput_Mi_T obj_j;/* '<S40>/PWM Output' */
+  stm32cube_blocks_PWMOutput_Mi_T obj_g;/* '<S23>/PWM Output' */
+  real_T UD_DSTATE;                    /* '<S4>/UD' */
+  real_T UD_DSTATE_p;                  /* '<S5>/UD' */
+  real_T UD_DSTATE_e;                  /* '<S7>/UD' */
+  real_T UD_DSTATE_ee;                 /* '<S6>/UD' */
+  real_T UnitDelay_DSTATE;             /* '<S34>/Unit Delay' */
+  real_T UnitDelay_DSTATE_e;           /* '<S17>/Unit Delay' */
   struct {
     void *LoggedData;
   } Scope_PWORK;                       /* '<S1>/Scope' */
@@ -118,42 +114,22 @@ typedef struct {
     void *LoggedData[2];
   } Scope1_PWORK;                      /* '<S1>/Scope1' */
 
-  struct {
-    void *LoggedData;
-  } Scope2_PWORK_n;                    /* '<Root>/Scope2' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_j;                     /* '<Root>/Scope' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_i;                     /* '<S8>/Scope' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_l;                     /* '<S138>/Scope' */
-
-  uint32_T TriggeredSubsystem_PREV_T;  /* '<S8>/Triggered Subsystem' */
-  uint32_T TriggeredSubsystem_PREV_T_c;/* '<S7>/Triggered Subsystem' */
-  int8_T TriggeredSubsystem_SubsysRanBC;/* '<S8>/Triggered Subsystem' */
-  int8_T TriggeredSubsystem_SubsysRanB_a;/* '<S7>/Triggered Subsystem' */
-  uint8_T DiscreteTimeIntegrator_SYSTEM_E;/* '<S138>/Discrete-Time Integrator' */
-  uint8_T DiscreteTimeIntegrator_SYSTEM_o;/* '<S120>/Discrete-Time Integrator' */
-  boolean_T TriggeredSubsystem_RESET_ELAPS_;/* '<S8>/Triggered Subsystem' */
-  boolean_T TriggeredSubsystem_RESET_ELAP_c;/* '<S7>/Triggered Subsystem' */
+  int8_T TriggeredSubsystem_SubsysRanBC;/* '<S10>/Triggered Subsystem' */
+  int8_T TriggeredSubsystem_SubsysRanB_j;/* '<S9>/Triggered Subsystem' */
 } DW_Micro_mouse_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
   real_T position;                     /* '<Root>/position' */
   real_T position1;                    /* '<Root>/position1' */
+  real_T Out1;                         /* '<Root>/Out1' */
 } ExtY_Micro_mouse_T;
 
 /* Real-time Model Data Structure */
 struct tag_RTM_Micro_mouse_T {
   const char_T *errorStatus;
   RTWExtModeInfo *extModeInfo;
+  RTWSolverInfo solverInfo;
 
   /*
    * Sizes:
@@ -180,13 +156,16 @@ struct tag_RTM_Micro_mouse_T {
    * the timing information for the model.
    */
   struct {
-    time_T taskTime0;
     uint32_T clockTick0;
     time_T stepSize0;
     uint32_T clockTick1;
     uint32_T clockTick2;
+    uint32_T clockTick3;
     time_T tFinal;
+    SimTimeStep simTimeStep;
     boolean_T stopRequestedFlag;
+    time_T *t;
+    time_T tArray[4];
   } Timing;
 };
 
@@ -230,19 +209,13 @@ extern "C"
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S6>/Signal Conversion1' : Unused code path elimination
- * Block '<S6>/Signal Conversion2' : Unused code path elimination
- * Block '<S6>/Signal Conversion3' : Unused code path elimination
- * Block '<S118>/Data Type Duplicate' : Unused code path elimination
- * Block '<S118>/Diff' : Unused code path elimination
- * Block '<S118>/TSamp' : Unused code path elimination
- * Block '<S118>/UD' : Unused code path elimination
- * Block '<S136>/Data Type Duplicate' : Unused code path elimination
- * Block '<S136>/Diff' : Unused code path elimination
- * Block '<S136>/TSamp' : Unused code path elimination
- * Block '<S136>/UD' : Unused code path elimination
- * Block '<S40>/Integral Gain' : Eliminated nontunable gain of 1
- * Block '<S92>/Integral Gain' : Eliminated nontunable gain of 1
+ * Block '<S4>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S5>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S6>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S7>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S8>/Signal Conversion1' : Unused code path elimination
+ * Block '<S8>/Signal Conversion2' : Unused code path elimination
+ * Block '<S8>/Signal Conversion3' : Unused code path elimination
  */
 
 /*-
@@ -263,154 +236,50 @@ extern "C"
  * '<S1>'   : 'Micro_mouse/Centering'
  * '<S2>'   : 'Micro_mouse/Compare To Constant'
  * '<S3>'   : 'Micro_mouse/Compare To Constant1'
- * '<S4>'   : 'Micro_mouse/Discrete PID Controller'
- * '<S5>'   : 'Micro_mouse/Discrete PID Controller1'
- * '<S6>'   : 'Micro_mouse/IR'
- * '<S7>'   : 'Micro_mouse/Left Motor'
- * '<S8>'   : 'Micro_mouse/Right Motor'
- * '<S9>'   : 'Micro_mouse/Discrete PID Controller/Anti-windup'
- * '<S10>'  : 'Micro_mouse/Discrete PID Controller/D Gain'
- * '<S11>'  : 'Micro_mouse/Discrete PID Controller/External Derivative'
- * '<S12>'  : 'Micro_mouse/Discrete PID Controller/Filter'
- * '<S13>'  : 'Micro_mouse/Discrete PID Controller/Filter ICs'
- * '<S14>'  : 'Micro_mouse/Discrete PID Controller/I Gain'
- * '<S15>'  : 'Micro_mouse/Discrete PID Controller/Ideal P Gain'
- * '<S16>'  : 'Micro_mouse/Discrete PID Controller/Ideal P Gain Fdbk'
- * '<S17>'  : 'Micro_mouse/Discrete PID Controller/Integrator'
- * '<S18>'  : 'Micro_mouse/Discrete PID Controller/Integrator ICs'
- * '<S19>'  : 'Micro_mouse/Discrete PID Controller/N Copy'
- * '<S20>'  : 'Micro_mouse/Discrete PID Controller/N Gain'
- * '<S21>'  : 'Micro_mouse/Discrete PID Controller/P Copy'
- * '<S22>'  : 'Micro_mouse/Discrete PID Controller/Parallel P Gain'
- * '<S23>'  : 'Micro_mouse/Discrete PID Controller/Reset Signal'
- * '<S24>'  : 'Micro_mouse/Discrete PID Controller/Saturation'
- * '<S25>'  : 'Micro_mouse/Discrete PID Controller/Saturation Fdbk'
- * '<S26>'  : 'Micro_mouse/Discrete PID Controller/Sum'
- * '<S27>'  : 'Micro_mouse/Discrete PID Controller/Sum Fdbk'
- * '<S28>'  : 'Micro_mouse/Discrete PID Controller/Tracking Mode'
- * '<S29>'  : 'Micro_mouse/Discrete PID Controller/Tracking Mode Sum'
- * '<S30>'  : 'Micro_mouse/Discrete PID Controller/Tsamp - Integral'
- * '<S31>'  : 'Micro_mouse/Discrete PID Controller/Tsamp - Ngain'
- * '<S32>'  : 'Micro_mouse/Discrete PID Controller/postSat Signal'
- * '<S33>'  : 'Micro_mouse/Discrete PID Controller/preInt Signal'
- * '<S34>'  : 'Micro_mouse/Discrete PID Controller/preSat Signal'
- * '<S35>'  : 'Micro_mouse/Discrete PID Controller/Anti-windup/Passthrough'
- * '<S36>'  : 'Micro_mouse/Discrete PID Controller/D Gain/Internal Parameters'
- * '<S37>'  : 'Micro_mouse/Discrete PID Controller/External Derivative/Error'
- * '<S38>'  : 'Micro_mouse/Discrete PID Controller/Filter/Disc. Forward Euler Filter'
- * '<S39>'  : 'Micro_mouse/Discrete PID Controller/Filter ICs/Internal IC - Filter'
- * '<S40>'  : 'Micro_mouse/Discrete PID Controller/I Gain/Internal Parameters'
- * '<S41>'  : 'Micro_mouse/Discrete PID Controller/Ideal P Gain/Passthrough'
- * '<S42>'  : 'Micro_mouse/Discrete PID Controller/Ideal P Gain Fdbk/Disabled'
- * '<S43>'  : 'Micro_mouse/Discrete PID Controller/Integrator/Discrete'
- * '<S44>'  : 'Micro_mouse/Discrete PID Controller/Integrator ICs/Internal IC'
- * '<S45>'  : 'Micro_mouse/Discrete PID Controller/N Copy/Disabled'
- * '<S46>'  : 'Micro_mouse/Discrete PID Controller/N Gain/Internal Parameters'
- * '<S47>'  : 'Micro_mouse/Discrete PID Controller/P Copy/Disabled'
- * '<S48>'  : 'Micro_mouse/Discrete PID Controller/Parallel P Gain/Internal Parameters'
- * '<S49>'  : 'Micro_mouse/Discrete PID Controller/Reset Signal/Disabled'
- * '<S50>'  : 'Micro_mouse/Discrete PID Controller/Saturation/Passthrough'
- * '<S51>'  : 'Micro_mouse/Discrete PID Controller/Saturation Fdbk/Disabled'
- * '<S52>'  : 'Micro_mouse/Discrete PID Controller/Sum/Sum_PID'
- * '<S53>'  : 'Micro_mouse/Discrete PID Controller/Sum Fdbk/Disabled'
- * '<S54>'  : 'Micro_mouse/Discrete PID Controller/Tracking Mode/Disabled'
- * '<S55>'  : 'Micro_mouse/Discrete PID Controller/Tracking Mode Sum/Passthrough'
- * '<S56>'  : 'Micro_mouse/Discrete PID Controller/Tsamp - Integral/TsSignalSpecification'
- * '<S57>'  : 'Micro_mouse/Discrete PID Controller/Tsamp - Ngain/Passthrough'
- * '<S58>'  : 'Micro_mouse/Discrete PID Controller/postSat Signal/Forward_Path'
- * '<S59>'  : 'Micro_mouse/Discrete PID Controller/preInt Signal/Internal PreInt'
- * '<S60>'  : 'Micro_mouse/Discrete PID Controller/preSat Signal/Forward_Path'
- * '<S61>'  : 'Micro_mouse/Discrete PID Controller1/Anti-windup'
- * '<S62>'  : 'Micro_mouse/Discrete PID Controller1/D Gain'
- * '<S63>'  : 'Micro_mouse/Discrete PID Controller1/External Derivative'
- * '<S64>'  : 'Micro_mouse/Discrete PID Controller1/Filter'
- * '<S65>'  : 'Micro_mouse/Discrete PID Controller1/Filter ICs'
- * '<S66>'  : 'Micro_mouse/Discrete PID Controller1/I Gain'
- * '<S67>'  : 'Micro_mouse/Discrete PID Controller1/Ideal P Gain'
- * '<S68>'  : 'Micro_mouse/Discrete PID Controller1/Ideal P Gain Fdbk'
- * '<S69>'  : 'Micro_mouse/Discrete PID Controller1/Integrator'
- * '<S70>'  : 'Micro_mouse/Discrete PID Controller1/Integrator ICs'
- * '<S71>'  : 'Micro_mouse/Discrete PID Controller1/N Copy'
- * '<S72>'  : 'Micro_mouse/Discrete PID Controller1/N Gain'
- * '<S73>'  : 'Micro_mouse/Discrete PID Controller1/P Copy'
- * '<S74>'  : 'Micro_mouse/Discrete PID Controller1/Parallel P Gain'
- * '<S75>'  : 'Micro_mouse/Discrete PID Controller1/Reset Signal'
- * '<S76>'  : 'Micro_mouse/Discrete PID Controller1/Saturation'
- * '<S77>'  : 'Micro_mouse/Discrete PID Controller1/Saturation Fdbk'
- * '<S78>'  : 'Micro_mouse/Discrete PID Controller1/Sum'
- * '<S79>'  : 'Micro_mouse/Discrete PID Controller1/Sum Fdbk'
- * '<S80>'  : 'Micro_mouse/Discrete PID Controller1/Tracking Mode'
- * '<S81>'  : 'Micro_mouse/Discrete PID Controller1/Tracking Mode Sum'
- * '<S82>'  : 'Micro_mouse/Discrete PID Controller1/Tsamp - Integral'
- * '<S83>'  : 'Micro_mouse/Discrete PID Controller1/Tsamp - Ngain'
- * '<S84>'  : 'Micro_mouse/Discrete PID Controller1/postSat Signal'
- * '<S85>'  : 'Micro_mouse/Discrete PID Controller1/preInt Signal'
- * '<S86>'  : 'Micro_mouse/Discrete PID Controller1/preSat Signal'
- * '<S87>'  : 'Micro_mouse/Discrete PID Controller1/Anti-windup/Passthrough'
- * '<S88>'  : 'Micro_mouse/Discrete PID Controller1/D Gain/Internal Parameters'
- * '<S89>'  : 'Micro_mouse/Discrete PID Controller1/External Derivative/Error'
- * '<S90>'  : 'Micro_mouse/Discrete PID Controller1/Filter/Disc. Forward Euler Filter'
- * '<S91>'  : 'Micro_mouse/Discrete PID Controller1/Filter ICs/Internal IC - Filter'
- * '<S92>'  : 'Micro_mouse/Discrete PID Controller1/I Gain/Internal Parameters'
- * '<S93>'  : 'Micro_mouse/Discrete PID Controller1/Ideal P Gain/Passthrough'
- * '<S94>'  : 'Micro_mouse/Discrete PID Controller1/Ideal P Gain Fdbk/Disabled'
- * '<S95>'  : 'Micro_mouse/Discrete PID Controller1/Integrator/Discrete'
- * '<S96>'  : 'Micro_mouse/Discrete PID Controller1/Integrator ICs/Internal IC'
- * '<S97>'  : 'Micro_mouse/Discrete PID Controller1/N Copy/Disabled'
- * '<S98>'  : 'Micro_mouse/Discrete PID Controller1/N Gain/Internal Parameters'
- * '<S99>'  : 'Micro_mouse/Discrete PID Controller1/P Copy/Disabled'
- * '<S100>' : 'Micro_mouse/Discrete PID Controller1/Parallel P Gain/Internal Parameters'
- * '<S101>' : 'Micro_mouse/Discrete PID Controller1/Reset Signal/Disabled'
- * '<S102>' : 'Micro_mouse/Discrete PID Controller1/Saturation/Passthrough'
- * '<S103>' : 'Micro_mouse/Discrete PID Controller1/Saturation Fdbk/Disabled'
- * '<S104>' : 'Micro_mouse/Discrete PID Controller1/Sum/Sum_PID'
- * '<S105>' : 'Micro_mouse/Discrete PID Controller1/Sum Fdbk/Disabled'
- * '<S106>' : 'Micro_mouse/Discrete PID Controller1/Tracking Mode/Disabled'
- * '<S107>' : 'Micro_mouse/Discrete PID Controller1/Tracking Mode Sum/Passthrough'
- * '<S108>' : 'Micro_mouse/Discrete PID Controller1/Tsamp - Integral/TsSignalSpecification'
- * '<S109>' : 'Micro_mouse/Discrete PID Controller1/Tsamp - Ngain/Passthrough'
- * '<S110>' : 'Micro_mouse/Discrete PID Controller1/postSat Signal/Forward_Path'
- * '<S111>' : 'Micro_mouse/Discrete PID Controller1/preInt Signal/Internal PreInt'
- * '<S112>' : 'Micro_mouse/Discrete PID Controller1/preSat Signal/Forward_Path'
- * '<S113>' : 'Micro_mouse/IR/Analog to Digital Converter'
- * '<S114>' : 'Micro_mouse/IR/Analog to Digital Converter/ECSoC'
- * '<S115>' : 'Micro_mouse/IR/Analog to Digital Converter/ECSoC/ECSimCodegen'
- * '<S116>' : 'Micro_mouse/Left Motor/Channel A'
- * '<S117>' : 'Micro_mouse/Left Motor/Direction'
- * '<S118>' : 'Micro_mouse/Left Motor/Discrete Derivative'
- * '<S119>' : 'Micro_mouse/Left Motor/PWM'
- * '<S120>' : 'Micro_mouse/Left Motor/Triggered Subsystem'
- * '<S121>' : 'Micro_mouse/Left Motor/Channel A/ECSoC'
- * '<S122>' : 'Micro_mouse/Left Motor/Channel A/ECSoC/ECSimCodegen'
- * '<S123>' : 'Micro_mouse/Left Motor/Direction/ECSoC'
- * '<S124>' : 'Micro_mouse/Left Motor/Direction/ECSoC/ECSimCodegen'
- * '<S125>' : 'Micro_mouse/Left Motor/PWM/ECSoC'
- * '<S126>' : 'Micro_mouse/Left Motor/PWM/ECSoC/ECSimCodegen'
- * '<S127>' : 'Micro_mouse/Left Motor/Triggered Subsystem/MATLAB Function'
- * '<S128>' : 'Micro_mouse/Left Motor/Triggered Subsystem/PB0 (currA)'
- * '<S129>' : 'Micro_mouse/Left Motor/Triggered Subsystem/PB1 (currB)'
- * '<S130>' : 'Micro_mouse/Left Motor/Triggered Subsystem/PB0 (currA)/ECSoC'
- * '<S131>' : 'Micro_mouse/Left Motor/Triggered Subsystem/PB0 (currA)/ECSoC/ECSimCodegen'
- * '<S132>' : 'Micro_mouse/Left Motor/Triggered Subsystem/PB1 (currB)/ECSoC'
- * '<S133>' : 'Micro_mouse/Left Motor/Triggered Subsystem/PB1 (currB)/ECSoC/ECSimCodegen'
- * '<S134>' : 'Micro_mouse/Right Motor/Channel A'
- * '<S135>' : 'Micro_mouse/Right Motor/Direction'
- * '<S136>' : 'Micro_mouse/Right Motor/Discrete Derivative'
- * '<S137>' : 'Micro_mouse/Right Motor/PWM'
- * '<S138>' : 'Micro_mouse/Right Motor/Triggered Subsystem'
- * '<S139>' : 'Micro_mouse/Right Motor/Channel A/ECSoC'
- * '<S140>' : 'Micro_mouse/Right Motor/Channel A/ECSoC/ECSimCodegen'
- * '<S141>' : 'Micro_mouse/Right Motor/Direction/ECSoC'
- * '<S142>' : 'Micro_mouse/Right Motor/Direction/ECSoC/ECSimCodegen'
- * '<S143>' : 'Micro_mouse/Right Motor/PWM/ECSoC'
- * '<S144>' : 'Micro_mouse/Right Motor/PWM/ECSoC/ECSimCodegen'
- * '<S145>' : 'Micro_mouse/Right Motor/Triggered Subsystem/MATLAB Function'
- * '<S146>' : 'Micro_mouse/Right Motor/Triggered Subsystem/PB0 (currA)'
- * '<S147>' : 'Micro_mouse/Right Motor/Triggered Subsystem/PB1 (currB)'
- * '<S148>' : 'Micro_mouse/Right Motor/Triggered Subsystem/PB0 (currA)/ECSoC'
- * '<S149>' : 'Micro_mouse/Right Motor/Triggered Subsystem/PB0 (currA)/ECSoC/ECSimCodegen'
- * '<S150>' : 'Micro_mouse/Right Motor/Triggered Subsystem/PB1 (currB)/ECSoC'
- * '<S151>' : 'Micro_mouse/Right Motor/Triggered Subsystem/PB1 (currB)/ECSoC/ECSimCodegen'
+ * '<S4>'   : 'Micro_mouse/Discrete Derivative'
+ * '<S5>'   : 'Micro_mouse/Discrete Derivative1'
+ * '<S6>'   : 'Micro_mouse/Discrete Derivative2'
+ * '<S7>'   : 'Micro_mouse/Discrete Derivative3'
+ * '<S8>'   : 'Micro_mouse/IR'
+ * '<S9>'   : 'Micro_mouse/Left Motor'
+ * '<S10>'  : 'Micro_mouse/Right Motor'
+ * '<S11>'  : 'Micro_mouse/IR/Analog to Digital Converter'
+ * '<S12>'  : 'Micro_mouse/IR/Analog to Digital Converter/ECSoC'
+ * '<S13>'  : 'Micro_mouse/IR/Analog to Digital Converter/ECSoC/ECSimCodegen'
+ * '<S14>'  : 'Micro_mouse/Left Motor/Channel A'
+ * '<S15>'  : 'Micro_mouse/Left Motor/Direction'
+ * '<S16>'  : 'Micro_mouse/Left Motor/PWM'
+ * '<S17>'  : 'Micro_mouse/Left Motor/Triggered Subsystem'
+ * '<S18>'  : 'Micro_mouse/Left Motor/Channel A/ECSoC'
+ * '<S19>'  : 'Micro_mouse/Left Motor/Channel A/ECSoC/ECSimCodegen'
+ * '<S20>'  : 'Micro_mouse/Left Motor/Direction/ECSoC'
+ * '<S21>'  : 'Micro_mouse/Left Motor/Direction/ECSoC/ECSimCodegen'
+ * '<S22>'  : 'Micro_mouse/Left Motor/PWM/ECSoC'
+ * '<S23>'  : 'Micro_mouse/Left Motor/PWM/ECSoC/ECSimCodegen'
+ * '<S24>'  : 'Micro_mouse/Left Motor/Triggered Subsystem/MATLAB Function'
+ * '<S25>'  : 'Micro_mouse/Left Motor/Triggered Subsystem/PB0 (currA)'
+ * '<S26>'  : 'Micro_mouse/Left Motor/Triggered Subsystem/PB1 (currB)'
+ * '<S27>'  : 'Micro_mouse/Left Motor/Triggered Subsystem/PB0 (currA)/ECSoC'
+ * '<S28>'  : 'Micro_mouse/Left Motor/Triggered Subsystem/PB0 (currA)/ECSoC/ECSimCodegen'
+ * '<S29>'  : 'Micro_mouse/Left Motor/Triggered Subsystem/PB1 (currB)/ECSoC'
+ * '<S30>'  : 'Micro_mouse/Left Motor/Triggered Subsystem/PB1 (currB)/ECSoC/ECSimCodegen'
+ * '<S31>'  : 'Micro_mouse/Right Motor/Channel A'
+ * '<S32>'  : 'Micro_mouse/Right Motor/Direction'
+ * '<S33>'  : 'Micro_mouse/Right Motor/PWM'
+ * '<S34>'  : 'Micro_mouse/Right Motor/Triggered Subsystem'
+ * '<S35>'  : 'Micro_mouse/Right Motor/Channel A/ECSoC'
+ * '<S36>'  : 'Micro_mouse/Right Motor/Channel A/ECSoC/ECSimCodegen'
+ * '<S37>'  : 'Micro_mouse/Right Motor/Direction/ECSoC'
+ * '<S38>'  : 'Micro_mouse/Right Motor/Direction/ECSoC/ECSimCodegen'
+ * '<S39>'  : 'Micro_mouse/Right Motor/PWM/ECSoC'
+ * '<S40>'  : 'Micro_mouse/Right Motor/PWM/ECSoC/ECSimCodegen'
+ * '<S41>'  : 'Micro_mouse/Right Motor/Triggered Subsystem/MATLAB Function'
+ * '<S42>'  : 'Micro_mouse/Right Motor/Triggered Subsystem/PB0 (currA)'
+ * '<S43>'  : 'Micro_mouse/Right Motor/Triggered Subsystem/PB1 (currB)'
+ * '<S44>'  : 'Micro_mouse/Right Motor/Triggered Subsystem/PB0 (currA)/ECSoC'
+ * '<S45>'  : 'Micro_mouse/Right Motor/Triggered Subsystem/PB0 (currA)/ECSoC/ECSimCodegen'
+ * '<S46>'  : 'Micro_mouse/Right Motor/Triggered Subsystem/PB1 (currB)/ECSoC'
+ * '<S47>'  : 'Micro_mouse/Right Motor/Triggered Subsystem/PB1 (currB)/ECSoC/ECSimCodegen'
  */
 #endif                                 /* Micro_mouse_h_ */
 
