@@ -7,9 +7,9 @@
  *
  * Code generation for model "Micro_mouse".
  *
- * Model version              : 1.42
+ * Model version              : 1.47
  * Simulink Coder version : 24.2 (R2024b) 21-Jun-2024
- * C source code generated on : Tue May  6 10:23:15 2025
+ * C source code generated on : Tue May  6 15:09:43 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
