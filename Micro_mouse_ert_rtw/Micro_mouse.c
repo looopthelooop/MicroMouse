@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.47
+ * Model version                  : 1.62
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue May  6 15:09:43 2025
+ * C/C++ source code generated on : Mon May 19 11:43:17 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -23,12 +23,10 @@
 #include "rtwtypes.h"
 #include <math.h>
 #include <string.h>
+#include <stddef.h>
+#include "mw_stm32_i2c_ll.h"
 #include "stm_adc_ll.h"
 #include "stm_timer_ll.h"
-#include "xcp.h"
-#include "ext_mode.h"
-
-extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T) 0;
 
 /* Block signals (default storage) */
 B_Micro_mouse_T Micro_mouse_B;
@@ -44,9 +42,11 @@ static RT_MODEL_Micro_mouse_T Micro_mouse_M_;
 RT_MODEL_Micro_mouse_T *const Micro_mouse_M = &Micro_mouse_M_;
 
 /* Forward declaration for local functions */
-static void Micro_mouse_SystemCore_setup(stm32cube_blocks_AnalogInput__T *obj);
-static void Micro_mou_PWMOutput_setupImpl_c(stm32cube_blocks_PWMOutput_Mi_T *obj);
+static void Micro_mouse_SystemCore_setup(stm32cube_blocks_I2CControlle_T *obj);
+static void Micro_mou_I2CDrvBlock_setupImpl(stm32cube_blocks_I2CControl_c_T *obj);
 static void Micro_mouse_PWMOutput_setupImpl(stm32cube_blocks_PWMOutput_Mi_T *obj);
+static void Micro_mou_PWMOutput_setupImpl_c(stm32cube_blocks_PWMOutput_Mi_T *obj);
+static void Micro_mouse_SystemCore_setup_c(stm32cube_blocks_AnalogInput__T *obj);
 static void rate_monotonic_scheduler(void);
 
 /*
@@ -58,7 +58,7 @@ static void rate_monotonic_scheduler(void);
 void Micro_mouse_SetEventsForThisBaseStep(boolean_T *eventFlags)
 {
   /* Task runs when its counter is zero, computed via rtmStepTask macro */
-  eventFlags[2] = ((boolean_T)rtmStepTask(Micro_mouse_M, 2));
+  eventFlags[1] = ((boolean_T)rtmStepTask(Micro_mouse_M, 1));
 }
 
 /*
@@ -75,18 +75,97 @@ static void rate_monotonic_scheduler(void)
    * are an integer multiple of the base rate counter.  Therefore, the subtask
    * counter is reset when it reaches its limit (zero means run).
    */
-  (Micro_mouse_M->Timing.TaskCounters.TID[2])++;
-  if ((Micro_mouse_M->Timing.TaskCounters.TID[2]) > 999) {/* Sample time: [1.0s, 0.0s] */
-    Micro_mouse_M->Timing.TaskCounters.TID[2] = 0;
+  (Micro_mouse_M->Timing.TaskCounters.TID[1])++;
+  if ((Micro_mouse_M->Timing.TaskCounters.TID[1]) > 4) {/* Sample time: [0.1s, 0.0s] */
+    Micro_mouse_M->Timing.TaskCounters.TID[1] = 0;
   }
 }
 
-static void Micro_mouse_SystemCore_setup(stm32cube_blocks_AnalogInput__T *obj)
+static void Micro_mouse_SystemCore_setup(stm32cube_blocks_I2CControlle_T *obj)
+{
+  STM32_I2C_Struct_T * i2cBlockStruct_loc;
+  STM32_I2C_ModuleStruct_T c;
+  obj->isSetupComplete = false;
+
+  /* Start for MATLABSystem: '<S4>/I2C Controller Read' */
+  obj->isInitialized = 1;
+  c.instance = I2C1;
+  c.txCommunicationMode = MW_I2C_COMMUNICATION_POLLING;
+  c.rxCommunicationMode = MW_I2C_COMMUNICATION_POLLING;
+  obj->MW_I2C_BlockStruct.h_i2c = NULL;
+  obj->MW_I2C_BlockStruct.rxBufferStructPtr = NULL;
+  obj->MW_I2C_BlockStruct.txBufferStructPtr = NULL;
+  i2cBlockStruct_loc = (STM32_I2C_Struct_T *)(&obj->MW_I2C_BlockStruct);
+  obj->MW_I2C_HANDLE = I2C_Init(&c, i2cBlockStruct_loc);
+  obj->isSetupComplete = true;
+}
+
+static void Micro_mou_I2CDrvBlock_setupImpl(stm32cube_blocks_I2CControl_c_T *obj)
+{
+  STM32_I2C_Struct_T * i2cBlockStruct_loc;
+  STM32_I2C_ModuleStruct_T c;
+
+  /* Start for MATLABSystem: '<S4>/I2C Controller Write' incorporates:
+   *  MATLABSystem: '<Root>/I2C Controller Write'
+   */
+  c.instance = I2C1;
+  c.txCommunicationMode = MW_I2C_COMMUNICATION_POLLING;
+  c.rxCommunicationMode = MW_I2C_COMMUNICATION_POLLING;
+  obj->MW_I2C_BlockStruct.h_i2c = NULL;
+  obj->MW_I2C_BlockStruct.rxBufferStructPtr = NULL;
+  obj->MW_I2C_BlockStruct.txBufferStructPtr = NULL;
+  i2cBlockStruct_loc = (STM32_I2C_Struct_T *)(&obj->MW_I2C_BlockStruct);
+  obj->MW_I2C_HANDLE = I2C_Init(&c, i2cBlockStruct_loc);
+}
+
+static void Micro_mouse_PWMOutput_setupImpl(stm32cube_blocks_PWMOutput_Mi_T *obj)
+{
+  TIM_Type_T b;
+  boolean_T isSlaveModeTriggerEnabled;
+
+  /* Start for MATLABSystem: '<S138>/PWM Output' */
+  b.PeripheralPtr = TIM16;
+  b.isCenterAlignedMode = false;
+
+  /* Start for MATLABSystem: '<S138>/PWM Output' */
+  b.repetitionCounter = 0U;
+  obj->TimerHandle = Timer_Handle_Init(&b);
+  enableTimerInterrupts(obj->TimerHandle, 0);
+  enableTimerChannel1(obj->TimerHandle, ENABLE_CH);
+  isSlaveModeTriggerEnabled = isSlaveTriggerModeEnabled(obj->TimerHandle);
+  if (!isSlaveModeTriggerEnabled) {
+    /* Start for MATLABSystem: '<S138>/PWM Output' */
+    enableCounter(obj->TimerHandle, false);
+  }
+}
+
+static void Micro_mou_PWMOutput_setupImpl_c(stm32cube_blocks_PWMOutput_Mi_T *obj)
+{
+  TIM_Type_T b;
+  boolean_T isSlaveModeTriggerEnabled;
+
+  /* Start for MATLABSystem: '<S155>/PWM Output' */
+  b.PeripheralPtr = TIM1;
+  b.isCenterAlignedMode = false;
+
+  /* Start for MATLABSystem: '<S155>/PWM Output' */
+  b.repetitionCounter = 0U;
+  obj->TimerHandle = Timer_Handle_Init(&b);
+  enableTimerInterrupts(obj->TimerHandle, 0);
+  enableTimerChannel1(obj->TimerHandle, ENABLE_CH);
+  isSlaveModeTriggerEnabled = isSlaveTriggerModeEnabled(obj->TimerHandle);
+  if (!isSlaveModeTriggerEnabled) {
+    /* Start for MATLABSystem: '<S155>/PWM Output' */
+    enableCounter(obj->TimerHandle, false);
+  }
+}
+
+static void Micro_mouse_SystemCore_setup_c(stm32cube_blocks_AnalogInput__T *obj)
 {
   ADC_Type_T adcStructLoc;
   obj->isSetupComplete = false;
 
-  /* Start for MATLABSystem: '<S120>/Analog to Digital Converter' */
+  /* Start for MATLABSystem: '<S16>/Analog to Digital Converter' */
   obj->isInitialized = 1;
   adcStructLoc.InternalBufferPtr = (void*)(&obj->ADCInternalBuffer[0]);
   adcStructLoc.InjectedNoOfConversion = 0U;
@@ -104,609 +183,454 @@ static void Micro_mouse_SystemCore_setup(stm32cube_blocks_AnalogInput__T *obj)
   obj->isSetupComplete = true;
 }
 
-static void Micro_mou_PWMOutput_setupImpl_c(stm32cube_blocks_PWMOutput_Mi_T *obj)
-{
-  TIM_Type_T b;
-  boolean_T isSlaveModeTriggerEnabled;
-
-  /* Start for MATLABSystem: '<S147>/PWM Output' */
-  b.PeripheralPtr = TIM1;
-  b.isCenterAlignedMode = false;
-
-  /* Start for MATLABSystem: '<S147>/PWM Output' */
-  b.repetitionCounter = 0U;
-  obj->TimerHandle = Timer_Handle_Init(&b);
-  enableTimerInterrupts(obj->TimerHandle, 0);
-  enableTimerChannel1(obj->TimerHandle, ENABLE_CH);
-  isSlaveModeTriggerEnabled = isSlaveTriggerModeEnabled(obj->TimerHandle);
-  if (!isSlaveModeTriggerEnabled) {
-    /* Start for MATLABSystem: '<S147>/PWM Output' */
-    enableCounter(obj->TimerHandle, false);
-  }
-}
-
-static void Micro_mouse_PWMOutput_setupImpl(stm32cube_blocks_PWMOutput_Mi_T *obj)
-{
-  TIM_Type_T b;
-  boolean_T isSlaveModeTriggerEnabled;
-
-  /* Start for MATLABSystem: '<S130>/PWM Output' */
-  b.PeripheralPtr = TIM16;
-  b.isCenterAlignedMode = false;
-
-  /* Start for MATLABSystem: '<S130>/PWM Output' */
-  b.repetitionCounter = 0U;
-  obj->TimerHandle = Timer_Handle_Init(&b);
-  enableTimerInterrupts(obj->TimerHandle, 0);
-  enableTimerChannel1(obj->TimerHandle, ENABLE_CH);
-  isSlaveModeTriggerEnabled = isSlaveTriggerModeEnabled(obj->TimerHandle);
-  if (!isSlaveModeTriggerEnabled) {
-    /* Start for MATLABSystem: '<S130>/PWM Output' */
-    enableCounter(obj->TimerHandle, false);
-  }
-}
-
 /* Model step function for TID0 */
-void Micro_mouse_step0(void)           /* Sample time: [0.0s, 0.0s] */
+void Micro_mouse_step0(void)           /* Sample time: [0.02s, 0.0s] */
 {
-  /* local block i/o variables */
-  real_T rtb_FilterCoefficient;
-  real_T rtb_TSamp;
-  real_T rtb_TSamp_f;
-  real_T rtb_FilterCoefficient_e;
-  real_T rtb_IntegralGain;
-  real_T rtb_IntegralGain_f;
-  real_T rtb_TSamp_j;
-  real_T rtb_TSamp_b;
   GPIO_TypeDef * portNameLoc;
-  b_dspcodegen_FIRFilter_Micro__T *obj;
+  real_T rtb_FilterCoefficient;
+  real_T rtb_FilterCoefficient_f;
+  real_T rtb_Saturation;
+  real_T rtb_Saturation1;
+  real_T rtb_TSamp_a;
+  real_T rtb_TmpRTBAtTriggeredSubsyste_e;
+  real_T rtb_TmpRTBAtTriggeredSubsyste_n;
   real_T rtb_TmpRTBAtTriggeredSubsystemO;
-  int32_T i;
-  uint32_T rtb_Gain2[5];
-  uint16_T rtb_AnalogtoDigitalConverter_0[5];
+  int32_T rtb_y;
+  uint16_T tmp[5];
+  uint8_T SwappedDataBytes[2];
 
-  {                                    /* Sample time: [0.0s, 0.0s] */
+  {                                    /* Sample time: [0.02s, 0.0s] */
     rate_monotonic_scheduler();
   }
 
-  /* MATLABSystem: '<S120>/Analog to Digital Converter' */
-  regularReadADCDMA(Micro_mouse_DW.obj_c.ADCHandle, ADC_TRIGGER_AND_READ,
-                    &rtb_AnalogtoDigitalConverter_0[0]);
-
-  /* Gain: '<S11>/Gain2' incorporates:
-   *  MATLABSystem: '<S120>/Analog to Digital Converter'
-   */
-  for (i = 0; i < 5; i++) {
-    rtb_Gain2[i] = 54080U * rtb_AnalogtoDigitalConverter_0[i];
-  }
-
-  /* End of Gain: '<S11>/Gain2' */
-
-  /* SignalConversion: '<S11>/Signal Conversion4' */
-  Micro_mouse_B.SignalConversion4 = rtb_Gain2[0];
-
-  /* SignalConversion: '<S11>/Signal Conversion' */
-  Micro_mouse_B.SignalConversion = rtb_Gain2[4];
-
-  /* Sum: '<S1>/Sum2' incorporates:
-   *  SignalConversion: '<S11>/Signal Conversion'
-   *  SignalConversion: '<S11>/Signal Conversion4'
-   */
-  Micro_mouse_B.Sum2 = Micro_mouse_B.SignalConversion4 -
-    Micro_mouse_B.SignalConversion;
-
-  /* Gain: '<S1>/Gain' incorporates:
-   *  Sum: '<S1>/Sum2'
-   */
-  Micro_mouse_B.Gain = 3435973837ULL * Micro_mouse_B.Sum2;
-
-  /* RateTransition generated from: '<S13>/Triggered Subsystem' */
+  /* RateTransition generated from: '<S24>/Triggered Subsystem' */
   rtb_TmpRTBAtTriggeredSubsystemO = Micro_mouse_B.UnitDelay;
 
-  /* Gain: '<S13>/Ratio' */
-  Micro_mouse_B.Ratio = 0.00015259164317436139 * rtb_TmpRTBAtTriggeredSubsystemO;
-
-  /* Sum: '<Root>/Sum1' incorporates:
-   *  Constant: '<Root>/Constant'
-   */
-  Micro_mouse_B.Sum1 = 10.0 - Micro_mouse_B.Ratio;
-
-  /* Gain: '<S103>/Filter Coefficient' incorporates:
-   *  DiscreteIntegrator: '<S95>/Filter'
-   *  Gain: '<S93>/Derivative Gain'
-   *  Sum: '<S95>/SumD'
-   */
-  rtb_FilterCoefficient = (0.0 * Micro_mouse_B.Sum1 -
-    Micro_mouse_DW.Filter_DSTATE) * 100.0;
-
-  /* SampleTimeMath: '<S6>/TSamp' incorporates:
-   *  DiscreteIntegrator: '<S100>/Integrator'
-   *  Sum: '<S109>/Sum'
-   *
-   * About '<S6>/TSamp':
-   *  y = u * K where K = 1 / ( w * Ts )
-   *   */
-  rtb_TSamp = ((Micro_mouse_B.Sum1 + Micro_mouse_DW.Integrator_DSTATE) +
-               rtb_FilterCoefficient) * 1000.0;
-
-  /* Sum: '<S6>/Diff' incorporates:
-   *  UnitDelay: '<S6>/UD'
-   *
-   * Block description for '<S6>/Diff':
-   *
-   *  Add in CPU
-   *
-   * Block description for '<S6>/UD':
-   *
-   *  Store in Global RAM
-   */
-  Micro_mouse_B.Diff = rtb_TSamp - Micro_mouse_DW.UD_DSTATE;
-
-  /* SampleTimeMath: '<S5>/TSamp'
-   *
-   * About '<S5>/TSamp':
-   *  y = u * K where K = 1 / ( w * Ts )
-   *   */
-  rtb_TSamp_f = Micro_mouse_B.Ratio * 1000.0;
-
-  /* Sum: '<S5>/Diff' incorporates:
-   *  UnitDelay: '<S5>/UD'
-   *
-   * Block description for '<S5>/Diff':
-   *
-   *  Add in CPU
-   *
-   * Block description for '<S5>/UD':
-   *
-   *  Store in Global RAM
-   */
-  Micro_mouse_B.Diff_p = rtb_TSamp_f - Micro_mouse_DW.UD_DSTATE_h;
-
-  /* Sum: '<Root>/Sum' */
-  rtb_TmpRTBAtTriggeredSubsystemO = Micro_mouse_B.Diff - Micro_mouse_B.Diff_p;
-
-  /* Gain: '<S51>/Filter Coefficient' incorporates:
-   *  DiscreteIntegrator: '<S43>/Filter'
-   *  Gain: '<S41>/Derivative Gain'
-   *  Sum: '<S43>/SumD'
-   */
-  rtb_FilterCoefficient_e = (0.0 * rtb_TmpRTBAtTriggeredSubsystemO -
-    Micro_mouse_DW.Filter_DSTATE_b) * 100.0;
-
-  /* Sum: '<S57>/Sum' incorporates:
-   *  DiscreteIntegrator: '<S48>/Integrator'
-   */
-  Micro_mouse_B.Saturation1 = (rtb_TmpRTBAtTriggeredSubsystemO +
-    Micro_mouse_DW.Integrator_DSTATE_g) + rtb_FilterCoefficient_e;
-
-  /* Saturate: '<Root>/Saturation1' */
-  if (Micro_mouse_B.Saturation1 > 99.0) {
-    /* Sum: '<S57>/Sum' incorporates:
-     *  Saturate: '<Root>/Saturation1'
-     */
-    Micro_mouse_B.Saturation1 = 99.0;
-  } else if (Micro_mouse_B.Saturation1 < -99.0) {
-    /* Sum: '<S57>/Sum' incorporates:
-     *  Saturate: '<Root>/Saturation1'
-     */
-    Micro_mouse_B.Saturation1 = -99.0;
-  }
-
-  /* End of Saturate: '<Root>/Saturation1' */
-
-  /* MATLABSystem: '<S145>/Digital Port Write' incorporates:
-   *  Constant: '<S2>/Constant'
-   *  RelationalOperator: '<S2>/Compare'
-   */
-  portNameLoc = GPIOA;
-  if (Micro_mouse_B.Saturation1 > 0.0) {
-    i = 2048;
-  } else {
-    i = 0;
-  }
-
-  LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)i);
-  LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)i & 2048U);
-
-  /* End of MATLABSystem: '<S145>/Digital Port Write' */
-  /* MATLABSystem: '<S147>/PWM Output' incorporates:
-   *  Abs: '<Root>/Abs1'
-   */
-  setDutyCycleInPercentageChannel1(Micro_mouse_DW.obj_j.TimerHandle, fabs
-    (Micro_mouse_B.Saturation1));
-
-  /* Gain: '<S45>/Integral Gain' */
-  rtb_IntegralGain = 0.1 * rtb_TmpRTBAtTriggeredSubsystemO;
-
-  /* Gain: '<S97>/Integral Gain' */
-  rtb_IntegralGain_f = 0.1 * Micro_mouse_B.Sum1;
-
-  /* Outport: '<Root>/position1' */
-  Micro_mouse_Y.position1 = Micro_mouse_B.Ratio;
-
-  /* RateTransition generated from: '<S12>/Triggered Subsystem' */
-  rtb_TmpRTBAtTriggeredSubsystemO = Micro_mouse_B.UnitDelay_j;
-
-  /* Gain: '<S12>/Ratio' */
-  Micro_mouse_B.Ratio_p = 0.00015259164317436139 *
-    rtb_TmpRTBAtTriggeredSubsystemO;
-
-  /* SampleTimeMath: '<S8>/TSamp' incorporates:
-   *  Constant: '<Root>/Constant'
-   *  Sum: '<Root>/Sum3'
-   *
-   * About '<S8>/TSamp':
-   *  y = u * K where K = 1 / ( w * Ts )
-   *   */
-  rtb_TSamp_j = (10.0 - Micro_mouse_B.Ratio_p) * 1000.0;
-
-  /* SampleTimeMath: '<S7>/TSamp'
-   *
-   * About '<S7>/TSamp':
-   *  y = u * K where K = 1 / ( w * Ts )
-   *   */
-  rtb_TSamp_b = Micro_mouse_B.Ratio_p * 1000.0;
-
-  /* Sum: '<Root>/Sum2' incorporates:
-   *  Sum: '<S7>/Diff'
-   *  Sum: '<S8>/Diff'
-   *  UnitDelay: '<S7>/UD'
-   *  UnitDelay: '<S8>/UD'
-   *
-   * Block description for '<S7>/Diff':
-   *
-   *  Add in CPU
-   *
-   * Block description for '<S8>/Diff':
-   *
-   *  Add in CPU
-   *
-   * Block description for '<S7>/UD':
-   *
-   *  Store in Global RAM
-   *
-   * Block description for '<S8>/UD':
-   *
-   *  Store in Global RAM
-   */
-  rtb_TmpRTBAtTriggeredSubsystemO = (rtb_TSamp_j - Micro_mouse_DW.UD_DSTATE_e) -
-    (rtb_TSamp_b - Micro_mouse_DW.UD_DSTATE_ee);
-
-  /* Saturate: '<Root>/Saturation' */
-  if (rtb_TmpRTBAtTriggeredSubsystemO > 100.0) {
-    rtb_TmpRTBAtTriggeredSubsystemO = 100.0;
-  } else if (rtb_TmpRTBAtTriggeredSubsystemO < -100.0) {
-    rtb_TmpRTBAtTriggeredSubsystemO = -100.0;
-  }
-
-  /* End of Saturate: '<Root>/Saturation' */
-
-  /* MATLABSystem: '<S128>/Digital Port Write' incorporates:
-   *  Constant: '<S3>/Constant'
-   *  RelationalOperator: '<S3>/Compare'
-   */
-  portNameLoc = GPIOA;
-  if (rtb_TmpRTBAtTriggeredSubsystemO < 0.0) {
-    i = 4096;
-  } else {
-    i = 0;
-  }
-
-  LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)i);
-  LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)i & 4096U);
-
-  /* End of MATLABSystem: '<S128>/Digital Port Write' */
-
-  /* MATLABSystem: '<S130>/PWM Output' incorporates:
-   *  Abs: '<Root>/Abs'
-   */
-  setDutyCycleInPercentageChannel1(Micro_mouse_DW.obj_g.TimerHandle, fabs
-    (rtb_TmpRTBAtTriggeredSubsystemO));
+  /* Gain: '<S24>/Ratio' */
+  rtb_TmpRTBAtTriggeredSubsystemO *= 0.015259164317436139;
 
   /* Outport: '<Root>/position' */
-  Micro_mouse_Y.position = Micro_mouse_B.Ratio_p;
+  Micro_mouse_Y.position = rtb_TmpRTBAtTriggeredSubsystemO;
 
-  /* MATLABSystem: '<Root>/Lowpass Filter' */
-  obj = Micro_mouse_DW.obj.FilterObj;
-  if (Micro_mouse_DW.obj.FilterObj->isInitialized != 1) {
-    Micro_mouse_DW.obj.FilterObj->isSetupComplete = false;
-    Micro_mouse_DW.obj.FilterObj->isInitialized = 1;
-    Micro_mouse_DW.obj.FilterObj->isSetupComplete = true;
+  /* RateTransition generated from: '<S23>/Triggered Subsystem' */
+  rtb_TmpRTBAtTriggeredSubsyste_n = Micro_mouse_B.UnitDelay_n;
 
-    /* System object Initialization function: dsp.FIRFilter */
-    for (i = 0; i < 38; i++) {
-      Micro_mouse_DW.obj.FilterObj->cSFunObject.W0_states[i] =
-        Micro_mouse_DW.obj.FilterObj->cSFunObject.P0_InitialStates;
+  /* Gain: '<S23>/Ratio' */
+  rtb_TmpRTBAtTriggeredSubsyste_n *= 0.015259164317436139;
+
+  /* Outport: '<Root>/position1' */
+  Micro_mouse_Y.position1 = rtb_TmpRTBAtTriggeredSubsyste_n;
+
+  /* RateTransition generated from: '<Root>/Triggered Subsystem' */
+  rtb_TmpRTBAtTriggeredSubsyste_e = Micro_mouse_B.UnitDelay_e;
+
+  /* MATLAB Function: '<Root>/MATLAB Function' */
+  if (rtb_TmpRTBAtTriggeredSubsyste_e == 0.0) {
+    rtb_y = 0;
+  } else if (rtb_TmpRTBAtTriggeredSubsyste_e == 1.0) {
+    rtb_y = 20;
+  } else {
+    rtb_y = 0;
+  }
+
+  /* End of MATLAB Function: '<Root>/MATLAB Function' */
+
+  /* SampleTimeMath: '<S20>/TSamp'
+   *
+   * About '<S20>/TSamp':
+   *  y = u * K where K = 1 / ( w * Ts )
+   *   */
+  rtb_TmpRTBAtTriggeredSubsyste_e = rtb_TmpRTBAtTriggeredSubsyste_n * 50.0;
+
+  /* Sum: '<S7>/Sum2' incorporates:
+   *  Sum: '<S20>/Diff'
+   *  Sum: '<S7>/Sum3'
+   *  UnitDelay: '<S20>/UD'
+   *
+   * Block description for '<S20>/Diff':
+   *
+   *  Add in CPU
+   *
+   * Block description for '<S20>/UD':
+   *
+   *  Store in Global RAM
+   */
+  rtb_TmpRTBAtTriggeredSubsyste_n = ((real_T)rtb_y -
+    rtb_TmpRTBAtTriggeredSubsyste_n) - (rtb_TmpRTBAtTriggeredSubsyste_e -
+    Micro_mouse_DW.UD_DSTATE);
+
+  /* Gain: '<S114>/Filter Coefficient' incorporates:
+   *  DiscreteIntegrator: '<S106>/Filter'
+   *  Gain: '<S104>/Derivative Gain'
+   *  Sum: '<S106>/SumD'
+   */
+  rtb_FilterCoefficient = (0.0 * rtb_TmpRTBAtTriggeredSubsyste_n -
+    Micro_mouse_DW.Filter_DSTATE) * 100.0;
+
+  /* Sum: '<S120>/Sum' incorporates:
+   *  DiscreteIntegrator: '<S111>/Integrator'
+   *  Gain: '<S116>/Proportional Gain'
+   */
+  rtb_Saturation = (1.5 * rtb_TmpRTBAtTriggeredSubsyste_n +
+                    Micro_mouse_DW.Integrator_DSTATE) + rtb_FilterCoefficient;
+
+  /* Saturate: '<S7>/Saturation' */
+  if (rtb_Saturation > 100.0) {
+    rtb_Saturation = 100.0;
+  } else if (rtb_Saturation < -100.0) {
+    rtb_Saturation = -100.0;
+  }
+
+  /* End of Saturate: '<S7>/Saturation' */
+
+  /* SampleTimeMath: '<S19>/TSamp'
+   *
+   * About '<S19>/TSamp':
+   *  y = u * K where K = 1 / ( w * Ts )
+   *   */
+  rtb_TSamp_a = rtb_TmpRTBAtTriggeredSubsystemO * 50.0;
+
+  /* Sum: '<S7>/Sum' incorporates:
+   *  Sum: '<S19>/Diff'
+   *  Sum: '<S7>/Sum1'
+   *  UnitDelay: '<S19>/UD'
+   *
+   * Block description for '<S19>/Diff':
+   *
+   *  Add in CPU
+   *
+   * Block description for '<S19>/UD':
+   *
+   *  Store in Global RAM
+   */
+  rtb_TmpRTBAtTriggeredSubsystemO = ((real_T)rtb_y -
+    rtb_TmpRTBAtTriggeredSubsystemO) - (rtb_TSamp_a - Micro_mouse_DW.UD_DSTATE_o);
+
+  /* Gain: '<S62>/Filter Coefficient' incorporates:
+   *  DiscreteIntegrator: '<S54>/Filter'
+   *  Gain: '<S52>/Derivative Gain'
+   *  Sum: '<S54>/SumD'
+   */
+  rtb_FilterCoefficient_f = (0.0 * rtb_TmpRTBAtTriggeredSubsystemO -
+    Micro_mouse_DW.Filter_DSTATE_f) * 100.0;
+
+  /* Sum: '<S68>/Sum' incorporates:
+   *  DiscreteIntegrator: '<S59>/Integrator'
+   *  Gain: '<S64>/Proportional Gain'
+   */
+  rtb_Saturation1 = (1.5 * rtb_TmpRTBAtTriggeredSubsystemO +
+                     Micro_mouse_DW.Integrator_DSTATE_f) +
+    rtb_FilterCoefficient_f;
+
+  /* Saturate: '<S7>/Saturation1' */
+  if (rtb_Saturation1 > 99.0) {
+    rtb_Saturation1 = 99.0;
+  } else if (rtb_Saturation1 < -99.0) {
+    rtb_Saturation1 = -99.0;
+  }
+
+  /* End of Saturate: '<S7>/Saturation1' */
+
+  /* MATLABSystem: '<S138>/PWM Output' incorporates:
+   *  Abs: '<S7>/Abs'
+   */
+  setDutyCycleInPercentageChannel1(Micro_mouse_DW.obj_du.TimerHandle, fabs
+    (rtb_Saturation));
+
+  /* MATLABSystem: '<S136>/Digital Port Write' incorporates:
+   *  Constant: '<S18>/Constant'
+   *  RelationalOperator: '<S18>/Compare'
+   */
+  portNameLoc = GPIOA;
+  if (rtb_Saturation < 0.0) {
+    rtb_y = 4096;
+  } else {
+    rtb_y = 0;
+  }
+
+  LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)rtb_y);
+  LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)rtb_y & 4096U);
+
+  /* End of MATLABSystem: '<S136>/Digital Port Write' */
+
+  /* MATLABSystem: '<S155>/PWM Output' incorporates:
+   *  Abs: '<S7>/Abs1'
+   */
+  setDutyCycleInPercentageChannel1(Micro_mouse_DW.obj_e.TimerHandle, fabs
+    (rtb_Saturation1));
+
+  /* MATLABSystem: '<S153>/Digital Port Write' incorporates:
+   *  Constant: '<S17>/Constant'
+   *  RelationalOperator: '<S17>/Compare'
+   */
+  portNameLoc = GPIOA;
+  if (rtb_Saturation1 > 0.0) {
+    rtb_y = 2048;
+  } else {
+    rtb_y = 0;
+  }
+
+  LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)rtb_y);
+  LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)rtb_y & 2048U);
+
+  /* End of MATLABSystem: '<S153>/Digital Port Write' */
+
+  /* MATLABSystem: '<Root>/I2C Controller Write' incorporates:
+   *  Constant: '<Root>/Constant1'
+   */
+  SwappedDataBytes[0] = 107U;
+  SwappedDataBytes[1] = 0U;
+  I2C_Controller_TransmitData_Polling(Micro_mouse_DW.obj_o.MW_I2C_HANDLE, 104,
+    &SwappedDataBytes[0], 2U, false, false, 1U);
+
+  /* DiscretePulseGenerator: '<Root>/Pulse Generator' */
+  rtb_y = ((Micro_mouse_DW.clockTickCounter < 50) &&
+           (Micro_mouse_DW.clockTickCounter >= 0));
+  if (Micro_mouse_DW.clockTickCounter >= 99) {
+    Micro_mouse_DW.clockTickCounter = 0;
+  } else {
+    Micro_mouse_DW.clockTickCounter++;
+  }
+
+  /* End of DiscretePulseGenerator: '<Root>/Pulse Generator' */
+
+  /* MATLABSystem: '<S12>/Digital Port Write' */
+  portNameLoc = GPIOA;
+  rtb_y = (rtb_y != 0);
+  LL_GPIO_SetOutputPin(portNameLoc, (uint32_T)rtb_y);
+  LL_GPIO_ResetOutputPin(portNameLoc, ~(uint32_T)rtb_y & 1U);
+
+  /* MATLABSystem: '<S16>/Analog to Digital Converter' */
+  regularReadADCDMA(Micro_mouse_DW.obj.ADCHandle, ADC_TRIGGER_AND_READ, &tmp[0]);
+
+  /* Update for UnitDelay: '<S20>/UD'
+   *
+   * Block description for '<S20>/UD':
+   *
+   *  Store in Global RAM
+   */
+  Micro_mouse_DW.UD_DSTATE = rtb_TmpRTBAtTriggeredSubsyste_e;
+
+  /* Update for DiscreteIntegrator: '<S111>/Integrator' incorporates:
+   *  Gain: '<S108>/Integral Gain'
+   */
+  Micro_mouse_DW.Integrator_DSTATE += 0.2 * rtb_TmpRTBAtTriggeredSubsyste_n *
+    0.02;
+
+  /* Update for DiscreteIntegrator: '<S106>/Filter' */
+  Micro_mouse_DW.Filter_DSTATE += 0.02 * rtb_FilterCoefficient;
+
+  /* Update for UnitDelay: '<S19>/UD'
+   *
+   * Block description for '<S19>/UD':
+   *
+   *  Store in Global RAM
+   */
+  Micro_mouse_DW.UD_DSTATE_o = rtb_TSamp_a;
+
+  /* Update for DiscreteIntegrator: '<S59>/Integrator' incorporates:
+   *  Gain: '<S56>/Integral Gain'
+   */
+  Micro_mouse_DW.Integrator_DSTATE_f += 0.2 * rtb_TmpRTBAtTriggeredSubsystemO *
+    0.02;
+
+  /* Update for DiscreteIntegrator: '<S54>/Filter' */
+  Micro_mouse_DW.Filter_DSTATE_f += 0.02 * rtb_FilterCoefficient_f;
+}
+
+/* Model step function for TID1 */
+void Micro_mouse_step1(void)           /* Sample time: [0.1s, 0.0s] */
+{
+  int32_T i;
+  uint32_T status;
+  int16_T rtb_ax;
+  int16_T rtb_ay;
+  int16_T rtb_az;
+  int16_T rtb_gx;
+  int16_T rtb_gy;
+  int16_T rtb_gz;
+  uint8_T rtb_I2CControllerRead_o1_0[14];
+  uint8_T SwappedDataBytes[2];
+  uint8_T txData;
+
+  /* S-Function (fcgen): '<Root>/Function-Call Generator' incorporates:
+   *  SubSystem: '<Root>/Function-Call Subsystem'
+   */
+  /* MATLABSystem: '<S4>/I2C Controller Read' */
+  txData = 59U;
+  status = I2C_Controller_TransmitData_Polling
+    (Micro_mouse_DW.obj_d.MW_I2C_HANDLE, 104, &txData, 1U, true, true, 1U);
+  if (status == 0U) {
+    I2C_Controller_ReceiveData_Polling(Micro_mouse_DW.obj_d.MW_I2C_HANDLE, 104,
+      &rtb_I2CControllerRead_o1_0[0], 14U, false, false, 1U);
+  } else {
+    for (i = 0; i < 14; i++) {
+      rtb_I2CControllerRead_o1_0[i] = 0U;
     }
   }
 
-  /* System object Outputs function: dsp.FIRFilter */
-  /* Reverse the coefficients */
-  for (i = 0; i < 39; i++) {
-    obj->cSFunObject.W2_simRevCoeff[38 - i] = obj->cSFunObject.P1_Coefficients[i];
-  }
-
-  /* Reverse copy the states from States_Dwork to ContextBuff_Dwork */
-  /* Copy the initial part of input to ContextBuff_Dwork */
-  for (i = 0; i < 38; i++) {
-    obj->cSFunObject.W1_simContextBuf[37 - i] = obj->cSFunObject.W0_states[i];
-  }
-
-  obj->cSFunObject.W1_simContextBuf[38] = 0.0;
-
-  /* Shift state buffer when input buffer is shorter than state buffer */
-  for (i = 36; i >= 0; i--) {
-    obj->cSFunObject.W0_states[i + 1] = obj->cSFunObject.W0_states[i];
-  }
-
-  /* Reverse copy the states from input to States_Dwork */
-  obj->cSFunObject.W0_states[0] = 0.0;
-
-  /* End of MATLABSystem: '<Root>/Lowpass Filter' */
-
-  /* Update for DiscreteIntegrator: '<S100>/Integrator' */
-  Micro_mouse_DW.Integrator_DSTATE += 0.001 * rtb_IntegralGain_f;
-
-  /* Update for DiscreteIntegrator: '<S95>/Filter' */
-  Micro_mouse_DW.Filter_DSTATE += 0.001 * rtb_FilterCoefficient;
-
-  /* Update for UnitDelay: '<S6>/UD'
-   *
-   * Block description for '<S6>/UD':
-   *
-   *  Store in Global RAM
+  /* MATLAB Function: '<S4>/MATLAB Function' incorporates:
+   *  MATLABSystem: '<S4>/I2C Controller Read'
    */
-  Micro_mouse_DW.UD_DSTATE = rtb_TSamp;
+  SwappedDataBytes[0] = rtb_I2CControllerRead_o1_0[0];
+  SwappedDataBytes[1] = rtb_I2CControllerRead_o1_0[1];
+  memcpy((void *)&rtb_ax, (void *)&SwappedDataBytes[0], (size_t)1 * sizeof
+         (int16_T));
+  SwappedDataBytes[0] = rtb_I2CControllerRead_o1_0[2];
+  SwappedDataBytes[1] = rtb_I2CControllerRead_o1_0[3];
+  memcpy((void *)&rtb_ay, (void *)&SwappedDataBytes[0], (size_t)1 * sizeof
+         (int16_T));
+  SwappedDataBytes[0] = rtb_I2CControllerRead_o1_0[4];
+  SwappedDataBytes[1] = rtb_I2CControllerRead_o1_0[5];
+  memcpy((void *)&rtb_az, (void *)&SwappedDataBytes[0], (size_t)1 * sizeof
+         (int16_T));
+  SwappedDataBytes[0] = rtb_I2CControllerRead_o1_0[6];
+  SwappedDataBytes[1] = rtb_I2CControllerRead_o1_0[7];
+  memcpy((void *)&rtb_ax, (void *)&SwappedDataBytes[0], (size_t)1 * sizeof
+         (int16_T));
+  SwappedDataBytes[0] = rtb_I2CControllerRead_o1_0[8];
+  SwappedDataBytes[1] = rtb_I2CControllerRead_o1_0[9];
+  memcpy((void *)&rtb_gx, (void *)&SwappedDataBytes[0], (size_t)1 * sizeof
+         (int16_T));
+  SwappedDataBytes[0] = rtb_I2CControllerRead_o1_0[10];
+  SwappedDataBytes[1] = rtb_I2CControllerRead_o1_0[11];
+  memcpy((void *)&rtb_gy, (void *)&SwappedDataBytes[0], (size_t)1 * sizeof
+         (int16_T));
+  SwappedDataBytes[0] = rtb_I2CControllerRead_o1_0[12];
+  SwappedDataBytes[1] = rtb_I2CControllerRead_o1_0[13];
+  memcpy((void *)&rtb_gz, (void *)&SwappedDataBytes[0], (size_t)1 * sizeof
+         (int16_T));
 
-  /* Update for UnitDelay: '<S5>/UD'
-   *
-   * Block description for '<S5>/UD':
-   *
-   *  Store in Global RAM
+  /* MATLABSystem: '<S4>/I2C Controller Write' incorporates:
+   *  Constant: '<S4>/Constant1'
    */
-  Micro_mouse_DW.UD_DSTATE_h = rtb_TSamp_f;
+  SwappedDataBytes[0] = 107U;
+  SwappedDataBytes[1] = 59U;
+  I2C_Controller_TransmitData_Polling(Micro_mouse_DW.obj_a.MW_I2C_HANDLE, 104,
+    &SwappedDataBytes[0], 2U, false, false, 1U);
 
-  /* Update for DiscreteIntegrator: '<S48>/Integrator' */
-  Micro_mouse_DW.Integrator_DSTATE_g += 0.001 * rtb_IntegralGain;
-
-  /* Update for DiscreteIntegrator: '<S43>/Filter' */
-  Micro_mouse_DW.Filter_DSTATE_b += 0.001 * rtb_FilterCoefficient_e;
-
-  /* Update for UnitDelay: '<S8>/UD'
-   *
-   * Block description for '<S8>/UD':
-   *
-   *  Store in Global RAM
-   */
-  Micro_mouse_DW.UD_DSTATE_e = rtb_TSamp_j;
-
-  /* Update for UnitDelay: '<S7>/UD'
-   *
-   * Block description for '<S7>/UD':
-   *
-   *  Store in Global RAM
-   */
-  Micro_mouse_DW.UD_DSTATE_ee = rtb_TSamp_b;
-
-  /* Update absolute time */
-  /* The "clockTick0" counts the number of times the code of this task has
-   * been executed. The absolute time is the multiplication of "clockTick0"
-   * and "Timing.stepSize0". Size of "clockTick0" ensures timer will not
-   * overflow during the application lifespan selected.
-   */
-  Micro_mouse_M->Timing.t[0] =
-    ((time_T)(++Micro_mouse_M->Timing.clockTick0)) *
-    Micro_mouse_M->Timing.stepSize0;
-
-  /* Update absolute time */
-  /* The "clockTick1" counts the number of times the code of this task has
-   * been executed. The resolution of this integer timer is 0.001, which is the step size
-   * of the task. Size of "clockTick1" ensures timer will not overflow during the
-   * application lifespan selected.
-   */
-  Micro_mouse_M->Timing.clockTick1++;
-}
-
-/* Model step function for TID2 */
-void Micro_mouse_step2(void)           /* Sample time: [1.0s, 0.0s] */
-{
-  /* Update absolute time */
-  /* The "clockTick2" counts the number of times the code of this task has
-   * been executed. The resolution of this integer timer is 1.0, which is the step size
-   * of the task. Size of "clockTick2" ensures timer will not overflow during the
-   * application lifespan selected.
-   */
-  Micro_mouse_M->Timing.clockTick2++;
+  /* End of Outputs for S-Function (fcgen): '<Root>/Function-Call Generator' */
 }
 
 /* Model initialize function */
 void Micro_mouse_initialize(void)
 {
-  /* Registration code */
-  {
-    /* Setup solver object */
-    rtsiSetSimTimeStepPtr(&Micro_mouse_M->solverInfo,
-                          &Micro_mouse_M->Timing.simTimeStep);
-    rtsiSetTPtr(&Micro_mouse_M->solverInfo, &rtmGetTPtr(Micro_mouse_M));
-    rtsiSetStepSizePtr(&Micro_mouse_M->solverInfo,
-                       &Micro_mouse_M->Timing.stepSize0);
-    rtsiSetErrorStatusPtr(&Micro_mouse_M->solverInfo, (&rtmGetErrorStatus
-      (Micro_mouse_M)));
-    rtsiSetRTModelPtr(&Micro_mouse_M->solverInfo, Micro_mouse_M);
-  }
+  /* SystemInitialize for S-Function (fcgen): '<Root>/Function-Call Generator' incorporates:
+   *  SubSystem: '<Root>/Function-Call Subsystem'
+   */
+  /* Start for MATLABSystem: '<S4>/I2C Controller Read' */
+  Micro_mouse_DW.obj_d.isInitialized = 0;
+  Micro_mouse_DW.obj_d.matlabCodegenIsDeleted = false;
+  Micro_mouse_SystemCore_setup(&Micro_mouse_DW.obj_d);
 
-  rtsiSetSimTimeStep(&Micro_mouse_M->solverInfo, MAJOR_TIME_STEP);
-  rtsiSetIsMinorTimeStepWithModeChange(&Micro_mouse_M->solverInfo, false);
-  rtsiSetIsContModeFrozen(&Micro_mouse_M->solverInfo, false);
-  rtsiSetSolverName(&Micro_mouse_M->solverInfo,"FixedStepDiscrete");
-  rtmSetTPtr(Micro_mouse_M, &Micro_mouse_M->Timing.tArray[0]);
-  rtmSetTFinal(Micro_mouse_M, -1);
-  Micro_mouse_M->Timing.stepSize0 = 0.001;
+  /* Start for MATLABSystem: '<S4>/I2C Controller Write' */
+  Micro_mouse_DW.obj_a.matlabCodegenIsDeleted = false;
+  Micro_mouse_DW.obj_a.isSetupComplete = false;
+  Micro_mouse_DW.obj_a.isInitialized = 1;
+  Micro_mou_I2CDrvBlock_setupImpl(&Micro_mouse_DW.obj_a);
+  Micro_mouse_DW.obj_a.isSetupComplete = true;
 
-  /* External mode info */
-  Micro_mouse_M->Sizes.checksums[0] = (4152972722U);
-  Micro_mouse_M->Sizes.checksums[1] = (1229146360U);
-  Micro_mouse_M->Sizes.checksums[2] = (840176974U);
-  Micro_mouse_M->Sizes.checksums[3] = (1398988853U);
+  /* End of SystemInitialize for S-Function (fcgen): '<Root>/Function-Call Generator' */
 
-  {
-    static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
-    static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[15];
-    Micro_mouse_M->extModeInfo = (&rt_ExtModeInfo);
-    rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
-    systemRan[0] = &rtAlwaysEnabled;
-    systemRan[1] = &rtAlwaysEnabled;
-    systemRan[2] = &rtAlwaysEnabled;
-    systemRan[3] = &rtAlwaysEnabled;
-    systemRan[4] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanB_j;
-    systemRan[5] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanB_j;
-    systemRan[6] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanB_j;
-    systemRan[7] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanB_j;
-    systemRan[8] = &rtAlwaysEnabled;
-    systemRan[9] = &rtAlwaysEnabled;
-    systemRan[10] = &rtAlwaysEnabled;
-    systemRan[11] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanBC;
-    systemRan[12] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanBC;
-    systemRan[13] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanBC;
-    systemRan[14] = (sysRanDType *)
-      &Micro_mouse_DW.TriggeredSubsystem_SubsysRanBC;
-    rteiSetModelMappingInfoPtr(Micro_mouse_M->extModeInfo,
-      &Micro_mouse_M->SpecialInfo.mappingInfo);
-    rteiSetChecksumsPtr(Micro_mouse_M->extModeInfo,
-                        Micro_mouse_M->Sizes.checksums);
-    rteiSetTPtr(Micro_mouse_M->extModeInfo, rtmGetTPtr(Micro_mouse_M));
-  }
+  /* Start for MATLABSystem: '<S138>/PWM Output' */
+  Micro_mouse_DW.obj_du.matlabCodegenIsDeleted = false;
+  Micro_mouse_DW.obj_du.isSetupComplete = false;
+  Micro_mouse_DW.obj_du.isInitialized = 1;
+  Micro_mouse_PWMOutput_setupImpl(&Micro_mouse_DW.obj_du);
+  Micro_mouse_DW.obj_du.isSetupComplete = true;
 
-  {
-    int32_T i;
-    static const real_T tmp[39] = { -0.00059249716026085677,
-      -0.0020237151019090495, -0.0021051716132991219, 0.0012581546346926275,
-      0.0045838138209808709, 0.0008101820785051452, -0.0074967798682261952,
-      -0.0059816467843209192, 0.0089225864350714924, 0.014760271107288081,
-      -0.0061216071244679275, -0.026666367690000855, -0.0045063659737724108,
-      0.040073523645200719, 0.028615212604478531, -0.052524257886488068,
-      -0.082380786808864889, 0.061364820833367056, 0.309911296424881,
-      0.43543471248777532, 0.309911296424881, 0.061364820833367056,
-      -0.082380786808864889, -0.052524257886488068, 0.028615212604478531,
-      0.040073523645200719, -0.0045063659737724108, -0.026666367690000855,
-      -0.0061216071244679275, 0.014760271107288081, 0.0089225864350714924,
-      -0.0059816467843209192, -0.0074967798682261952, 0.0008101820785051452,
-      0.0045838138209808709, 0.0012581546346926275, -0.0021051716132991219,
-      -0.0020237151019090495, -0.00059249716026085677 };
+  /* Start for MATLABSystem: '<S155>/PWM Output' */
+  Micro_mouse_DW.obj_e.matlabCodegenIsDeleted = false;
+  Micro_mouse_DW.obj_e.isSetupComplete = false;
+  Micro_mouse_DW.obj_e.isInitialized = 1;
+  Micro_mou_PWMOutput_setupImpl_c(&Micro_mouse_DW.obj_e);
+  Micro_mouse_DW.obj_e.isSetupComplete = true;
 
-    /* Start for MATLABSystem: '<S120>/Analog to Digital Converter' */
-    Micro_mouse_DW.obj_c.isInitialized = 0;
-    Micro_mouse_DW.obj_c.matlabCodegenIsDeleted = false;
-    Micro_mouse_SystemCore_setup(&Micro_mouse_DW.obj_c);
+  /* Start for MATLABSystem: '<Root>/I2C Controller Write' */
+  Micro_mouse_DW.obj_o.matlabCodegenIsDeleted = false;
+  Micro_mouse_DW.obj_o.isSetupComplete = false;
+  Micro_mouse_DW.obj_o.isInitialized = 1;
+  Micro_mou_I2CDrvBlock_setupImpl(&Micro_mouse_DW.obj_o);
+  Micro_mouse_DW.obj_o.isSetupComplete = true;
 
-    /* Start for MATLABSystem: '<S147>/PWM Output' */
-    Micro_mouse_DW.obj_j.matlabCodegenIsDeleted = false;
-    Micro_mouse_DW.obj_j.isSetupComplete = false;
-    Micro_mouse_DW.obj_j.isInitialized = 1;
-    Micro_mou_PWMOutput_setupImpl_c(&Micro_mouse_DW.obj_j);
-    Micro_mouse_DW.obj_j.isSetupComplete = true;
-
-    /* Start for MATLABSystem: '<S130>/PWM Output' */
-    Micro_mouse_DW.obj_g.matlabCodegenIsDeleted = false;
-    Micro_mouse_DW.obj_g.isSetupComplete = false;
-    Micro_mouse_DW.obj_g.isInitialized = 1;
-    Micro_mouse_PWMOutput_setupImpl(&Micro_mouse_DW.obj_g);
-    Micro_mouse_DW.obj_g.isSetupComplete = true;
-
-    /* Start for MATLABSystem: '<Root>/Lowpass Filter' */
-    Micro_mouse_DW.obj.NumChannels = -1;
-    Micro_mouse_DW.obj.matlabCodegenIsDeleted = false;
-    Micro_mouse_DW.obj.isInitialized = 1;
-    if (Micro_mouse_DW.obj.NumChannels == -1) {
-      Micro_mouse_DW.obj.NumChannels = 1;
-    }
-
-    Micro_mouse_DW.obj._pobj0.isInitialized = 0;
-
-    /* System object Constructor function: dsp.FIRFilter */
-    Micro_mouse_DW.obj._pobj0.cSFunObject.P0_InitialStates = 0.0;
-    memcpy(&Micro_mouse_DW.obj._pobj0.cSFunObject.P1_Coefficients[0], &tmp[0],
-           39U * sizeof(real_T));
-    Micro_mouse_DW.obj.FilterObj = &Micro_mouse_DW.obj._pobj0;
-    Micro_mouse_DW.obj.isSetupComplete = true;
-
-    /* InitializeConditions for MATLABSystem: '<Root>/Lowpass Filter' */
-    if (Micro_mouse_DW.obj.FilterObj->isInitialized == 1) {
-      /* System object Initialization function: dsp.FIRFilter */
-      for (i = 0; i < 38; i++) {
-        Micro_mouse_DW.obj.FilterObj->cSFunObject.W0_states[i] =
-          Micro_mouse_DW.obj.FilterObj->cSFunObject.P0_InitialStates;
-      }
-    }
-
-    /* End of InitializeConditions for MATLABSystem: '<Root>/Lowpass Filter' */
-  }
+  /* Start for MATLABSystem: '<S16>/Analog to Digital Converter' */
+  Micro_mouse_DW.obj.isInitialized = 0;
+  Micro_mouse_DW.obj.matlabCodegenIsDeleted = false;
+  Micro_mouse_SystemCore_setup_c(&Micro_mouse_DW.obj);
 }
 
 /* Model terminate function */
 void Micro_mouse_terminate(void)
 {
-  /* Terminate for MATLABSystem: '<S120>/Analog to Digital Converter' */
-  if (!Micro_mouse_DW.obj_c.matlabCodegenIsDeleted) {
-    Micro_mouse_DW.obj_c.matlabCodegenIsDeleted = true;
-    if ((Micro_mouse_DW.obj_c.isInitialized == 1) &&
-        Micro_mouse_DW.obj_c.isSetupComplete) {
-      ADC_Handle_Deinit(Micro_mouse_DW.obj_c.ADCHandle, ADC_DMA_INTERRUPT_MODE,
-                        1);
+  /* Terminate for MATLABSystem: '<S138>/PWM Output' */
+  if (!Micro_mouse_DW.obj_du.matlabCodegenIsDeleted) {
+    Micro_mouse_DW.obj_du.matlabCodegenIsDeleted = true;
+    if ((Micro_mouse_DW.obj_du.isInitialized == 1) &&
+        Micro_mouse_DW.obj_du.isSetupComplete) {
+      disableCounter(Micro_mouse_DW.obj_du.TimerHandle);
+      disableTimerInterrupts(Micro_mouse_DW.obj_du.TimerHandle, 0);
+      disableTimerChannel1(Micro_mouse_DW.obj_du.TimerHandle, ENABLE_CH);
     }
   }
 
-  /* End of Terminate for MATLABSystem: '<S120>/Analog to Digital Converter' */
-  /* Terminate for MATLABSystem: '<S147>/PWM Output' */
-  if (!Micro_mouse_DW.obj_j.matlabCodegenIsDeleted) {
-    Micro_mouse_DW.obj_j.matlabCodegenIsDeleted = true;
-    if ((Micro_mouse_DW.obj_j.isInitialized == 1) &&
-        Micro_mouse_DW.obj_j.isSetupComplete) {
-      disableCounter(Micro_mouse_DW.obj_j.TimerHandle);
-      disableTimerInterrupts(Micro_mouse_DW.obj_j.TimerHandle, 0);
-      disableTimerChannel1(Micro_mouse_DW.obj_j.TimerHandle, ENABLE_CH);
+  /* End of Terminate for MATLABSystem: '<S138>/PWM Output' */
+
+  /* Terminate for MATLABSystem: '<S155>/PWM Output' */
+  if (!Micro_mouse_DW.obj_e.matlabCodegenIsDeleted) {
+    Micro_mouse_DW.obj_e.matlabCodegenIsDeleted = true;
+    if ((Micro_mouse_DW.obj_e.isInitialized == 1) &&
+        Micro_mouse_DW.obj_e.isSetupComplete) {
+      disableCounter(Micro_mouse_DW.obj_e.TimerHandle);
+      disableTimerInterrupts(Micro_mouse_DW.obj_e.TimerHandle, 0);
+      disableTimerChannel1(Micro_mouse_DW.obj_e.TimerHandle, ENABLE_CH);
     }
   }
 
-  /* End of Terminate for MATLABSystem: '<S147>/PWM Output' */
-  /* Terminate for MATLABSystem: '<S130>/PWM Output' */
-  if (!Micro_mouse_DW.obj_g.matlabCodegenIsDeleted) {
-    Micro_mouse_DW.obj_g.matlabCodegenIsDeleted = true;
-    if ((Micro_mouse_DW.obj_g.isInitialized == 1) &&
-        Micro_mouse_DW.obj_g.isSetupComplete) {
-      disableCounter(Micro_mouse_DW.obj_g.TimerHandle);
-      disableTimerInterrupts(Micro_mouse_DW.obj_g.TimerHandle, 0);
-      disableTimerChannel1(Micro_mouse_DW.obj_g.TimerHandle, ENABLE_CH);
-    }
+  /* End of Terminate for MATLABSystem: '<S155>/PWM Output' */
+
+  /* Terminate for MATLABSystem: '<Root>/I2C Controller Write' */
+  if (!Micro_mouse_DW.obj_o.matlabCodegenIsDeleted) {
+    Micro_mouse_DW.obj_o.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S130>/PWM Output' */
-  /* Terminate for MATLABSystem: '<Root>/Lowpass Filter' */
+  /* End of Terminate for MATLABSystem: '<Root>/I2C Controller Write' */
+
+  /* Terminate for MATLABSystem: '<S16>/Analog to Digital Converter' */
   if (!Micro_mouse_DW.obj.matlabCodegenIsDeleted) {
     Micro_mouse_DW.obj.matlabCodegenIsDeleted = true;
     if ((Micro_mouse_DW.obj.isInitialized == 1) &&
         Micro_mouse_DW.obj.isSetupComplete) {
-      if (Micro_mouse_DW.obj.FilterObj->isInitialized == 1) {
-        Micro_mouse_DW.obj.FilterObj->isInitialized = 2;
-      }
-
-      Micro_mouse_DW.obj.NumChannels = -1;
+      ADC_Handle_Deinit(Micro_mouse_DW.obj.ADCHandle, ADC_DMA_INTERRUPT_MODE, 1);
     }
   }
 
-  /* End of Terminate for MATLABSystem: '<Root>/Lowpass Filter' */
+  /* End of Terminate for MATLABSystem: '<S16>/Analog to Digital Converter' */
+
+  /* Terminate for S-Function (fcgen): '<Root>/Function-Call Generator' incorporates:
+   *  SubSystem: '<Root>/Function-Call Subsystem'
+   */
+  /* Terminate for MATLABSystem: '<S4>/I2C Controller Read' */
+  if (!Micro_mouse_DW.obj_d.matlabCodegenIsDeleted) {
+    Micro_mouse_DW.obj_d.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S4>/I2C Controller Read' */
+
+  /* Terminate for MATLABSystem: '<S4>/I2C Controller Write' */
+  if (!Micro_mouse_DW.obj_a.matlabCodegenIsDeleted) {
+    Micro_mouse_DW.obj_a.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S4>/I2C Controller Write' */
+  /* End of Terminate for S-Function (fcgen): '<Root>/Function-Call Generator' */
 }
 
 void Micro_mouse_configure_interrupts(void)
 {
+  /* Register interrupt service routine */
+  MW_NVIC_ConfigureIRQ(38,&EXTI9_5_IRQHandler,2);
+  MW_NVIC_EnableIRQ(38);
+
   /* Register interrupt service routine */
   MW_NVIC_ConfigureIRQ(24,&EXTI3_IRQHandler,2);
   MW_NVIC_EnableIRQ(24);
@@ -716,7 +640,40 @@ void Micro_mouse_configure_interrupts(void)
   MW_NVIC_EnableIRQ(21);
 }
 
-/* Hardware Interrupt Block: '<S126>/Hardware Interrupt' */
+/* Hardware Interrupt Block: '<S10>/Hardware Interrupt' */
+void EXTI9_5_IRQHandler(void)
+{
+  /* Event: EXTI5 Event */
+  /* Check event EXTI5 Event occurred */
+  if (0 != ((0 != LL_EXTI_IsEnabledIT_0_31(LL_EXTI_LINE_5)) && (0 !=
+        LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_5)))) {
+    /* Clear occurred EXTI5 Event event */
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_5);
+    if (1 == runModel) {
+      {
+        /* S-Function (HardwareInterrupt_sfun): '<S10>/Hardware Interrupt' */
+
+        /* Output and update for function-call system: '<Root>/Triggered Subsystem' */
+
+        /* UnitDelay: '<S8>/Unit Delay' */
+        Micro_mouse_B.UnitDelay_e = Micro_mouse_DW.UnitDelay_DSTATE_i;
+
+        /* Update for UnitDelay: '<S8>/Unit Delay' incorporates:
+         *  Constant: '<S8>/Constant'
+         *  Sum: '<S8>/Sum4'
+         */
+        Micro_mouse_DW.UnitDelay_DSTATE_i = Micro_mouse_B.UnitDelay_e + 1.0;
+
+        /* End of Outputs for S-Function (HardwareInterrupt_sfun): '<S10>/Hardware Interrupt' */
+      }
+    }
+  }
+
+  __ISB();
+  __DSB();
+}
+
+/* Hardware Interrupt Block: '<S134>/Hardware Interrupt' */
 void EXTI3_IRQHandler(void)
 {
   /* Event: EXTI3 Event */
@@ -727,30 +684,26 @@ void EXTI3_IRQHandler(void)
     LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_3);
     if (1 == runModel) {
       {
-        /* Reset subsysRan breadcrumbs */
-        srClearBC(Micro_mouse_DW.TriggeredSubsystem_SubsysRanB_j);
+        /* S-Function (HardwareInterrupt_sfun): '<S134>/Hardware Interrupt' */
 
-        /* S-Function (HardwareInterrupt_sfun): '<S126>/Hardware Interrupt' */
-
-        /* Output and update for function-call system: '<S12>/Triggered Subsystem' */
+        /* Output and update for function-call system: '<S23>/Triggered Subsystem' */
         {
           int32_T tmp;
           uint32_T pinReadLoc;
           uint32_T pinReadLoc_p;
-          Micro_mouse_M->Timing.clockTick3 = Micro_mouse_M->Timing.clockTick0;
 
-          /* MATLABSystem: '<S135>/Digital Port Read' */
+          /* MATLABSystem: '<S143>/Digital Port Read' */
           pinReadLoc = LL_GPIO_ReadInputPort(GPIOB);
 
-          /* MATLABSystem: '<S137>/Digital Port Read' */
+          /* MATLABSystem: '<S145>/Digital Port Read' */
           pinReadLoc_p = LL_GPIO_ReadInputPort(GPIOB);
 
-          /* UnitDelay: '<S124>/Unit Delay' */
-          Micro_mouse_B.UnitDelay_j = Micro_mouse_DW.UnitDelay_DSTATE_e;
+          /* UnitDelay: '<S132>/Unit Delay' */
+          Micro_mouse_B.UnitDelay_n = Micro_mouse_DW.UnitDelay_DSTATE_o;
 
-          /* MATLAB Function: '<S124>/MATLAB Function' incorporates:
-           *  MATLABSystem: '<S135>/Digital Port Read'
-           *  MATLABSystem: '<S137>/Digital Port Read'
+          /* MATLAB Function: '<S132>/MATLAB Function' incorporates:
+           *  MATLABSystem: '<S143>/Digital Port Read'
+           *  MATLABSystem: '<S145>/Digital Port Read'
            * */
           if (((pinReadLoc & 8U) != 0U) == ((pinReadLoc_p & 16U) != 0U)) {
             tmp = 1;
@@ -758,21 +711,16 @@ void EXTI3_IRQHandler(void)
             tmp = -1;
           }
 
-          /* Update for UnitDelay: '<S124>/Unit Delay' incorporates:
-           *  MATLAB Function: '<S124>/MATLAB Function'
-           *  Sum: '<S124>/Sum'
+          /* Update for UnitDelay: '<S132>/Unit Delay' incorporates:
+           *  MATLAB Function: '<S132>/MATLAB Function'
+           *  Sum: '<S132>/Sum'
            */
-          Micro_mouse_DW.UnitDelay_DSTATE_e = (real_T)tmp +
-            Micro_mouse_B.UnitDelay_j;
-          Micro_mouse_DW.TriggeredSubsystem_SubsysRanB_j = 4;
+          Micro_mouse_DW.UnitDelay_DSTATE_o = (real_T)tmp +
+            Micro_mouse_B.UnitDelay_n;
         }
 
-        /* End of Outputs for S-Function (HardwareInterrupt_sfun): '<S126>/Hardware Interrupt' */
+        /* End of Outputs for S-Function (HardwareInterrupt_sfun): '<S134>/Hardware Interrupt' */
       }
-
-      currentTime = (extmodeSimulationTime_T) ((Micro_mouse_M->Timing.clockTick3)
-        * 0.001);
-      extmodeEvent(3,currentTime);
     }
   }
 
@@ -780,7 +728,7 @@ void EXTI3_IRQHandler(void)
   __DSB();
 }
 
-/* Hardware Interrupt Block: '<S143>/Hardware Interrupt' */
+/* Hardware Interrupt Block: '<S151>/Hardware Interrupt' */
 void EXTI0_IRQHandler(void)
 {
   /* Event: EXTI0 Event */
@@ -791,30 +739,26 @@ void EXTI0_IRQHandler(void)
     LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_0);
     if (1 == runModel) {
       {
-        /* Reset subsysRan breadcrumbs */
-        srClearBC(Micro_mouse_DW.TriggeredSubsystem_SubsysRanBC);
+        /* S-Function (HardwareInterrupt_sfun): '<S151>/Hardware Interrupt' */
 
-        /* S-Function (HardwareInterrupt_sfun): '<S143>/Hardware Interrupt' */
-
-        /* Output and update for function-call system: '<S13>/Triggered Subsystem' */
+        /* Output and update for function-call system: '<S24>/Triggered Subsystem' */
         {
           int32_T tmp;
           uint32_T pinReadLoc;
           uint32_T pinReadLoc_p;
-          Micro_mouse_M->Timing.clockTick4 = Micro_mouse_M->Timing.clockTick0;
 
-          /* MATLABSystem: '<S152>/Digital Port Read' */
+          /* MATLABSystem: '<S160>/Digital Port Read' */
           pinReadLoc = LL_GPIO_ReadInputPort(GPIOB);
 
-          /* MATLABSystem: '<S154>/Digital Port Read' */
+          /* MATLABSystem: '<S162>/Digital Port Read' */
           pinReadLoc_p = LL_GPIO_ReadInputPort(GPIOB);
 
-          /* UnitDelay: '<S141>/Unit Delay' */
+          /* UnitDelay: '<S149>/Unit Delay' */
           Micro_mouse_B.UnitDelay = Micro_mouse_DW.UnitDelay_DSTATE;
 
-          /* MATLAB Function: '<S141>/MATLAB Function' incorporates:
-           *  MATLABSystem: '<S152>/Digital Port Read'
-           *  MATLABSystem: '<S154>/Digital Port Read'
+          /* MATLAB Function: '<S149>/MATLAB Function' incorporates:
+           *  MATLABSystem: '<S160>/Digital Port Read'
+           *  MATLABSystem: '<S162>/Digital Port Read'
            * */
           if (((pinReadLoc & 1U) != 0U) == ((pinReadLoc_p & 2U) != 0U)) {
             tmp = -1;
@@ -822,21 +766,16 @@ void EXTI0_IRQHandler(void)
             tmp = 1;
           }
 
-          /* Update for UnitDelay: '<S141>/Unit Delay' incorporates:
-           *  MATLAB Function: '<S141>/MATLAB Function'
-           *  Sum: '<S141>/Sum'
+          /* Update for UnitDelay: '<S149>/Unit Delay' incorporates:
+           *  MATLAB Function: '<S149>/MATLAB Function'
+           *  Sum: '<S149>/Sum'
            */
           Micro_mouse_DW.UnitDelay_DSTATE = (real_T)tmp +
             Micro_mouse_B.UnitDelay;
-          Micro_mouse_DW.TriggeredSubsystem_SubsysRanBC = 4;
         }
 
-        /* End of Outputs for S-Function (HardwareInterrupt_sfun): '<S143>/Hardware Interrupt' */
+        /* End of Outputs for S-Function (HardwareInterrupt_sfun): '<S151>/Hardware Interrupt' */
       }
-
-      currentTime = (extmodeSimulationTime_T) ((Micro_mouse_M->Timing.clockTick4)
-        * 0.001);
-      extmodeEvent(4,currentTime);
     }
   }
 
@@ -846,6 +785,7 @@ void EXTI0_IRQHandler(void)
 
 void Micro_mouse_unconfigure_interrupts (void)
 {
+  MW_NVIC_DisableIRQ(38);
   MW_NVIC_DisableIRQ(24);
   MW_NVIC_DisableIRQ(21);
 }

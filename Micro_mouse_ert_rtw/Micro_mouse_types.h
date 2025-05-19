@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.47
+ * Model version                  : 1.62
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue May  6 15:09:43 2025
+ * C/C++ source code generated on : Mon May 19 11:43:17 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,6 +20,7 @@
 #ifndef Micro_mouse_types_h_
 #define Micro_mouse_types_h_
 #include "rtwtypes.h"
+#include "mw_stm32_i2c_ll.h"
 #include "stm_timer_ll.h"
 #include "stm_adc_ll.h"
 #ifndef struct_tag_GSKovyH6bCN42HwFzVB4DE
@@ -39,9 +40,6 @@ typedef struct tag_GSKovyH6bCN42HwFzVB4DE stm32cube_blocks_DigitalPortR_T;
 
 #endif                             /* typedef_stm32cube_blocks_DigitalPortR_T */
 
-/* Custom Type definition for MATLABSystem: '<S120>/Analog to Digital Converter' */
-#include "stm_adc_ll.h"
-#include "stm_adc_ll.h"
 #ifndef struct_tag_tsKyPuhWUdS8zBSeRGR2aC
 #define struct_tag_tsKyPuhWUdS8zBSeRGR2aC
 
@@ -59,7 +57,57 @@ typedef struct tag_tsKyPuhWUdS8zBSeRGR2aC stm32cube_blocks_DigitalPortW_T;
 
 #endif                             /* typedef_stm32cube_blocks_DigitalPortW_T */
 
-/* Custom Type definition for MATLABSystem: '<S147>/PWM Output' */
+/* Custom Type definition for MATLABSystem: '<Root>/I2C Controller Write' */
+#include "mw_stm32_i2c_ll.h"
+#include "mw_stm32_i2c_ll.h"
+#include "mw_stm32_i2c_ll.h"
+#ifndef struct_tag_pu2p5c8LXP2BpmWuMrlbBG
+#define struct_tag_pu2p5c8LXP2BpmWuMrlbBG
+
+struct tag_pu2p5c8LXP2BpmWuMrlbBG
+{
+  boolean_T matlabCodegenIsDeleted;
+  int32_T isInitialized;
+  boolean_T isSetupComplete;
+  STM32_I2C_Struct_T * MW_I2C_HANDLE;
+  STM32_I2C_Struct_T MW_I2C_BlockStruct;
+};
+
+#endif                                 /* struct_tag_pu2p5c8LXP2BpmWuMrlbBG */
+
+#ifndef typedef_stm32cube_blocks_I2CControlle_T
+#define typedef_stm32cube_blocks_I2CControlle_T
+
+typedef struct tag_pu2p5c8LXP2BpmWuMrlbBG stm32cube_blocks_I2CControlle_T;
+
+#endif                             /* typedef_stm32cube_blocks_I2CControlle_T */
+
+#ifndef struct_tag_WKZZxaSTc4IMRsLrLiAxdC
+#define struct_tag_WKZZxaSTc4IMRsLrLiAxdC
+
+struct tag_WKZZxaSTc4IMRsLrLiAxdC
+{
+  boolean_T matlabCodegenIsDeleted;
+  int32_T isInitialized;
+  boolean_T isSetupComplete;
+  STM32_I2C_Struct_T * MW_I2C_HANDLE;
+  STM32_I2C_Struct_T MW_I2C_BlockStruct;
+};
+
+#endif                                 /* struct_tag_WKZZxaSTc4IMRsLrLiAxdC */
+
+#ifndef typedef_stm32cube_blocks_I2CControl_c_T
+#define typedef_stm32cube_blocks_I2CControl_c_T
+
+typedef struct tag_WKZZxaSTc4IMRsLrLiAxdC stm32cube_blocks_I2CControl_c_T;
+
+#endif                             /* typedef_stm32cube_blocks_I2CControl_c_T */
+
+/* Custom Type definition for MATLABSystem: '<S16>/Analog to Digital Converter' */
+#include "stm_adc_ll.h"
+#include "stm_adc_ll.h"
+
+/* Custom Type definition for MATLABSystem: '<S155>/PWM Output' */
 #include "stm_timer_ll.h"
 #include "stm_timer_ll.h"
 #ifndef struct_tag_0RzKA0TA5eXyA1b3sjyvMG
@@ -82,48 +130,6 @@ typedef struct tag_0RzKA0TA5eXyA1b3sjyvMG stm32cube_blocks_PWMOutput_Mi_T;
 
 #endif                             /* typedef_stm32cube_blocks_PWMOutput_Mi_T */
 
-#ifndef struct_tag_3OAw49hDQooKvXqEqjPgYE
-#define struct_tag_3OAw49hDQooKvXqEqjPgYE
-
-struct tag_3OAw49hDQooKvXqEqjPgYE
-{
-  int32_T S0_isInitialized;
-  real_T W0_states[38];
-  real_T W1_simContextBuf[76];
-  real_T W2_simRevCoeff[39];
-  int32_T W3_halideSimTBBGrainSize;
-  real_T P0_InitialStates;
-  real_T P1_Coefficients[39];
-};
-
-#endif                                 /* struct_tag_3OAw49hDQooKvXqEqjPgYE */
-
-#ifndef typedef_b_dsp_FIRFilter_0_Micro_mouse_T
-#define typedef_b_dsp_FIRFilter_0_Micro_mouse_T
-
-typedef struct tag_3OAw49hDQooKvXqEqjPgYE b_dsp_FIRFilter_0_Micro_mouse_T;
-
-#endif                             /* typedef_b_dsp_FIRFilter_0_Micro_mouse_T */
-
-#ifndef struct_tag_pwPXbUUDo2fDZ0SiTl22oC
-#define struct_tag_pwPXbUUDo2fDZ0SiTl22oC
-
-struct tag_pwPXbUUDo2fDZ0SiTl22oC
-{
-  int32_T isInitialized;
-  boolean_T isSetupComplete;
-  b_dsp_FIRFilter_0_Micro_mouse_T cSFunObject;
-};
-
-#endif                                 /* struct_tag_pwPXbUUDo2fDZ0SiTl22oC */
-
-#ifndef typedef_b_dspcodegen_FIRFilter_Micro__T
-#define typedef_b_dspcodegen_FIRFilter_Micro__T
-
-typedef struct tag_pwPXbUUDo2fDZ0SiTl22oC b_dspcodegen_FIRFilter_Micro__T;
-
-#endif                             /* typedef_b_dspcodegen_FIRFilter_Micro__T */
-
 #ifndef struct_tag_tBisVK7smkqUfksMe4Md0
 #define struct_tag_tBisVK7smkqUfksMe4Md0
 
@@ -144,46 +150,6 @@ struct tag_tBisVK7smkqUfksMe4Md0
 typedef struct tag_tBisVK7smkqUfksMe4Md0 stm32cube_blocks_AnalogInput__T;
 
 #endif                             /* typedef_stm32cube_blocks_AnalogInput__T */
-
-#ifndef struct_tag_BlgwLpgj2bjudmbmVKWwDE
-#define struct_tag_BlgwLpgj2bjudmbmVKWwDE
-
-struct tag_BlgwLpgj2bjudmbmVKWwDE
-{
-  uint32_T f1[8];
-};
-
-#endif                                 /* struct_tag_BlgwLpgj2bjudmbmVKWwDE */
-
-#ifndef typedef_cell_wrap_Micro_mouse_T
-#define typedef_cell_wrap_Micro_mouse_T
-
-typedef struct tag_BlgwLpgj2bjudmbmVKWwDE cell_wrap_Micro_mouse_T;
-
-#endif                                 /* typedef_cell_wrap_Micro_mouse_T */
-
-#ifndef struct_tag_KnCFN7D4v4EaxfgZPBAfxB
-#define struct_tag_KnCFN7D4v4EaxfgZPBAfxB
-
-struct tag_KnCFN7D4v4EaxfgZPBAfxB
-{
-  boolean_T matlabCodegenIsDeleted;
-  int32_T isInitialized;
-  boolean_T isSetupComplete;
-  cell_wrap_Micro_mouse_T inputVarSize;
-  int32_T NumChannels;
-  b_dspcodegen_FIRFilter_Micro__T *FilterObj;
-  b_dspcodegen_FIRFilter_Micro__T _pobj0;
-};
-
-#endif                                 /* struct_tag_KnCFN7D4v4EaxfgZPBAfxB */
-
-#ifndef typedef_dsp_simulink_LowpassFilter_Mi_T
-#define typedef_dsp_simulink_LowpassFilter_Mi_T
-
-typedef struct tag_KnCFN7D4v4EaxfgZPBAfxB dsp_simulink_LowpassFilter_Mi_T;
-
-#endif                             /* typedef_dsp_simulink_LowpassFilter_Mi_T */
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_Micro_mouse_T RT_MODEL_Micro_mouse_T;
