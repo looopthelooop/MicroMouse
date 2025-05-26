@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.62
+ * Model version                  : 1.68
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon May 19 11:43:17 2025
+ * C/C++ source code generated on : Mon May 26 12:07:39 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,7 +20,6 @@
 #ifndef Micro_mouse_types_h_
 #define Micro_mouse_types_h_
 #include "rtwtypes.h"
-#include "mw_stm32_i2c_ll.h"
 #include "stm_timer_ll.h"
 #include "stm_adc_ll.h"
 #ifndef struct_tag_GSKovyH6bCN42HwFzVB4DE
@@ -57,57 +56,11 @@ typedef struct tag_tsKyPuhWUdS8zBSeRGR2aC stm32cube_blocks_DigitalPortW_T;
 
 #endif                             /* typedef_stm32cube_blocks_DigitalPortW_T */
 
-/* Custom Type definition for MATLABSystem: '<Root>/I2C Controller Write' */
-#include "mw_stm32_i2c_ll.h"
-#include "mw_stm32_i2c_ll.h"
-#include "mw_stm32_i2c_ll.h"
-#ifndef struct_tag_pu2p5c8LXP2BpmWuMrlbBG
-#define struct_tag_pu2p5c8LXP2BpmWuMrlbBG
-
-struct tag_pu2p5c8LXP2BpmWuMrlbBG
-{
-  boolean_T matlabCodegenIsDeleted;
-  int32_T isInitialized;
-  boolean_T isSetupComplete;
-  STM32_I2C_Struct_T * MW_I2C_HANDLE;
-  STM32_I2C_Struct_T MW_I2C_BlockStruct;
-};
-
-#endif                                 /* struct_tag_pu2p5c8LXP2BpmWuMrlbBG */
-
-#ifndef typedef_stm32cube_blocks_I2CControlle_T
-#define typedef_stm32cube_blocks_I2CControlle_T
-
-typedef struct tag_pu2p5c8LXP2BpmWuMrlbBG stm32cube_blocks_I2CControlle_T;
-
-#endif                             /* typedef_stm32cube_blocks_I2CControlle_T */
-
-#ifndef struct_tag_WKZZxaSTc4IMRsLrLiAxdC
-#define struct_tag_WKZZxaSTc4IMRsLrLiAxdC
-
-struct tag_WKZZxaSTc4IMRsLrLiAxdC
-{
-  boolean_T matlabCodegenIsDeleted;
-  int32_T isInitialized;
-  boolean_T isSetupComplete;
-  STM32_I2C_Struct_T * MW_I2C_HANDLE;
-  STM32_I2C_Struct_T MW_I2C_BlockStruct;
-};
-
-#endif                                 /* struct_tag_WKZZxaSTc4IMRsLrLiAxdC */
-
-#ifndef typedef_stm32cube_blocks_I2CControl_c_T
-#define typedef_stm32cube_blocks_I2CControl_c_T
-
-typedef struct tag_WKZZxaSTc4IMRsLrLiAxdC stm32cube_blocks_I2CControl_c_T;
-
-#endif                             /* typedef_stm32cube_blocks_I2CControl_c_T */
-
-/* Custom Type definition for MATLABSystem: '<S16>/Analog to Digital Converter' */
+/* Custom Type definition for MATLABSystem: '<S17>/Analog to Digital Converter' */
 #include "stm_adc_ll.h"
 #include "stm_adc_ll.h"
 
-/* Custom Type definition for MATLABSystem: '<S155>/PWM Output' */
+/* Custom Type definition for MATLABSystem: '<S156>/PWM Output' */
 #include "stm_timer_ll.h"
 #include "stm_timer_ll.h"
 #ifndef struct_tag_0RzKA0TA5eXyA1b3sjyvMG

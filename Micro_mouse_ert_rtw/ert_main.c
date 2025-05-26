@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.62
+ * Model version                  : 1.68
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon May 19 11:43:17 2025
+ * C/C++ source code generated on : Mon May 26 12:07:39 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -19,70 +19,27 @@
 
 #include "Micro_mouse.h"
 #include "rtwtypes.h"
+#include "xcp.h"
+#include "ext_mode.h"
 #include "MW_target_hardware_resources.h"
 
 volatile int IsrOverrun = 0;
-boolean_T isRateRunning[2] = { 0, 0 };
-
-boolean_T need2runFlags[2] = { 0, 0 };
-
+static boolean_T OverrunFlag = 0;
 void rt_OneStep(void)
 {
-  boolean_T eventFlags[2];
-
-  /* Check base rate for overrun */
-  if (isRateRunning[0]++) {
+  /* Check for overrun. Protect OverrunFlag against preemption */
+  if (OverrunFlag++) {
     IsrOverrun = 1;
-    isRateRunning[0]--;                /* allow future iterations to succeed*/
+    OverrunFlag--;
     return;
   }
 
-  /*
-   * For a bare-board target (i.e., no operating system), the rates
-   * that execute this base step are buffered locally to allow for
-   * overlapping preemption.
-   */
-  Micro_mouse_SetEventsForThisBaseStep(eventFlags);
   __enable_irq();
-  Micro_mouse_step0();
+  Micro_mouse_step();
 
   /* Get model outputs here */
   __disable_irq();
-  isRateRunning[0]--;
-  if (eventFlags[1]) {
-    if (need2runFlags[1]++) {
-      IsrOverrun = 1;
-      need2runFlags[1]--;              /* allow future iterations to succeed*/
-      return;
-    }
-  }
-
-  if (need2runFlags[1]) {
-    if (isRateRunning[1]) {
-      /* Yield to higher priority*/
-      return;
-    }
-
-    isRateRunning[1]++;
-    __enable_irq();
-
-    /* Step the model for subrate "1" */
-    switch (1)
-    {
-     case 1 :
-      Micro_mouse_step1();
-
-      /* Get model outputs here */
-      break;
-
-     default :
-      break;
-    }
-
-    __disable_irq();
-    need2runFlags[1]--;
-    isRateRunning[1]--;
-  }
+  OverrunFlag--;
 }
 
 volatile boolean_T stopRequested;
@@ -91,6 +48,7 @@ int main(int argc, char **argv)
 {
   float modelBaseRate = 0.02;
   float systemClock = 32.0;
+  extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
 
   /* Initialize variables */
   stopRequested = false;
@@ -118,17 +76,53 @@ int main(int argc, char **argv)
   MX_ADC1_Init();
   MX_TIM16_Init();
   rtmSetErrorStatus(Micro_mouse_M, 0);
+
+  /* Parse External Mode command line arguments */
+  errorCode = extmodeParseArgs(0, NULL);
+  if (errorCode != EXTMODE_SUCCESS) {
+    return (errorCode);
+  }
+
   Micro_mouse_configure_interrupts();
   Micro_mouse_initialize();
   __disable_irq();
+  __enable_irq();
+
+  /* External Mode initialization */
+  errorCode = extmodeInit(Micro_mouse_M->extModeInfo, &rtmGetTFinal
+    (Micro_mouse_M));
+  if (errorCode != EXTMODE_SUCCESS) {
+    /* Code to handle External Mode initialization errors
+       may be added here */
+  }
+
+  if (errorCode == EXTMODE_SUCCESS) {
+    /* Wait until a Start or Stop Request has been received from the Host */
+    extmodeWaitForHostRequest(EXTMODE_WAIT_FOREVER);
+    if (extmodeStopRequested()) {
+      rtmSetStopRequested(Micro_mouse_M, true);
+    }
+  }
+
+  __disable_irq();
   ARMCM_SysTick_Config(modelBaseRate);
   runModel =
-    rtmGetErrorStatus(Micro_mouse_M) == (NULL);
+    !extmodeSimulationComplete()&& !extmodeStopRequested()&&
+    !rtmGetStopRequested(Micro_mouse_M);
   __enable_irq();
   __enable_irq();
   while (runModel) {
+    /* Run External Mode background activities */
+    errorCode = extmodeBackgroundRun();
+    if (errorCode != EXTMODE_SUCCESS && errorCode != EXTMODE_EMPTY) {
+      /* Code to handle External Mode background task errors
+         may be added here */
+    }
+
     stopRequested = !(
-                      rtmGetErrorStatus(Micro_mouse_M) == (NULL));
+                      !extmodeSimulationComplete()&& !extmodeStopRequested()&&
+                      !rtmGetStopRequested(Micro_mouse_M));
+    runModel = !(stopRequested);
     if (stopRequested) {
       SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
     }
@@ -138,6 +132,9 @@ int main(int argc, char **argv)
 
   /* Terminate model */
   Micro_mouse_terminate();
+
+  /* External Mode reset */
+  extmodeReset();
 
 #if !defined(MW_FREERTOS) && !defined(USE_RTX)
 

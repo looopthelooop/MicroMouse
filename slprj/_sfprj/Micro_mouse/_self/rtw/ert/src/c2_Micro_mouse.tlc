@@ -7,11 +7,109 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   0 \
+    NumChartData   14 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
       IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "doneDoubleBufferReInit"\
+      Description  "DoubleBufferInitCheck"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "i"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:187-188"\
+    }\
+    ChartData {\
+      Name         "i_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:187-188"\
+    }\
+    ChartData {\
+      Name         "j"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:189-190"\
+    }\
+    ChartData {\
+      Name         "j_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:189-190"\
+    }\
+    ChartData {\
+      Name         "dir"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:191-194"\
+    }\
+    ChartData {\
+      Name         "dir_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:191-194"\
+    }\
+    ChartData {\
+      Name         "prevL"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:195-200"\
+    }\
+    ChartData {\
+      Name         "prevL_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:195-200"\
+    }\
+    ChartData {\
+      Name         "prevR"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:201-206"\
+    }\
+    ChartData {\
+      Name         "prevR_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:201-206"\
+    }\
+    ChartData {\
+      Name         "threshold"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:207-216"\
+    }\
+    ChartData {\
+      Name         "threshold_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Micro_mouse:652:207-216"\
     }\
   }
   %return ChartDataElements
