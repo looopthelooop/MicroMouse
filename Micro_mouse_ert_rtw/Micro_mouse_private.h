@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Micro_mouse'.
  *
- * Model version                  : 1.68
+ * Model version                  : 1.76
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Mon May 26 12:07:39 2025
+ * C/C++ source code generated on : Fri Jun  6 13:51:01 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -26,20 +26,8 @@
 #include "rtw_solver.h"
 
 /* Private macros used by the generated code to access rtModel */
-#ifndef rtmIsMajorTimeStep
-#define rtmIsMajorTimeStep(rtm)        (((rtm)->Timing.simTimeStep) == MAJOR_TIME_STEP)
-#endif
-
-#ifndef rtmIsMinorTimeStep
-#define rtmIsMinorTimeStep(rtm)        (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
-#endif
-
 #ifndef rtmSetTFinal
 #define rtmSetTFinal(rtm, val)         ((rtm)->Timing.tFinal = (val))
-#endif
-
-#ifndef rtmSetTPtr
-#define rtmSetTPtr(rtm, val)           ((rtm)->Timing.t = (val))
 #endif
 
 #ifndef UCHAR_MAX
