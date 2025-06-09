@@ -1,0 +1,2 @@
+syscalls.o: \
+ C:/Repos/MicroMouse/simulink/STM32CubeIDE/Application/User/Core/syscalls.c
