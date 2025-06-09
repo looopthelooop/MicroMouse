@@ -1,0 +1,2876 @@
+Archive member included to satisfy reference by file (symbol)
+
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o (exit)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o) (__stdio_exit_handler)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o) (_fwalk_sglue)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o) (__sread)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o (memset)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o) (_close_r)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o) (errno)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o) (_impure_ptr)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o) (_lseek_r)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o) (_read_r)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o) (_write_r)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-errno.o)
+                              syscalls.o (__errno)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o (__libc_init_array)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+                              stm_timer_ll.o (memcpy)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o) (_free_r)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o) (_malloc_r)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o) (__malloc_lock)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o) (_fflush_r)
+C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+                              C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o) (_sbrk_r)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .rodata.all_implied_fbits
+                0x00000000       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .data.__dso_handle
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text          0x00000000       0x7c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.extab     0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.exidx     0x00000000       0x10 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+ .debug_line_str
+                0x00000000       0xd6 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.attributes
+                0x00000000       0x20 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+ .text          0x00000000        0x0 stm_timer_ll.o
+ .data          0x00000000        0x0 stm_timer_ll.o
+ .bss           0x00000000        0x0 stm_timer_ll.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 stm_timer_ll.o
+ .text.LL_DMA_EnableChannel
+                0x00000000       0x44 stm_timer_ll.o
+ .text.LL_DMA_DisableChannel
+                0x00000000       0x44 stm_timer_ll.o
+ .text.LL_DMA_GetMode
+                0x00000000       0x34 stm_timer_ll.o
+ .text.LL_DMA_SetDataLength
+                0x00000000       0x4c stm_timer_ll.o
+ .text.LL_DMA_GetDataLength
+                0x00000000       0x30 stm_timer_ll.o
+ .text.LL_DMA_ConfigAddresses
+                0x00000000       0x7c stm_timer_ll.o
+ .text.LL_DMA_EnableIT_TC
+                0x00000000       0x44 stm_timer_ll.o
+ .text.LL_DMA_IsEnabledIT_TC
+                0x00000000       0x3c stm_timer_ll.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 stm_timer_ll.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 stm_timer_ll.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 stm_timer_ll.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 stm_timer_ll.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 stm_timer_ll.o
+ .text.LL_TIM_GetCounter
+                0x00000000       0x18 stm_timer_ll.o
+ .text.LL_TIM_CC_SetDMAReqTrigger
+                0x00000000       0x26 stm_timer_ll.o
+ .text.LL_TIM_IC_GetCaptureCH1
+                0x00000000       0x18 stm_timer_ll.o
+ .text.LL_TIM_IC_GetCaptureCH2
+                0x00000000       0x18 stm_timer_ll.o
+ .text.LL_TIM_IC_GetCaptureCH3
+                0x00000000       0x18 stm_timer_ll.o
+ .text.LL_TIM_IC_GetCaptureCH4
+                0x00000000       0x18 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC1
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC1
+                0x00000000       0x26 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC2
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC2
+                0x00000000       0x26 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC3
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC3
+                0x00000000       0x26 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC4
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC4
+                0x00000000       0x26 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC1OVR
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC1OVR
+                0x00000000       0x28 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC2OVR
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC2OVR
+                0x00000000       0x28 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC3OVR
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC3OVR
+                0x00000000       0x28 stm_timer_ll.o
+ .text.LL_TIM_ClearFlag_CC4OVR
+                0x00000000       0x1c stm_timer_ll.o
+ .text.LL_TIM_IsActiveFlag_CC4OVR
+                0x00000000       0x28 stm_timer_ll.o
+ .text.LL_TIM_EnableDMAReq_CC1
+                0x00000000       0x20 stm_timer_ll.o
+ .text.LL_TIM_EnableDMAReq_CC2
+                0x00000000       0x20 stm_timer_ll.o
+ .text.LL_TIM_EnableDMAReq_CC3
+                0x00000000       0x20 stm_timer_ll.o
+ .text.LL_TIM_EnableDMAReq_CC4
+                0x00000000       0x20 stm_timer_ll.o
+ .text.TIM_IsEnabledDMAITTransferComplete
+                0x00000000       0xb6 stm_timer_ll.o
+ .text.TIM_IsActiveFlag_CC1
+                0x00000000       0x38 stm_timer_ll.o
+ .text.TIM_IsActiveFlag_CC2
+                0x00000000       0x38 stm_timer_ll.o
+ .text.TIM_IsActiveFlag_CC3
+                0x00000000       0x38 stm_timer_ll.o
+ .text.TIM_IsActiveFlag_CC4
+                0x00000000       0x38 stm_timer_ll.o
+ .text.enableTimerChannel2
+                0x00000000       0x84 stm_timer_ll.o
+ .text.disableTimerChannel2
+                0x00000000       0x84 stm_timer_ll.o
+ .text.enableTimerChannel3
+                0x00000000       0x8c stm_timer_ll.o
+ .text.disableTimerChannel3
+                0x00000000       0x8c stm_timer_ll.o
+ .text.enableTimerChannel4
+                0x00000000       0x28 stm_timer_ll.o
+ .text.disableTimerChannel4
+                0x00000000       0x28 stm_timer_ll.o
+ .text.configureDMAForChannel
+                0x00000000      0x1a8 stm_timer_ll.o
+ .text.checkFrequencyAndDutyCycleLimits
+                0x00000000       0x34 stm_timer_ll.o
+ .text.getAvailableDataInTimerBuffer
+                0x00000000       0xa0 stm_timer_ll.o
+ .text.getDataFrom16BitTimerBuffer
+                0x00000000       0x9e stm_timer_ll.o
+ .text.getDataFrom32BitTimerBuffer
+                0x00000000       0x9e stm_timer_ll.o
+ .text.readDataFromTimerBuffer
+                0x00000000       0x86 stm_timer_ll.o
+ .text.getCCR1RegisterValueDMAMode
+                0x00000000       0x2c stm_timer_ll.o
+ .text.getCCR2RegisterValueDMAMode
+                0x00000000       0x2c stm_timer_ll.o
+ .text.getCCR3RegisterValueDMAMode
+                0x00000000       0x2c stm_timer_ll.o
+ .text.getCCR4RegisterValueDMAMode
+                0x00000000       0x2c stm_timer_ll.o
+ .text.getCCR1RegisterValuePollingMode
+                0x00000000       0x92 stm_timer_ll.o
+ .text.getCCR2RegisterValuePollingMode
+                0x00000000       0x92 stm_timer_ll.o
+ .text.getCCR3RegisterValuePollingMode
+                0x00000000       0x92 stm_timer_ll.o
+ .text.getCCR4RegisterValuePollingMode
+                0x00000000       0x92 stm_timer_ll.o
+ .text.getTimerCounterValue
+                0x00000000       0x1c stm_timer_ll.o
+ .text          0x00000000        0x0 ert_main.o
+ .data          0x00000000        0x0 ert_main.o
+ .bss           0x00000000        0x0 ert_main.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 ert_main.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 ert_main.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 ert_main.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 ert_main.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 ert_main.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 ert_main.o
+ .text          0x00000000        0x0 testing_hardware.o
+ .data          0x00000000        0x0 testing_hardware.o
+ .bss           0x00000000        0x0 testing_hardware.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 testing_hardware.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 testing_hardware.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 testing_hardware.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 testing_hardware.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 testing_hardware.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 testing_hardware.o
+ .text          0x00000000        0x0 overrideHALDelay.o
+ .data          0x00000000        0x0 overrideHALDelay.o
+ .bss           0x00000000        0x0 overrideHALDelay.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 overrideHALDelay.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 overrideHALDelay.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 overrideHALDelay.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 overrideHALDelay.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 overrideHALDelay.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 overrideHALDelay.o
+ .text.HAL_Delay
+                0x00000000       0x2e overrideHALDelay.o
+ .comment       0x00000000       0x45 overrideHALDelay.o
+ .ARM.attributes
+                0x00000000       0x34 overrideHALDelay.o
+ .text          0x00000000        0x0 platform_timer.o
+ .data          0x00000000        0x0 platform_timer.o
+ .bss           0x00000000        0x0 platform_timer.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 platform_timer.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 platform_timer.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 platform_timer.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 platform_timer.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 platform_timer.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 platform_timer.o
+ .bss.timestampInitialized
+                0x00000000        0x4 platform_timer.o
+ .bss.timestampStartTime
+                0x00000000        0x4 platform_timer.o
+ .text.PeriphCommonClock_Config
+                0x00000000       0x10 platform_timer.o
+ .text.getCurrentTimestampInMicros
+                0x00000000       0x40 platform_timer.o
+ .text.returnTimeElapsed
+                0x00000000       0x2c platform_timer.o
+ .comment       0x00000000       0x45 platform_timer.o
+ .ARM.attributes
+                0x00000000       0x34 platform_timer.o
+ .text          0x00000000        0x0 SysTickScheduler.o
+ .data          0x00000000        0x0 SysTickScheduler.o
+ .bss           0x00000000        0x0 SysTickScheduler.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 SysTickScheduler.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 SysTickScheduler.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 SysTickScheduler.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 SysTickScheduler.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 SysTickScheduler.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 SysTickScheduler.o
+ .text.ARMCM_SysTick_Stop
+                0x00000000       0x20 SysTickScheduler.o
+ .text          0x00000000        0x0 m3m4m4f_multitasking.o
+ .data          0x00000000        0x0 m3m4m4f_multitasking.o
+ .bss           0x00000000        0x0 m3m4m4f_multitasking.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 m3m4m4f_multitasking.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 m3m4m4f_multitasking.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 m3m4m4f_multitasking.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 m3m4m4f_multitasking.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 m3m4m4f_multitasking.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 m3m4m4f_multitasking.o
+ .text          0x00000000        0x0 main.o
+ .data          0x00000000        0x0 main.o
+ .bss           0x00000000        0x0 main.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 main.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 main.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 main.o
+ .text          0x00000000        0x0 stm32l4xx_it.o
+ .data          0x00000000        0x0 stm32l4xx_it.o
+ .bss           0x00000000        0x0 stm32l4xx_it.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 stm32l4xx_it.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 stm32l4xx_it.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 stm32l4xx_it.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 stm32l4xx_it.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 stm32l4xx_it.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 stm32l4xx_it.o
+ .text.SVC_Handler
+                0x00000000        0xe stm32l4xx_it.o
+ .text.PendSV_Handler
+                0x00000000        0xe stm32l4xx_it.o
+ .text.SysTick_Handler
+                0x00000000        0xe stm32l4xx_it.o
+ .text          0x00000000        0x0 stm32l4xx_hal_msp.o
+ .data          0x00000000        0x0 stm32l4xx_hal_msp.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_msp.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 stm32l4xx_hal_msp.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 stm32l4xx_hal_msp.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 stm32l4xx_hal_msp.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 stm32l4xx_hal_msp.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 stm32l4xx_hal_msp.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 stm32l4xx_hal_msp.o
+ .text          0x00000000        0x0 stm32l4xx_hal_timebase_tim.o
+ .data          0x00000000        0x0 stm32l4xx_hal_timebase_tim.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_timebase_tim.o
+ .text.HAL_SuspendTick
+                0x00000000       0x24 stm32l4xx_hal_timebase_tim.o
+ .text.HAL_ResumeTick
+                0x00000000       0x24 stm32l4xx_hal_timebase_tim.o
+ .text          0x00000000        0x0 stm32l4xx_ll_utils.o
+ .data          0x00000000        0x0 stm32l4xx_ll_utils.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_utils.o
+ .text.LL_InitTick
+                0x00000000       0x34 stm32l4xx_ll_utils.o
+ .text.LL_RCC_HSE_EnableBypass
+                0x00000000       0x20 stm32l4xx_ll_utils.o
+ .text.LL_RCC_HSE_DisableBypass
+                0x00000000       0x20 stm32l4xx_ll_utils.o
+ .text.LL_RCC_HSE_Enable
+                0x00000000       0x20 stm32l4xx_ll_utils.o
+ .text.LL_RCC_HSE_IsReady
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_RCC_HSI_Enable
+                0x00000000       0x20 stm32l4xx_ll_utils.o
+ .text.LL_RCC_HSI_IsReady
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_RCC_MSI_Enable
+                0x00000000       0x20 stm32l4xx_ll_utils.o
+ .text.LL_RCC_MSI_IsReady
+                0x00000000       0x24 stm32l4xx_ll_utils.o
+ .text.LL_RCC_MSI_IsEnabledRangeSelect
+                0x00000000       0x24 stm32l4xx_ll_utils.o
+ .text.LL_RCC_MSI_GetRange
+                0x00000000       0x1c stm32l4xx_ll_utils.o
+ .text.LL_RCC_MSI_GetRangeAfterStandby
+                0x00000000       0x1c stm32l4xx_ll_utils.o
+ .text.LL_RCC_SetSysClkSource
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_RCC_GetSysClkSource
+                0x00000000       0x1c stm32l4xx_ll_utils.o
+ .text.LL_RCC_SetAHBPrescaler
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_RCC_SetAPB1Prescaler
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_RCC_SetAPB2Prescaler
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_RCC_PLL_Enable
+                0x00000000       0x20 stm32l4xx_ll_utils.o
+ .text.LL_RCC_PLL_IsReady
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_RCC_PLL_ConfigDomain_SYS
+                0x00000000       0x40 stm32l4xx_ll_utils.o
+ .text.LL_RCC_PLL_EnableDomain_SYS
+                0x00000000       0x20 stm32l4xx_ll_utils.o
+ .text.LL_RCC_PLLSAI1_IsReady
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_FLASH_SetLatency
+                0x00000000       0x28 stm32l4xx_ll_utils.o
+ .text.LL_FLASH_GetLatency
+                0x00000000       0x1c stm32l4xx_ll_utils.o
+ .text.LL_PWR_GetRegulVoltageScaling
+                0x00000000       0x1c stm32l4xx_ll_utils.o
+ .text.LL_Init1msTick
+                0x00000000       0x1a stm32l4xx_ll_utils.o
+ .text.LL_mDelay
+                0x00000000       0x50 stm32l4xx_ll_utils.o
+ .text.LL_SetFlashLatency
+                0x00000000       0xe4 stm32l4xx_ll_utils.o
+ .text.LL_PLL_ConfigSystemClock_MSI
+                0x00000000      0x108 stm32l4xx_ll_utils.o
+ .text.LL_PLL_ConfigSystemClock_HSI
+                0x00000000       0x6c stm32l4xx_ll_utils.o
+ .text.LL_PLL_ConfigSystemClock_HSE
+                0x00000000       0x7a stm32l4xx_ll_utils.o
+ .text.UTILS_GetPLLOutputFrequency
+                0x00000000       0x4a stm32l4xx_ll_utils.o
+ .text.UTILS_PLL_IsBusy
+                0x00000000       0x30 stm32l4xx_ll_utils.o
+ .text.UTILS_EnablePLLAndSwitchSystem
+                0x00000000       0xb4 stm32l4xx_ll_utils.o
+ .text          0x00000000        0x0 stm32l4xx_ll_exti.o
+ .data          0x00000000        0x0 stm32l4xx_ll_exti.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DeInit
+                0x00000000       0x64 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_StructInit
+                0x00000000       0x32 stm32l4xx_ll_exti.o
+ .text          0x00000000        0x0 stm32l4xx_hal_tim.o
+ .data          0x00000000        0x0 stm32l4xx_hal_tim.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_DeInit
+                0x00000000       0xb8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_MspDeInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_Start
+                0x00000000       0x98 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_Stop
+                0x00000000       0x4e stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_Stop_IT
+                0x00000000       0x5e stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_Start_DMA
+                0x00000000      0x110 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_Stop_DMA
+                0x00000000       0x64 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_Init
+                0x00000000       0xae stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_DeInit
+                0x00000000       0xb8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_MspInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_MspDeInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_Start
+                0x00000000      0x1bc stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_Stop
+                0x00000000      0x110 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_Start_IT
+                0x00000000      0x258 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_Stop_IT
+                0x00000000      0x1a8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_Start_DMA
+                0x00000000      0x3f0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_Stop_DMA
+                0x00000000      0x1d0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_Init
+                0x00000000       0xae stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_DeInit
+                0x00000000       0xb8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_MspInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_MspDeInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_Start
+                0x00000000      0x1bc stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_Stop
+                0x00000000      0x110 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_Start_IT
+                0x00000000      0x258 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_Stop_IT
+                0x00000000      0x1a8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_Start_DMA
+                0x00000000      0x3f0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_Stop_DMA
+                0x00000000      0x1d0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_Init
+                0x00000000       0xae stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_DeInit
+                0x00000000       0xb8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_MspInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_MspDeInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_Start
+                0x00000000      0x1c0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_Stop
+                0x00000000       0xe2 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_Start_IT
+                0x00000000      0x25c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_Stop_IT
+                0x00000000      0x17c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_Start_DMA
+                0x00000000      0x360 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_Stop_DMA
+                0x00000000      0x1a4 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Init
+                0x00000000       0xa0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_DeInit
+                0x00000000       0x88 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_MspInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_MspDeInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Start
+                0x00000000       0xd0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Stop
+                0x00000000       0xe4 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Start_IT
+                0x00000000       0xf0 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Stop_IT
+                0x00000000      0x104 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Init
+                0x00000000      0x14c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_DeInit
+                0x00000000       0x88 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_MspInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_MspDeInit
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Start
+                0x00000000      0x11c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Stop
+                0x00000000      0x14e stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Start_IT
+                0x00000000      0x15c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Stop_IT
+                0x00000000      0x18a stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Start_DMA
+                0x00000000      0x2d8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Stop_DMA
+                0x00000000      0x1b2 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_ConfigChannel
+                0x00000000       0xf4 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_ConfigChannel
+                0x00000000      0x138 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_ConfigChannel
+                0x00000000      0x228 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_ConfigChannel
+                0x00000000      0x1ac stm32l4xx_hal_tim.o
+ .text.HAL_TIM_DMABurst_WriteStart
+                0x00000000       0x34 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_DMABurst_MultiWriteStart
+                0x00000000      0x2a8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_DMABurst_WriteStop
+                0x00000000       0xf4 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_DMABurst_ReadStart
+                0x00000000       0x34 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_DMABurst_MultiReadStart
+                0x00000000      0x2a8 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_DMABurst_ReadStop
+                0x00000000       0xf4 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_GenerateEvent
+                0x00000000       0x4e stm32l4xx_hal_tim.o
+ .text.HAL_TIM_ConfigOCrefClear
+                0x00000000      0x244 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_ConfigClockSource
+                0x00000000      0x192 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_ConfigTI1Input
+                0x00000000       0x38 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_SlaveConfigSynchro
+                0x00000000       0x84 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_SlaveConfigSynchro_IT
+                0x00000000       0x84 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_ReadCapturedValue
+                0x00000000       0x88 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PeriodElapsedCallback
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PeriodElapsedHalfCpltCallback
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_CaptureHalfCpltCallback
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_PulseFinishedHalfCpltCallback
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_TriggerHalfCpltCallback
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_ErrorCallback
+                0x00000000       0x14 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Base_GetState
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OC_GetState
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_PWM_GetState
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_IC_GetState
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_GetState
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_Encoder_GetState
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.HAL_TIM_GetActiveChannel
+                0x00000000       0x18 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_GetChannelState
+                0x00000000       0x72 stm32l4xx_hal_tim.o
+ .text.HAL_TIM_DMABurstState
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.TIM_DMAError
+                0x00000000       0x92 stm32l4xx_hal_tim.o
+ .text.TIM_DMADelayPulseCplt
+                0x00000000       0xa8 stm32l4xx_hal_tim.o
+ .text.TIM_DMADelayPulseHalfCplt
+                0x00000000       0x68 stm32l4xx_hal_tim.o
+ .text.TIM_DMACaptureCplt
+                0x00000000       0xc8 stm32l4xx_hal_tim.o
+ .text.TIM_DMACaptureHalfCplt
+                0x00000000       0x68 stm32l4xx_hal_tim.o
+ .text.TIM_DMAPeriodElapsedCplt
+                0x00000000       0x2e stm32l4xx_hal_tim.o
+ .text.TIM_DMAPeriodElapsedHalfCplt
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.TIM_DMATriggerCplt
+                0x00000000       0x2e stm32l4xx_hal_tim.o
+ .text.TIM_DMATriggerHalfCplt
+                0x00000000       0x1c stm32l4xx_hal_tim.o
+ .text.TIM_OC1_SetConfig
+                0x00000000       0xf8 stm32l4xx_hal_tim.o
+ .text.TIM_OC2_SetConfig
+                0x00000000       0xf4 stm32l4xx_hal_tim.o
+ .text.TIM_OC3_SetConfig
+                0x00000000       0xf0 stm32l4xx_hal_tim.o
+ .text.TIM_OC4_SetConfig
+                0x00000000       0xbc stm32l4xx_hal_tim.o
+ .text.TIM_OC5_SetConfig
+                0x00000000       0xb0 stm32l4xx_hal_tim.o
+ .text.TIM_OC6_SetConfig
+                0x00000000       0xb4 stm32l4xx_hal_tim.o
+ .text.TIM_SlaveTimer_SetConfig
+                0x00000000      0x126 stm32l4xx_hal_tim.o
+ .text.TIM_TI1_SetConfig
+                0x00000000       0xac stm32l4xx_hal_tim.o
+ .text.TIM_TI1_ConfigInputStage
+                0x00000000       0x5e stm32l4xx_hal_tim.o
+ .text.TIM_TI2_SetConfig
+                0x00000000       0x7a stm32l4xx_hal_tim.o
+ .text.TIM_TI2_ConfigInputStage
+                0x00000000       0x60 stm32l4xx_hal_tim.o
+ .text.TIM_TI3_SetConfig
+                0x00000000       0x78 stm32l4xx_hal_tim.o
+ .text.TIM_TI4_SetConfig
+                0x00000000       0x7a stm32l4xx_hal_tim.o
+ .text.TIM_ITRx_SetConfig
+                0x00000000       0x36 stm32l4xx_hal_tim.o
+ .text.TIM_ETR_SetConfig
+                0x00000000       0x40 stm32l4xx_hal_tim.o
+ .text.TIM_CCxChannelCmd
+                0x00000000       0x4a stm32l4xx_hal_tim.o
+ .text          0x00000000        0x0 stm32l4xx_hal_tim_ex.o
+ .data          0x00000000        0x0 stm32l4xx_hal_tim_ex.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Init
+                0x00000000      0x156 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_DeInit
+                0x00000000       0x88 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_MspInit
+                0x00000000       0x14 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_MspDeInit
+                0x00000000       0x14 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Start
+                0x00000000       0xe8 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Stop
+                0x00000000       0x70 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Start_IT
+                0x00000000       0xf8 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Stop_IT
+                0x00000000       0x80 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Start_DMA
+                0x00000000      0x138 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Stop_DMA
+                0x00000000       0x7a stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Start
+                0x00000000      0x13c stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Stop
+                0x00000000       0xba stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Start_IT
+                0x00000000      0x1ac stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Stop_IT
+                0x00000000      0x13e stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Start_DMA
+                0x00000000      0x2c8 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Stop_DMA
+                0x00000000      0x138 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Start
+                0x00000000      0x13c stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Stop
+                0x00000000       0xba stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Start_IT
+                0x00000000      0x1ac stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Stop_IT
+                0x00000000      0x13e stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Start_DMA
+                0x00000000      0x2c8 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Stop_DMA
+                0x00000000      0x138 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Start
+                0x00000000       0xaa stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Stop
+                0x00000000       0xbe stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Start_IT
+                0x00000000       0xca stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Stop_IT
+                0x00000000       0xde stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigCommutEvent
+                0x00000000       0xc0 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigCommutEvent_IT
+                0x00000000       0xc0 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigCommutEvent_DMA
+                0x00000000       0xe4 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_MasterConfigSynchronization
+                0x00000000       0xcc stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigBreakDeadTime
+                0x00000000       0xf0 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigBreakInput
+                0x00000000      0x14e stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_RemapConfig
+                0x00000000       0x88 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_GroupChannel5
+                0x00000000       0x66 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_CommutHalfCpltCallback
+                0x00000000       0x14 stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_GetState
+                0x00000000       0x1c stm32l4xx_hal_tim_ex.o
+ .text.HAL_TIMEx_GetChannelNState
+                0x00000000       0x52 stm32l4xx_hal_tim_ex.o
+ .text.TIMEx_DMACommutationCplt
+                0x00000000       0x24 stm32l4xx_hal_tim_ex.o
+ .text.TIMEx_DMACommutationHalfCplt
+                0x00000000       0x24 stm32l4xx_hal_tim_ex.o
+ .text.TIM_DMADelayPulseNCplt
+                0x00000000       0xa8 stm32l4xx_hal_tim_ex.o
+ .text.TIM_DMAErrorCCxN
+                0x00000000       0x6e stm32l4xx_hal_tim_ex.o
+ .text.TIM_CCxNChannelCmd
+                0x00000000       0x4a stm32l4xx_hal_tim_ex.o
+ .text          0x00000000        0x0 stm32l4xx_ll_gpio.o
+ .data          0x00000000        0x0 stm32l4xx_ll_gpio.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_gpio.o
+ .text.LL_AHB2_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_gpio.o
+ .text.LL_AHB2_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_DeInit
+                0x00000000       0x80 stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_StructInit
+                0x00000000       0x3a stm32l4xx_ll_gpio.o
+ .text          0x00000000        0x0 stm32l4xx_ll_adc.o
+ .data          0x00000000        0x0 stm32l4xx_ll_adc.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_adc.o
+ .text.LL_ADC_REG_SetTriggerSource
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_INJ_SetTriggerSource
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_INJ_SetQueueMode
+                0x00000000       0x2a stm32l4xx_ll_adc.o
+ .text.LL_ADC_Disable
+                0x00000000       0x28 stm32l4xx_ll_adc.o
+ .text.LL_ADC_IsDisableOngoing
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_REG_StopConversion
+                0x00000000       0x28 stm32l4xx_ll_adc.o
+ .text.LL_ADC_REG_IsConversionOngoing
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_REG_IsStopConversionOngoing
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_INJ_StopConversion
+                0x00000000       0x28 stm32l4xx_ll_adc.o
+ .text.LL_ADC_INJ_IsConversionOngoing
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_INJ_IsStopConversionOngoing
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_AHB2_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_adc.o
+ .text.LL_AHB2_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_adc.o
+ .text.LL_ADC_CommonDeInit
+                0x00000000       0x22 stm32l4xx_ll_adc.o
+ .text.LL_ADC_CommonStructInit
+                0x00000000       0x1c stm32l4xx_ll_adc.o
+ .text.LL_ADC_DeInit
+                0x00000000      0x258 stm32l4xx_ll_adc.o
+ .text.LL_ADC_StructInit
+                0x00000000       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_REG_StructInit
+                0x00000000       0x3a stm32l4xx_ll_adc.o
+ .text.LL_ADC_INJ_Init
+                0x00000000       0x76 stm32l4xx_ll_adc.o
+ .text.LL_ADC_INJ_StructInit
+                0x00000000       0x2c stm32l4xx_ll_adc.o
+ .text          0x00000000        0x0 stm32l4xx_ll_dma.o
+ .data          0x00000000        0x0 stm32l4xx_ll_dma.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_dma.o
+ .rodata.CHANNEL_OFFSET_TAB
+                0x00000000        0x7 stm32l4xx_ll_dma.o
+ .text.LL_DMA_ConfigTransfer
+                0x00000000       0x50 stm32l4xx_ll_dma.o
+ .text.LL_DMA_SetDataLength
+                0x00000000       0x4c stm32l4xx_ll_dma.o
+ .text.LL_DMA_SetMemoryAddress
+                0x00000000       0x34 stm32l4xx_ll_dma.o
+ .text.LL_DMA_SetPeriphAddress
+                0x00000000       0x34 stm32l4xx_ll_dma.o
+ .text.LL_DMA_SetPeriphRequest
+                0x00000000       0x64 stm32l4xx_ll_dma.o
+ .text.LL_DMA_ClearFlag_GI1
+                0x00000000       0x1a stm32l4xx_ll_dma.o
+ .text.LL_DMA_ClearFlag_GI2
+                0x00000000       0x1a stm32l4xx_ll_dma.o
+ .text.LL_DMA_ClearFlag_GI3
+                0x00000000       0x1c stm32l4xx_ll_dma.o
+ .text.LL_DMA_ClearFlag_GI4
+                0x00000000       0x1c stm32l4xx_ll_dma.o
+ .text.LL_DMA_ClearFlag_GI5
+                0x00000000       0x1c stm32l4xx_ll_dma.o
+ .text.LL_DMA_ClearFlag_GI6
+                0x00000000       0x1c stm32l4xx_ll_dma.o
+ .text.LL_DMA_ClearFlag_GI7
+                0x00000000       0x1c stm32l4xx_ll_dma.o
+ .text.LL_AHB1_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_dma.o
+ .text.LL_AHB1_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_dma.o
+ .text.LL_DMA_DeInit
+                0x00000000      0x22c stm32l4xx_ll_dma.o
+ .text.LL_DMA_Init
+                0x00000000       0x80 stm32l4xx_ll_dma.o
+ .text.LL_DMA_StructInit
+                0x00000000       0x56 stm32l4xx_ll_dma.o
+ .comment       0x00000000       0x45 stm32l4xx_ll_dma.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_ll_dma.o
+ .text          0x00000000        0x0 stm32l4xx_hal.o
+ .data          0x00000000        0x0 stm32l4xx_hal.o
+ .bss           0x00000000        0x0 stm32l4xx_hal.o
+ .text.HAL_DeInit
+                0x00000000       0x68 stm32l4xx_hal.o
+ .text.HAL_MspInit
+                0x00000000        0xe stm32l4xx_hal.o
+ .text.HAL_MspDeInit
+                0x00000000        0xe stm32l4xx_hal.o
+ .text.HAL_InitTick
+                0x00000000       0x78 stm32l4xx_hal.o
+ .text.HAL_GetTick
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_GetTickPrio
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_SetTickFreq
+                0x00000000       0x50 stm32l4xx_hal.o
+ .text.HAL_GetTickFreq
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_Delay
+                0x00000000       0x48 stm32l4xx_hal.o
+ .text.HAL_SuspendTick
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_ResumeTick
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_GetHalVersion
+                0x00000000       0x14 stm32l4xx_hal.o
+ .text.HAL_GetREVID
+                0x00000000       0x1c stm32l4xx_hal.o
+ .text.HAL_GetDEVID
+                0x00000000       0x1c stm32l4xx_hal.o
+ .text.HAL_GetUIDw0
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_GetUIDw1
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_GetUIDw2
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_DBGMCU_EnableDBGSleepMode
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_DBGMCU_DisableDBGSleepMode
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_DBGMCU_EnableDBGStopMode
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_DBGMCU_DisableDBGStopMode
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_DBGMCU_EnableDBGStandbyMode
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_DBGMCU_DisableDBGStandbyMode
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_SYSCFG_SRAM2Erase
+                0x00000000       0x28 stm32l4xx_hal.o
+ .text.HAL_SYSCFG_EnableMemorySwappingBank
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_SYSCFG_DisableMemorySwappingBank
+                0x00000000       0x18 stm32l4xx_hal.o
+ .text.HAL_SYSCFG_EnableIOAnalogSwitchBooster
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text.HAL_SYSCFG_DisableIOAnalogSwitchBooster
+                0x00000000       0x20 stm32l4xx_hal.o
+ .text          0x00000000        0x0 stm32l4xx_hal_rcc.o
+ .data          0x00000000        0x0 stm32l4xx_hal_rcc.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_DeInit
+                0x00000000      0x130 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_OscConfig
+                0x00000000      0x828 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_ClockConfig
+                0x00000000      0x200 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_MCOConfig
+                0x00000000       0x68 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_GetSysClockFreq
+                0x00000000      0x118 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_GetPCLK2Freq
+                0x00000000       0x2c stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_GetOscConfig
+                0x00000000      0x194 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_EnableCSS
+                0x00000000       0x20 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_NMI_IRQHandler
+                0x00000000       0x28 stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_CSSCallback
+                0x00000000        0xe stm32l4xx_hal_rcc.o
+ .text.HAL_RCC_GetResetSource
+                0x00000000       0x34 stm32l4xx_hal_rcc.o
+ .text.RCC_SetFlashLatencyFromMSIRange
+                0x00000000       0xc0 stm32l4xx_hal_rcc.o
+ .text          0x00000000        0x0 stm32l4xx_hal_rcc_ex.o
+ .data          0x00000000        0x0 stm32l4xx_hal_rcc_ex.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_PeriphCLKConfig
+                0x00000000      0x3ec stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_GetPeriphCLKConfig
+                0x00000000      0x138 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_GetPeriphCLKFreq
+                0x00000000      0x7bc stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_EnablePLLSAI1
+                0x00000000       0xd0 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_DisablePLLSAI1
+                0x00000000       0x74 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_WakeUpStopCLKConfig
+                0x00000000       0x28 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_StandbyMSIRangeConfig
+                0x00000000       0x30 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_EnableLSECSS
+                0x00000000       0x24 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_DisableLSECSS
+                0x00000000       0x30 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_EnableLSECSS_IT
+                0x00000000       0x4c stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_LSECSS_IRQHandler
+                0x00000000       0x28 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_LSECSS_Callback
+                0x00000000        0xe stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_EnableLSCO
+                0x00000000       0xd4 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_DisableLSCO
+                0x00000000       0x88 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_EnableMSIPLLMode
+                0x00000000       0x20 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_DisableMSIPLLMode
+                0x00000000       0x20 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRSConfig
+                0x00000000       0x84 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRSSoftwareSynchronizationGenerate
+                0x00000000       0x20 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRSGetSynchronizationInfo
+                0x00000000       0x48 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRSWaitSynchronization
+                0x00000000       0xe4 stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRS_IRQHandler
+                0x00000000       0xdc stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRS_SyncOkCallback
+                0x00000000        0xe stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRS_SyncWarnCallback
+                0x00000000        0xe stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRS_ExpectedSyncCallback
+                0x00000000        0xe stm32l4xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_CRS_ErrorCallback
+                0x00000000       0x14 stm32l4xx_hal_rcc_ex.o
+ .text.RCCEx_PLLSAI1_Config
+                0x00000000      0x1e4 stm32l4xx_hal_rcc_ex.o
+ .text.RCCEx_GetSAIxPeriphCLKFreq
+                0x00000000      0x178 stm32l4xx_hal_rcc_ex.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_rcc_ex.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_rcc_ex.o
+ .text          0x00000000        0x0 stm32l4xx_hal_flash.o
+ .data          0x00000000        0x0 stm32l4xx_hal_flash.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_flash.o
+ .data.pFlash   0x00000000       0x20 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_Program
+                0x00000000       0xd8 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_Program_IT
+                0x00000000       0xb0 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_IRQHandler
+                0x00000000      0x1a4 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_EndOfOperationCallback
+                0x00000000       0x14 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_OperationErrorCallback
+                0x00000000       0x14 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_Unlock
+                0x00000000       0x44 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_Lock
+                0x00000000       0x20 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_OB_Unlock
+                0x00000000       0x38 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_OB_Lock
+                0x00000000       0x20 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_OB_Launch
+                0x00000000       0x24 stm32l4xx_hal_flash.o
+ .text.HAL_FLASH_GetError
+                0x00000000       0x18 stm32l4xx_hal_flash.o
+ .text.FLASH_WaitForLastOperation
+                0x00000000       0xac stm32l4xx_hal_flash.o
+ .text.FLASH_Program_DoubleWord
+                0x00000000       0x4c stm32l4xx_hal_flash.o
+ .text.FLASH_Program_Fast
+                0x00000000       0x6c stm32l4xx_hal_flash.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_flash.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_flash.o
+ .text          0x00000000        0x0 stm32l4xx_hal_flash_ex.o
+ .data          0x00000000        0x0 stm32l4xx_hal_flash_ex.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_flash_ex.o
+ .text.HAL_FLASHEx_Erase
+                0x00000000      0x134 stm32l4xx_hal_flash_ex.o
+ .text.HAL_FLASHEx_Erase_IT
+                0x00000000       0xe4 stm32l4xx_hal_flash_ex.o
+ .text.HAL_FLASHEx_OBProgram
+                0x00000000       0xdc stm32l4xx_hal_flash_ex.o
+ .text.HAL_FLASHEx_OBGetConfig
+                0x00000000       0x84 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_MassErase
+                0x00000000       0x3c stm32l4xx_hal_flash_ex.o
+ .text.FLASH_PageErase
+                0x00000000       0x48 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_FlushCaches
+                0x00000000       0x94 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_WRPConfig
+                0x00000000       0x8c stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_RDPConfig
+                0x00000000       0x5c stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_UserConfig
+                0x00000000      0x1f0 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_PCROPConfig
+                0x00000000       0xb0 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_GetWRP
+                0x00000000       0x60 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_GetRDP
+                0x00000000       0x34 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_GetUser
+                0x00000000       0x28 stm32l4xx_hal_flash_ex.o
+ .text.FLASH_OB_GetPCROP
+                0x00000000       0x70 stm32l4xx_hal_flash_ex.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_flash_ex.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_flash_ex.o
+ .text          0x00000000        0x0 stm32l4xx_hal_flash_ramfunc.o
+ .data          0x00000000        0x0 stm32l4xx_hal_flash_ramfunc.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_flash_ramfunc.o
+ .RamFunc       0x00000000       0x68 stm32l4xx_hal_flash_ramfunc.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_flash_ramfunc.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_flash_ramfunc.o
+ .text          0x00000000        0x0 stm32l4xx_hal_gpio.o
+ .data          0x00000000        0x0 stm32l4xx_hal_gpio.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_Init
+                0x00000000      0x2d4 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_DeInit
+                0x00000000      0x194 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_ReadPin
+                0x00000000       0x30 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_WritePin
+                0x00000000       0x30 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_TogglePin
+                0x00000000       0x34 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_LockPin
+                0x00000000       0x50 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_EXTI_IRQHandler
+                0x00000000       0x30 stm32l4xx_hal_gpio.o
+ .text.HAL_GPIO_EXTI_Callback
+                0x00000000       0x16 stm32l4xx_hal_gpio.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_gpio.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_gpio.o
+ .text          0x00000000        0x0 stm32l4xx_hal_i2c.o
+ .data          0x00000000        0x0 stm32l4xx_hal_i2c.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_i2c.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_i2c.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_i2c.o
+ .text          0x00000000        0x0 stm32l4xx_hal_i2c_ex.o
+ .data          0x00000000        0x0 stm32l4xx_hal_i2c_ex.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_i2c_ex.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_i2c_ex.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_i2c_ex.o
+ .text          0x00000000        0x0 stm32l4xx_hal_dma.o
+ .data          0x00000000        0x0 stm32l4xx_hal_dma.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_Init
+                0x00000000      0x170 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_DeInit
+                0x00000000      0x124 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_Start
+                0x00000000       0x86 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_Start_IT
+                0x00000000       0xc0 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_Abort
+                0x00000000       0x7c stm32l4xx_hal_dma.o
+ .text.HAL_DMA_Abort_IT
+                0x00000000       0x82 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_PollForTransfer
+                0x00000000      0x14e stm32l4xx_hal_dma.o
+ .text.HAL_DMA_IRQHandler
+                0x00000000      0x15e stm32l4xx_hal_dma.o
+ .text.HAL_DMA_RegisterCallback
+                0x00000000       0x90 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_UnRegisterCallback
+                0x00000000       0xb0 stm32l4xx_hal_dma.o
+ .text.HAL_DMA_GetState
+                0x00000000       0x1c stm32l4xx_hal_dma.o
+ .text.HAL_DMA_GetError
+                0x00000000       0x18 stm32l4xx_hal_dma.o
+ .text.DMA_SetConfig
+                0x00000000       0x60 stm32l4xx_hal_dma.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_dma.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_dma.o
+ .text          0x00000000        0x0 stm32l4xx_hal_dma_ex.o
+ .data          0x00000000        0x0 stm32l4xx_hal_dma_ex.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_dma_ex.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_dma_ex.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_dma_ex.o
+ .text          0x00000000        0x0 stm32l4xx_hal_pwr.o
+ .data          0x00000000        0x0 stm32l4xx_hal_pwr.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_DeInit
+                0x00000000       0x2c stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnableBkUpAccess
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_DisableBkUpAccess
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_ConfigPVD
+                0x00000000       0xc0 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnablePVD
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_DisablePVD
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnableWakeUpPin
+                0x00000000       0x40 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_DisableWakeUpPin
+                0x00000000       0x2c stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnterSLEEPMode
+                0x00000000       0x68 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnterSTOPMode
+                0x00000000       0x2e stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnterSTANDBYMode
+                0x00000000       0x34 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnableSleepOnExit
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_DisableSleepOnExit
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_EnableSEVOnPend
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_DisableSEVOnPend
+                0x00000000       0x20 stm32l4xx_hal_pwr.o
+ .text.HAL_PWR_PVDCallback
+                0x00000000        0xe stm32l4xx_hal_pwr.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_pwr.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_pwr.o
+ .text          0x00000000        0x0 stm32l4xx_hal_pwr_ex.o
+ .data          0x00000000        0x0 stm32l4xx_hal_pwr_ex.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_GetVoltageRange
+                0x00000000       0x1c stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_ControlVoltageScaling
+                0x00000000       0xac stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnableBatteryCharging
+                0x00000000       0x34 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisableBatteryCharging
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnableVddUSB
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisableVddUSB
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnableInternalWakeUpLine
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisableInternalWakeUpLine
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnableGPIOPullUp
+                0x00000000       0xd8 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisableGPIOPullUp
+                0x00000000       0x9c stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnableGPIOPullDown
+                0x00000000       0xd8 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisableGPIOPullDown
+                0x00000000       0xa0 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnablePullUpPullDownConfig
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisablePullUpPullDownConfig
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnableSRAM2ContentRetention
+                0x00000000       0x10 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisableSRAM2ContentRetention
+                0x00000000        0xe stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_SetSRAM2ContentRetention
+                0x00000000       0x48 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnablePVM1
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisablePVM1
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnablePVM3
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisablePVM3
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnablePVM4
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisablePVM4
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_ConfigPVM
+                0x00000000      0x200 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnableLowPowerRunMode
+                0x00000000       0x20 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_DisableLowPowerRunMode
+                0x00000000       0x70 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnterSTOP0Mode
+                0x00000000       0x54 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnterSTOP1Mode
+                0x00000000       0x58 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnterSTOP2Mode
+                0x00000000       0x58 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_EnterSHUTDOWNMode
+                0x00000000       0x34 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_PVD_PVM_IRQHandler
+                0x00000000       0x68 stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_PVM1Callback
+                0x00000000        0xe stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_PVM3Callback
+                0x00000000        0xe stm32l4xx_hal_pwr_ex.o
+ .text.HAL_PWREx_PVM4Callback
+                0x00000000        0xe stm32l4xx_hal_pwr_ex.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_pwr_ex.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_pwr_ex.o
+ .text          0x00000000        0x0 stm32l4xx_hal_cortex.o
+ .data          0x00000000        0x0 stm32l4xx_hal_cortex.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_cortex.o
+ .text.__NVIC_DisableIRQ
+                0x00000000       0x48 stm32l4xx_hal_cortex.o
+ .text.__NVIC_GetPendingIRQ
+                0x00000000       0x44 stm32l4xx_hal_cortex.o
+ .text.__NVIC_SetPendingIRQ
+                0x00000000       0x3c stm32l4xx_hal_cortex.o
+ .text.__NVIC_ClearPendingIRQ
+                0x00000000       0x3c stm32l4xx_hal_cortex.o
+ .text.__NVIC_GetActive
+                0x00000000       0x44 stm32l4xx_hal_cortex.o
+ .text.__NVIC_GetPriority
+                0x00000000       0x50 stm32l4xx_hal_cortex.o
+ .text.NVIC_DecodePriority
+                0x00000000       0x6e stm32l4xx_hal_cortex.o
+ .text.__NVIC_SystemReset
+                0x00000000       0x2c stm32l4xx_hal_cortex.o
+ .text.SysTick_Config
+                0x00000000       0x44 stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_DisableIRQ
+                0x00000000       0x1c stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_SystemReset
+                0x00000000        0x8 stm32l4xx_hal_cortex.o
+ .text.HAL_SYSTICK_Config
+                0x00000000       0x18 stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_GetPriorityGrouping
+                0x00000000        0xe stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_GetPriority
+                0x00000000       0x2c stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_SetPendingIRQ
+                0x00000000       0x1c stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_GetPendingIRQ
+                0x00000000       0x1e stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_ClearPendingIRQ
+                0x00000000       0x1c stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_GetActive
+                0x00000000       0x1e stm32l4xx_hal_cortex.o
+ .text.HAL_SYSTICK_CLKSourceConfig
+                0x00000000       0x38 stm32l4xx_hal_cortex.o
+ .text.HAL_SYSTICK_IRQHandler
+                0x00000000        0xc stm32l4xx_hal_cortex.o
+ .text.HAL_SYSTICK_Callback
+                0x00000000        0xe stm32l4xx_hal_cortex.o
+ .text.HAL_MPU_Enable
+                0x00000000       0x30 stm32l4xx_hal_cortex.o
+ .text.HAL_MPU_Disable
+                0x00000000       0x20 stm32l4xx_hal_cortex.o
+ .text.HAL_MPU_ConfigRegion
+                0x00000000       0x88 stm32l4xx_hal_cortex.o
+ .text          0x00000000        0x0 stm32l4xx_hal_exti.o
+ .data          0x00000000        0x0 stm32l4xx_hal_exti.o
+ .bss           0x00000000        0x0 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_SetConfigLine
+                0x00000000      0x1a0 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_GetConfigLine
+                0x00000000      0x144 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_ClearConfigLine
+                0x00000000      0x110 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_RegisterCallback
+                0x00000000       0x34 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_GetHandle
+                0x00000000       0x28 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_IRQHandler
+                0x00000000       0x60 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_GetPending
+                0x00000000       0x58 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_ClearPending
+                0x00000000       0x48 stm32l4xx_hal_exti.o
+ .text.HAL_EXTI_GenerateSWI
+                0x00000000       0x44 stm32l4xx_hal_exti.o
+ .comment       0x00000000       0x45 stm32l4xx_hal_exti.o
+ .ARM.attributes
+                0x00000000       0x34 stm32l4xx_hal_exti.o
+ .text          0x00000000        0x0 stm32l4xx_ll_i2c.o
+ .data          0x00000000        0x0 stm32l4xx_ll_i2c.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_i2c.o
+ .text.LL_APB1_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_i2c.o
+ .text.LL_APB1_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_DeInit
+                0x00000000       0x58 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_StructInit
+                0x00000000       0x40 stm32l4xx_ll_i2c.o
+ .text          0x00000000        0x0 stm32l4xx_ll_tim.o
+ .data          0x00000000        0x0 stm32l4xx_ll_tim.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_tim.o
+ .rodata.OFFSET_TAB_CCMRx
+                0x00000000        0x9 stm32l4xx_ll_tim.o
+ .rodata.SHIFT_TAB_OCxx
+                0x00000000        0x9 stm32l4xx_ll_tim.o
+ .rodata.SHIFT_TAB_ICxx
+                0x00000000        0x9 stm32l4xx_ll_tim.o
+ .rodata.SHIFT_TAB_CCxP
+                0x00000000        0x9 stm32l4xx_ll_tim.o
+ .rodata.SHIFT_TAB_OISx
+                0x00000000        0x9 stm32l4xx_ll_tim.o
+ .text.LL_TIM_SetEncoderMode
+                0x00000000       0x2a stm32l4xx_ll_tim.o
+ .text.LL_APB1_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_tim.o
+ .text.LL_APB1_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_tim.o
+ .text.LL_APB2_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_tim.o
+ .text.LL_APB2_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_tim.o
+ .text.LL_TIM_DeInit
+                0x00000000       0xc0 stm32l4xx_ll_tim.o
+ .text.LL_TIM_StructInit
+                0x00000000       0x34 stm32l4xx_ll_tim.o
+ .text.LL_TIM_OC_StructInit
+                0x00000000       0x44 stm32l4xx_ll_tim.o
+ .text.LL_TIM_IC_StructInit
+                0x00000000       0x2e stm32l4xx_ll_tim.o
+ .text.LL_TIM_IC_Init
+                0x00000000       0x82 stm32l4xx_ll_tim.o
+ .text.LL_TIM_ENCODER_StructInit
+                0x00000000       0x4e stm32l4xx_ll_tim.o
+ .text.LL_TIM_ENCODER_Init
+                0x00000000       0xc2 stm32l4xx_ll_tim.o
+ .text.LL_TIM_HALLSENSOR_StructInit
+                0x00000000       0x2c stm32l4xx_ll_tim.o
+ .text.LL_TIM_HALLSENSOR_Init
+                0x00000000       0xde stm32l4xx_ll_tim.o
+ .text.LL_TIM_BDTR_StructInit
+                0x00000000       0x56 stm32l4xx_ll_tim.o
+ .text.IC1Config
+                0x00000000       0x5a stm32l4xx_ll_tim.o
+ .text.IC2Config
+                0x00000000       0x5c stm32l4xx_ll_tim.o
+ .text.IC3Config
+                0x00000000       0x5c stm32l4xx_ll_tim.o
+ .text.IC4Config
+                0x00000000       0x5c stm32l4xx_ll_tim.o
+ .text          0x00000000        0x0 stm32l4xx_ll_usart.o
+ .data          0x00000000        0x0 stm32l4xx_ll_usart.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_usart.o
+ .text.LL_USART_DisableSCLKOutput
+                0x00000000       0x20 stm32l4xx_ll_usart.o
+ .text.LL_APB1_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_usart.o
+ .text.LL_APB1_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_usart.o
+ .text.LL_APB2_GRP1_ForceReset
+                0x00000000       0x24 stm32l4xx_ll_usart.o
+ .text.LL_APB2_GRP1_ReleaseReset
+                0x00000000       0x28 stm32l4xx_ll_usart.o
+ .text.LL_USART_DeInit
+                0x00000000       0x58 stm32l4xx_ll_usart.o
+ .text.LL_USART_StructInit
+                0x00000000       0x40 stm32l4xx_ll_usart.o
+ .text.LL_USART_ClockInit
+                0x00000000       0x5c stm32l4xx_ll_usart.o
+ .text.LL_USART_ClockStructInit
+                0x00000000       0x2c stm32l4xx_ll_usart.o
+ .text          0x00000000        0x0 stm32l4xx_ll_rcc.o
+ .data          0x00000000        0x0 stm32l4xx_ll_rcc.o
+ .bss           0x00000000        0x0 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_HSE_DisableBypass
+                0x00000000       0x20 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_HSI_SetCalibTrimming
+                0x00000000       0x2c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_HSI48_IsReady
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_LSI_IsReady
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_MSI_Enable
+                0x00000000       0x20 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_MSI_IsReady
+                0x00000000       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_MSI_SetRange
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_MSI_SetCalibTrimming
+                0x00000000       0x2c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetLPUARTClockSource
+                0x00000000       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetI2CClockSource
+                0x00000000       0x48 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetLPTIMClockSource
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetSAIClockSource
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetRNGClockSource
+                0x00000000       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetUSBClockSource
+                0x00000000       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetADCClockSource
+                0x00000000       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetSWPMIClockSource
+                0x00000000       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_IsReady
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_GetP
+                0x00000000       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_GetQ
+                0x00000000       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_IsEnabledDomain_SAI
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_IsEnabledDomain_48M
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_IsReady
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_GetN
+                0x00000000       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_GetP
+                0x00000000       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_GetQ
+                0x00000000       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_GetR
+                0x00000000       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_IsEnabledDomain_SAI
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_IsEnabledDomain_48M
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLLSAI1_IsEnabledDomain_ADC
+                0x00000000       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_ClearResetFlags
+                0x00000000       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_DeInit
+                0x00000000       0xa4 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetSystemClocksFreq
+                0x00000000       0x4a stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetI2CClockFreq
+                0x00000000       0xf0 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetLPUARTClockFreq
+                0x00000000       0x90 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetLPTIMClockFreq
+                0x00000000      0x160 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetSAIClockFreq
+                0x00000000       0x90 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetRNGClockFreq
+                0x00000000      0x104 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetUSBClockFreq
+                0x00000000      0x104 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetADCClockFreq
+                0x00000000       0x5a stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetSWPMIClockFreq
+                0x00000000       0x5c stm32l4xx_ll_rcc.o
+ .text.RCC_PLL_GetFreqDomain_SAI
+                0x00000000      0x114 stm32l4xx_ll_rcc.o
+ .text.RCC_PLL_GetFreqDomain_48M
+                0x00000000      0x118 stm32l4xx_ll_rcc.o
+ .text.RCC_PLLSAI1_GetFreqDomain_SAI
+                0x00000000      0x114 stm32l4xx_ll_rcc.o
+ .text.RCC_PLLSAI1_GetFreqDomain_48M
+                0x00000000      0x118 stm32l4xx_ll_rcc.o
+ .text.RCC_PLLSAI1_GetFreqDomain_ADC
+                0x00000000      0x118 stm32l4xx_ll_rcc.o
+ .text          0x00000000        0x0 system_stm32l4xx.o
+ .data          0x00000000        0x0 system_stm32l4xx.o
+ .bss           0x00000000        0x0 system_stm32l4xx.o
+ .text.SystemCoreClockUpdate
+                0x00000000      0x15c system_stm32l4xx.o
+ .text          0x00000000        0x0 syscalls.o
+ .data          0x00000000        0x0 syscalls.o
+ .bss           0x00000000        0x0 syscalls.o
+ .bss.__env     0x00000000        0x4 syscalls.o
+ .data.environ  0x00000000        0x4 syscalls.o
+ .text.initialise_monitor_handles
+                0x00000000        0xe syscalls.o
+ .text._getpid  0x00000000       0x10 syscalls.o
+ .text._kill    0x00000000       0x20 syscalls.o
+ .text._exit    0x00000000       0x16 syscalls.o
+ .text._read    0x00000000       0x3a syscalls.o
+ .text._write   0x00000000       0x38 syscalls.o
+ .text._close   0x00000000       0x18 syscalls.o
+ .text._fstat   0x00000000       0x20 syscalls.o
+ .text._isatty  0x00000000       0x16 syscalls.o
+ .text._lseek   0x00000000       0x1a syscalls.o
+ .text._open    0x00000000       0x1c syscalls.o
+ .text._wait    0x00000000       0x1e syscalls.o
+ .text._unlink  0x00000000       0x1e syscalls.o
+ .text._times   0x00000000       0x18 syscalls.o
+ .text._stat    0x00000000       0x20 syscalls.o
+ .text._link    0x00000000       0x20 syscalls.o
+ .text._fork    0x00000000       0x16 syscalls.o
+ .text._execve  0x00000000       0x22 syscalls.o
+ .comment       0x00000000       0x45 syscalls.o
+ .ARM.attributes
+                0x00000000       0x34 syscalls.o
+ .text          0x00000000        0x0 sysmem.o
+ .data          0x00000000        0x0 sysmem.o
+ .bss           0x00000000        0x0 sysmem.o
+ .bss.__sbrk_heap_end
+                0x00000000        0x4 sysmem.o
+ .text._sbrk    0x00000000       0x6c sysmem.o
+ .comment       0x00000000       0x45 sysmem.o
+ .ARM.attributes
+                0x00000000       0x34 sysmem.o
+ .text          0x00000000       0x14 startup_stm32l432kcux.o
+ .data          0x00000000        0x0 startup_stm32l432kcux.o
+ .bss           0x00000000        0x0 startup_stm32l432kcux.o
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
+ .text.exit     0x00000000       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
+ .debug_frame   0x00000000       0x28 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-exit.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.std      0x00000000       0x6c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.stdio_exit_handler
+                0x00000000       0x18 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.cleanup_stdio
+                0x00000000       0x40 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_lock
+                0x00000000       0x18 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_unlock
+                0x00000000       0x18 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.global_stdio_init.part.0
+                0x00000000       0x3c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp_lock_acquire
+                0x00000000        0xc C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp_lock_release
+                0x00000000        0xc C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp    0x00000000       0xa4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sinit  0x00000000       0x30 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_lock_all
+                0x00000000       0x1c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_unlock_all
+                0x00000000       0x1c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .data.__sglue  0x00000000        0xc C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .bss.__sf      0x00000000      0x138 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .bss.__stdio_exit_handler
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00000000      0x144 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .text._fwalk_sglue
+                0x00000000       0x3c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__sread  0x00000000       0x22 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__seofread
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__swrite
+                0x00000000       0x38 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__sseek  0x00000000       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__sclose
+                0x00000000        0x8 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .debug_frame   0x00000000       0x88 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+ .text._close_r
+                0x00000000       0x20 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+ .debug_frame   0x00000000       0x2c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .text._reclaim_reent
+                0x00000000       0xac C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .bss.errno     0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x00000000       0x38 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+ .data._impure_data
+                0x00000000       0x4c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .text._lseek_r
+                0x00000000       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x00000000       0x2c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+ .text._read_r  0x00000000       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+ .debug_frame   0x00000000       0x2c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+ .text._write_r
+                0x00000000       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+ .debug_frame   0x00000000       0x2c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-errno.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-errno.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-errno.o)
+ .text.__errno  0x00000000        0xc C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-errno.o)
+ .debug_frame   0x00000000       0x20 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-errno.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-errno.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_init
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_init_recursive
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_close
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_close_recursive
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_acquire
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_acquire_recursive
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_try_acquire
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_try_acquire_recursive
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_release
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_release_recursive
+                0x00000000        0x2 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___arc4random_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___dd_hash_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___tz_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___env_recursive_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___malloc_recursive_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___at_quick_exit_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___atexit_recursive_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___sfp_recursive_mutex
+                0x00000000        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00000000       0xb0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .text.memcpy   0x00000000       0x1c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x00000000       0x28 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .text._free_r  0x00000000       0x94 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x00000000       0x38 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .text.sbrk_aligned
+                0x00000000       0x44 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .text._malloc_r
+                0x00000000      0x100 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .bss.__malloc_sbrk_start
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .bss.__malloc_free_list
+                0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x00000000       0x50 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .text.__malloc_lock
+                0x00000000        0xc C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .text.__malloc_unlock
+                0x00000000        0xc C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x00000000       0x30 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text.__sflush_r
+                0x00000000      0x108 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text._fflush_r
+                0x00000000       0x50 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text.fflush   0x00000000       0x28 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .debug_frame   0x00000000       0x5c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .text._sbrk_r  0x00000000       0x20 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x00000000       0x2c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .ARM.attributes
+                0x00000000       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+ .rodata.all_implied_fbits
+                0x00000000       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+ .eh_frame      0x00000000        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+ .text          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .data          0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .bss           0x00000000        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x0000c000         xrw
+RAM2             0x10000000         0x00004000         xrw
+FLASH            0x08000000         0x00040000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crt0.o
+LOAD stm_timer_ll.o
+LOAD ert_main.o
+LOAD testing_hardware.o
+LOAD overrideHALDelay.o
+LOAD platform_timer.o
+LOAD SysTickScheduler.o
+LOAD m3m4m4f_multitasking.o
+LOAD main.o
+LOAD stm32l4xx_it.o
+LOAD stm32l4xx_hal_msp.o
+LOAD stm32l4xx_hal_timebase_tim.o
+LOAD stm32l4xx_ll_utils.o
+LOAD stm32l4xx_ll_exti.o
+LOAD stm32l4xx_hal_tim.o
+LOAD stm32l4xx_hal_tim_ex.o
+LOAD stm32l4xx_ll_gpio.o
+LOAD stm32l4xx_ll_adc.o
+LOAD stm32l4xx_ll_dma.o
+LOAD stm32l4xx_hal.o
+LOAD stm32l4xx_hal_rcc.o
+LOAD stm32l4xx_hal_rcc_ex.o
+LOAD stm32l4xx_hal_flash.o
+LOAD stm32l4xx_hal_flash_ex.o
+LOAD stm32l4xx_hal_flash_ramfunc.o
+LOAD stm32l4xx_hal_gpio.o
+LOAD stm32l4xx_hal_i2c.o
+LOAD stm32l4xx_hal_i2c_ex.o
+LOAD stm32l4xx_hal_dma.o
+LOAD stm32l4xx_hal_dma_ex.o
+LOAD stm32l4xx_hal_pwr.o
+LOAD stm32l4xx_hal_pwr_ex.o
+LOAD stm32l4xx_hal_cortex.o
+LOAD stm32l4xx_hal_exti.o
+LOAD stm32l4xx_ll_i2c.o
+LOAD stm32l4xx_ll_tim.o
+LOAD stm32l4xx_ll_usart.o
+LOAD stm32l4xx_ll_rcc.o
+LOAD system_stm32l4xx.o
+LOAD syscalls.o
+LOAD sysmem.o
+LOAD startup_stm32l432kcux.o
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/cmsis_dsp.instrset/Lib/GCC/arm_cortexm4ldfsp_math/libCMSISDSP.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libstdc++_nano.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libm.a
+START GROUP
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a
+END GROUP
+START GROUP
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libnosys.a
+END GROUP
+START GROUP
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libnosys.a
+END GROUP
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x2000c000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x00000200                        _Min_Heap_Size = 0x200
+                0x00000400                        _Min_Stack_Size = 0x400
+
+.isr_vector     0x08000000      0x18c
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x18c startup_stm32l432kcux.o
+                0x08000000                g_pfnVectors
+                0x0800018c                        . = ALIGN (0x4)
+
+.text           0x0800018c     0x521c
+                0x0800018c                        . = ALIGN (0x4)
+ *(.text)
+ *(.text*)
+ .text.deregister_tm_clones
+                0x0800018c       0x1c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text.register_tm_clones
+                0x080001a8       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text.__do_global_dtors_aux
+                0x080001cc       0x28 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text.frame_dummy
+                0x080001f4       0x24 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text.LL_TIM_GetCounterMode
+                0x08000218       0x30 stm_timer_ll.o
+ .text.LL_TIM_GetRepetitionCounter
+                0x08000248       0x18 stm_timer_ll.o
+ .text.LL_TIM_CC_EnableChannel
+                0x08000260       0x22 stm_timer_ll.o
+ .text.LL_TIM_CC_DisableChannel
+                0x08000282       0x24 stm_timer_ll.o
+ .text.LL_TIM_EnableAllOutputs
+                0x080002a6       0x20 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_UPDATE
+                0x080002c6       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_UPDATE
+                0x080002e6       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_UPDATE
+                0x08000306       0x26 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_CC1
+                0x0800032c       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_CC1
+                0x0800034c       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_CC1
+                0x0800036c       0x26 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_CC2
+                0x08000392       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_CC2
+                0x080003b2       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_CC2
+                0x080003d2       0x26 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_CC3
+                0x080003f8       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_CC3
+                0x08000418       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_CC3
+                0x08000438       0x26 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_CC4
+                0x0800045e       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_CC4
+                0x0800047e       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_CC4
+                0x0800049e       0x26 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_COM
+                0x080004c4       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_COM
+                0x080004e4       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_COM
+                0x08000504       0x26 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_TRIG
+                0x0800052a       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_TRIG
+                0x0800054a       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_TRIG
+                0x0800056a       0x26 stm_timer_ll.o
+ .text.LL_TIM_EnableIT_BRK
+                0x08000590       0x20 stm_timer_ll.o
+ .text.LL_TIM_DisableIT_BRK
+                0x080005b0       0x20 stm_timer_ll.o
+ .text.LL_TIM_IsEnabledIT_BRK
+                0x080005d0       0x26 stm_timer_ll.o
+ .text.enableTimerInterrupts
+                0x080005f6      0x134 stm_timer_ll.o
+                0x080005f6                enableTimerInterrupts
+ .text.disableTimerInterrupts
+                0x0800072a      0x134 stm_timer_ll.o
+                0x0800072a                disableTimerInterrupts
+ *fill*         0x0800085e        0x2 
+ .text.enableTimerChannel1
+                0x08000860       0x84 stm_timer_ll.o
+                0x08000860                enableTimerChannel1
+ .text.disableTimerChannel1
+                0x080008e4       0x84 stm_timer_ll.o
+                0x080008e4                disableTimerChannel1
+ .text.Timer_Handle_Init
+                0x08000968       0xbc stm_timer_ll.o
+                0x08000968                Timer_Handle_Init
+ .text.rt_OneStep
+                0x08000a24       0x4c ert_main.o
+                0x08000a24                rt_OneStep
+ .text.main     0x08000a70       0xe4 ert_main.o
+                0x08000a70                main
+ .text.LL_TIM_EnableCounter
+                0x08000b54       0x20 testing_hardware.o
+ .text.LL_TIM_DisableCounter
+                0x08000b74       0x20 testing_hardware.o
+ .text.LL_TIM_SetUpdateSource
+                0x08000b94       0x26 testing_hardware.o
+ .text.LL_TIM_GetUpdateSource
+                0x08000bba       0x1c testing_hardware.o
+ .text.LL_TIM_GetAutoReload
+                0x08000bd6       0x18 testing_hardware.o
+ .text.LL_TIM_SetRepetitionCounter
+                0x08000bee       0x1c testing_hardware.o
+ .text.LL_TIM_OC_SetCompareCH1
+                0x08000c0a       0x1c testing_hardware.o
+ .text.LL_TIM_OC_GetCompareCH1
+                0x08000c26       0x18 testing_hardware.o
+ .text.LL_TIM_GenerateEvent_UPDATE
+                0x08000c3e       0x20 testing_hardware.o
+ .text.LL_GPIO_SetOutputPin
+                0x08000c5e       0x1c testing_hardware.o
+ .text.LL_GPIO_ResetOutputPin
+                0x08000c7a       0x1c testing_hardware.o
+ *fill*         0x08000c96        0x2 
+ .text.convertDutyCyclePercentageToCounts
+                0x08000c98       0x88 testing_hardware.o
+ .text.setDutyCycleChannel1
+                0x08000d20       0x30 testing_hardware.o
+ .text.setDutyCycleInPercentageChannel1
+                0x08000d50       0x28 testing_hardware.o
+ .text.isSlaveTriggerModeEnabled
+                0x08000d78       0x30 testing_hardware.o
+ .text.enableCounter
+                0x08000da8       0xd0 testing_hardware.o
+ .text.disableCounter
+                0x08000e78       0x1a testing_hardware.o
+ *fill*         0x08000e92        0x2 
+ .text.testing_har_PWMOutput_setupImpl
+                0x08000e94       0x6c testing_hardware.o
+ .text.testing_hardware_step
+                0x08000f00       0x84 testing_hardware.o
+                0x08000f00                testing_hardware_step
+ .text.testing_hardware_initialize
+                0x08000f84       0x2c testing_hardware.o
+                0x08000f84                testing_hardware_initialize
+ .text.testing_hardware_terminate
+                0x08000fb0       0x4c testing_hardware.o
+                0x08000fb0                testing_hardware_terminate
+ .text.__NVIC_SetPriority
+                0x08000ffc       0x54 SysTickScheduler.o
+ .text.SysTick_Config
+                0x08001050       0x44 SysTickScheduler.o
+ .text.SysTick_Isr
+                0x08001094       0x48 SysTickScheduler.o
+ .text.SysTick_Handler
+                0x080010dc       0x20 SysTickScheduler.o
+                0x080010dc                SysTick_Handler
+ .text.ARMCM_SysTick_Config
+                0x080010fc       0xb0 SysTickScheduler.o
+                0x080010fc                ARMCM_SysTick_Config
+ .text.PendSV_Handler
+                0x080011ac       0x44 m3m4m4f_multitasking.o
+                0x080011ac                PendSV_Handler
+ .text.SVC_Handler
+                0x080011f0       0x58 m3m4m4f_multitasking.o
+                0x080011f0                SVC_Handler
+ .text.__NVIC_GetPriorityGrouping
+                0x08001248       0x1c main.o
+ .text.__NVIC_EnableIRQ
+                0x08001264       0x3c main.o
+ .text.__NVIC_SetPriority
+                0x080012a0       0x54 main.o
+ .text.NVIC_EncodePriority
+                0x080012f4       0x66 main.o
+ .text.LL_ADC_SetCommonPathInternalCh
+                0x0800135a       0x26 main.o
+ .text.LL_ADC_REG_SetSequencerRanks
+                0x08001380       0x58 main.o
+ .text.LL_ADC_SetChannelSamplingTime
+                0x080013d8       0x56 main.o
+ *fill*         0x0800142e        0x2 
+ .text.LL_ADC_SetChannelSingleDiff
+                0x08001430       0x48 main.o
+ .text.LL_ADC_SetOverSamplingScope
+                0x08001478       0x2a main.o
+ .text.LL_ADC_DisableDeepPowerDown
+                0x080014a2       0x24 main.o
+ .text.LL_ADC_EnableInternalRegulator
+                0x080014c6       0x28 main.o
+ *fill*         0x080014ee        0x2 
+ .text.LL_DMA_SetDataTransferDirection
+                0x080014f0       0x50 main.o
+ .text.LL_DMA_SetMode
+                0x08001540       0x4c main.o
+ .text.LL_DMA_SetPeriphIncMode
+                0x0800158c       0x4c main.o
+ .text.LL_DMA_SetMemoryIncMode
+                0x080015d8       0x4c main.o
+ .text.LL_DMA_SetPeriphSize
+                0x08001624       0x4c main.o
+ .text.LL_DMA_SetMemorySize
+                0x08001670       0x4c main.o
+ .text.LL_DMA_SetChannelPriorityLevel
+                0x080016bc       0x4c main.o
+ .text.LL_DMA_SetPeriphRequest
+                0x08001708       0x64 main.o
+ .text.LL_I2C_EnableClockStretching
+                0x0800176c       0x20 main.o
+ .text.LL_I2C_DisableGeneralCall
+                0x0800178c       0x20 main.o
+ .text.LL_I2C_SetOwnAddress2
+                0x080017ac       0x30 main.o
+ .text.LL_I2C_DisableOwnAddress2
+                0x080017dc       0x20 main.o
+ .text.LL_I2C_EnableAutoEndMode
+                0x080017fc       0x20 main.o
+ .text.LL_RCC_LSE_Enable
+                0x0800181c       0x24 main.o
+ .text.LL_RCC_LSE_SetDriveCapability
+                0x08001840       0x2c main.o
+ .text.LL_RCC_LSE_IsReady
+                0x0800186c       0x28 main.o
+ .text.LL_RCC_MSI_Enable
+                0x08001894       0x20 main.o
+ .text.LL_RCC_MSI_IsReady
+                0x080018b4       0x24 main.o
+ .text.LL_RCC_MSI_EnablePLLMode
+                0x080018d8       0x20 main.o
+ .text.LL_RCC_MSI_EnableRangeSelection
+                0x080018f8       0x20 main.o
+ .text.LL_RCC_MSI_SetRange
+                0x08001918       0x28 main.o
+ .text.LL_RCC_MSI_SetCalibTrimming
+                0x08001940       0x2c main.o
+ .text.LL_RCC_SetSysClkSource
+                0x0800196c       0x28 main.o
+ .text.LL_RCC_GetSysClkSource
+                0x08001994       0x1c main.o
+ .text.LL_RCC_SetAHBPrescaler
+                0x080019b0       0x28 main.o
+ .text.LL_RCC_SetAPB1Prescaler
+                0x080019d8       0x28 main.o
+ .text.LL_RCC_SetAPB2Prescaler
+                0x08001a00       0x28 main.o
+ .text.LL_RCC_SetUSARTClockSource
+                0x08001a28       0x34 main.o
+ .text.LL_RCC_SetI2CClockSource
+                0x08001a5c       0x50 main.o
+ .text.LL_RCC_SetADCClockSource
+                0x08001aac       0x2c main.o
+ .text.LL_RCC_PLL_Enable
+                0x08001ad8       0x20 main.o
+ .text.LL_RCC_PLL_IsReady
+                0x08001af8       0x28 main.o
+ .text.LL_RCC_PLL_ConfigDomain_SYS
+                0x08001b20       0x40 main.o
+ .text.LL_RCC_PLL_EnableDomain_SYS
+                0x08001b60       0x20 main.o
+ .text.LL_RCC_PLLSAI1_Enable
+                0x08001b80       0x20 main.o
+ .text.LL_RCC_PLLSAI1_IsReady
+                0x08001ba0       0x28 main.o
+ .text.LL_RCC_PLLSAI1_ConfigDomain_ADC
+                0x08001bc8       0x4c main.o
+ .text.LL_RCC_PLLSAI1_EnableDomain_ADC
+                0x08001c14       0x20 main.o
+ .text.LL_AHB1_GRP1_EnableClock
+                0x08001c34       0x30 main.o
+ .text.LL_AHB2_GRP1_EnableClock
+                0x08001c64       0x30 main.o
+ .text.LL_APB1_GRP1_EnableClock
+                0x08001c94       0x30 main.o
+ .text.LL_APB2_GRP1_EnableClock
+                0x08001cc4       0x30 main.o
+ .text.LL_SYSCFG_SetEXTISource
+                0x08001cf4       0x6c main.o
+ .text.LL_FLASH_SetLatency
+                0x08001d60       0x28 main.o
+ .text.LL_FLASH_GetLatency
+                0x08001d88       0x1c main.o
+ .text.LL_PWR_SetRegulVoltageScaling
+                0x08001da4       0x28 main.o
+ .text.LL_PWR_EnableBkUpAccess
+                0x08001dcc       0x20 main.o
+ .text.LL_PWR_IsActiveFlag_VOS
+                0x08001dec       0x28 main.o
+ .text.LL_TIM_DisableARRPreload
+                0x08001e14       0x20 main.o
+ .text.LL_TIM_OC_DisableFast
+                0x08001e34       0xa4 main.o
+ .text.LL_TIM_OC_EnablePreload
+                0x08001ed8       0xa0 main.o
+ .text.LL_TIM_DisableExternalClock
+                0x08001f78       0x20 main.o
+ .text.LL_TIM_SetClockSource
+                0x08001f98       0x2a main.o
+ .text.LL_TIM_SetTriggerOutput
+                0x08001fc2       0x26 main.o
+ .text.LL_TIM_SetTriggerOutput2
+                0x08001fe8       0x26 main.o
+ .text.LL_TIM_DisableMasterSlaveMode
+                0x0800200e       0x20 main.o
+ .text.LL_TIM_ConfigETR
+                0x0800202e       0x32 main.o
+ .text.LL_TIM_SetOCRefClearInputSource
+                0x08002060       0x26 main.o
+ .text.LL_USART_Enable
+                0x08002086       0x20 main.o
+ .text.LL_USART_ConfigAsyncMode
+                0x080020a6       0x2c main.o
+ .text.LL_GPIO_SetPinMode
+                0x080020d2       0x7a main.o
+ .text.LL_GPIO_SetPinPull
+                0x0800214c       0x7a main.o
+ .text.LL_GPIO_ResetOutputPin
+                0x080021c6       0x1c main.o
+ *fill*         0x080021e2        0x2 
+ .text.SystemClock_Config
+                0x080021e4       0xcc main.o
+                0x080021e4                SystemClock_Config
+ .text.PeriphCommonClock_Config
+                0x080022b0       0x2a main.o
+                0x080022b0                PeriphCommonClock_Config
+ *fill*         0x080022da        0x2 
+ .text.MX_ADC1_Init
+                0x080022dc      0x240 main.o
+                0x080022dc                MX_ADC1_Init
+ .text.MX_I2C1_Init
+                0x0800251c      0x164 main.o
+                0x0800251c                MX_I2C1_Init
+ .text.MX_TIM1_Init
+                0x08002680      0x160 main.o
+                0x08002680                MX_TIM1_Init
+ .text.MX_TIM16_Init
+                0x080027e0      0x114 main.o
+                0x080027e0                MX_TIM16_Init
+ .text.MX_USART1_UART_Init
+                0x080028f4       0xa8 main.o
+                0x080028f4                MX_USART1_UART_Init
+ .text.MX_USART2_UART_Init
+                0x0800299c      0x190 main.o
+                0x0800299c                MX_USART2_UART_Init
+ .text.MX_DMA_Init
+                0x08002b2c       0xb4 main.o
+                0x08002b2c                MX_DMA_Init
+ .text.MX_GPIO_Init
+                0x08002be0      0x1ac main.o
+                0x08002be0                MX_GPIO_Init
+ .text.HAL_TIM_PeriodElapsedCallback
+                0x08002d8c       0x24 main.o
+                0x08002d8c                HAL_TIM_PeriodElapsedCallback
+ .text.Error_Handler
+                0x08002db0        0xc main.o
+                0x08002db0                Error_Handler
+ .text.LL_EXTI_IsActiveFlag_0_31
+                0x08002dbc       0x2c stm32l4xx_it.o
+ .text.LL_EXTI_ClearFlag_0_31
+                0x08002de8       0x20 stm32l4xx_it.o
+ .text.NMI_Handler
+                0x08002e08        0x8 stm32l4xx_it.o
+                0x08002e08                NMI_Handler
+ .text.HardFault_Handler
+                0x08002e10        0x8 stm32l4xx_it.o
+                0x08002e10                HardFault_Handler
+ .text.MemManage_Handler
+                0x08002e18        0x8 stm32l4xx_it.o
+                0x08002e18                MemManage_Handler
+ .text.BusFault_Handler
+                0x08002e20        0x8 stm32l4xx_it.o
+                0x08002e20                BusFault_Handler
+ .text.UsageFault_Handler
+                0x08002e28        0x8 stm32l4xx_it.o
+                0x08002e28                UsageFault_Handler
+ .text.DebugMon_Handler
+                0x08002e30        0xe stm32l4xx_it.o
+                0x08002e30                DebugMon_Handler
+ .text.EXTI0_IRQHandler
+                0x08002e3e       0x1a stm32l4xx_it.o
+                0x08002e3e                EXTI0_IRQHandler
+ .text.EXTI3_IRQHandler
+                0x08002e58       0x1a stm32l4xx_it.o
+                0x08002e58                EXTI3_IRQHandler
+ .text.DMA1_Channel1_IRQHandler
+                0x08002e72        0xe stm32l4xx_it.o
+                0x08002e72                DMA1_Channel1_IRQHandler
+ .text.DMA1_Channel6_IRQHandler
+                0x08002e80        0xe stm32l4xx_it.o
+                0x08002e80                DMA1_Channel6_IRQHandler
+ .text.DMA1_Channel7_IRQHandler
+                0x08002e8e        0xe stm32l4xx_it.o
+                0x08002e8e                DMA1_Channel7_IRQHandler
+ .text.ADC1_IRQHandler
+                0x08002e9c        0xe stm32l4xx_it.o
+                0x08002e9c                ADC1_IRQHandler
+ .text.EXTI9_5_IRQHandler
+                0x08002eaa       0x1a stm32l4xx_it.o
+                0x08002eaa                EXTI9_5_IRQHandler
+ .text.USART2_IRQHandler
+                0x08002ec4        0xe stm32l4xx_it.o
+                0x08002ec4                USART2_IRQHandler
+ *fill*         0x08002ed2        0x2 
+ .text.TIM6_DAC_IRQHandler
+                0x08002ed4       0x14 stm32l4xx_it.o
+                0x08002ed4                TIM6_DAC_IRQHandler
+ .text.DMA2_Channel6_IRQHandler
+                0x08002ee8        0xe stm32l4xx_it.o
+                0x08002ee8                DMA2_Channel6_IRQHandler
+ .text.DMA2_Channel7_IRQHandler
+                0x08002ef6        0xe stm32l4xx_it.o
+                0x08002ef6                DMA2_Channel7_IRQHandler
+ .text.HAL_MspInit
+                0x08002f04       0x48 stm32l4xx_hal_msp.o
+                0x08002f04                HAL_MspInit
+ .text.HAL_InitTick
+                0x08002f4c       0xf4 stm32l4xx_hal_timebase_tim.o
+                0x08002f4c                HAL_InitTick
+ .text.LL_SetSystemCoreClock
+                0x08003040       0x20 stm32l4xx_ll_utils.o
+                0x08003040                LL_SetSystemCoreClock
+ .text.LL_EXTI_EnableIT_0_31
+                0x08003060       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_EnableIT_32_63
+                0x08003084       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableIT_0_31
+                0x080030a8       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableIT_32_63
+                0x080030d0       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_EnableEvent_0_31
+                0x080030f8       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_EnableEvent_32_63
+                0x0800311c       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableEvent_0_31
+                0x08003140       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableEvent_32_63
+                0x08003168       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_EnableRisingTrig_0_31
+                0x08003190       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_EnableRisingTrig_32_63
+                0x080031b4       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableRisingTrig_0_31
+                0x080031d8       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableRisingTrig_32_63
+                0x08003200       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_EnableFallingTrig_0_31
+                0x08003228       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_EnableFallingTrig_32_63
+                0x0800324c       0x24 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableFallingTrig_0_31
+                0x08003270       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_DisableFallingTrig_32_63
+                0x08003298       0x28 stm32l4xx_ll_exti.o
+ .text.LL_EXTI_Init
+                0x080032c0      0x1e8 stm32l4xx_ll_exti.o
+                0x080032c0                LL_EXTI_Init
+ .text.HAL_TIM_Base_Init
+                0x080034a8       0xae stm32l4xx_hal_tim.o
+                0x080034a8                HAL_TIM_Base_Init
+ .text.HAL_TIM_Base_MspInit
+                0x08003556       0x14 stm32l4xx_hal_tim.o
+                0x08003556                HAL_TIM_Base_MspInit
+ *fill*         0x0800356a        0x2 
+ .text.HAL_TIM_Base_Start_IT
+                0x0800356c       0xa8 stm32l4xx_hal_tim.o
+                0x0800356c                HAL_TIM_Base_Start_IT
+ .text.HAL_TIM_IRQHandler
+                0x08003614      0x23e stm32l4xx_hal_tim.o
+                0x08003614                HAL_TIM_IRQHandler
+ .text.HAL_TIM_OC_DelayElapsedCallback
+                0x08003852       0x14 stm32l4xx_hal_tim.o
+                0x08003852                HAL_TIM_OC_DelayElapsedCallback
+ .text.HAL_TIM_IC_CaptureCallback
+                0x08003866       0x14 stm32l4xx_hal_tim.o
+                0x08003866                HAL_TIM_IC_CaptureCallback
+ .text.HAL_TIM_PWM_PulseFinishedCallback
+                0x0800387a       0x14 stm32l4xx_hal_tim.o
+                0x0800387a                HAL_TIM_PWM_PulseFinishedCallback
+ .text.HAL_TIM_TriggerCallback
+                0x0800388e       0x14 stm32l4xx_hal_tim.o
+                0x0800388e                HAL_TIM_TriggerCallback
+ *fill*         0x080038a2        0x2 
+ .text.TIM_Base_SetConfig
+                0x080038a4       0xc8 stm32l4xx_hal_tim.o
+                0x080038a4                TIM_Base_SetConfig
+ .text.HAL_TIMEx_CommutCallback
+                0x0800396c       0x14 stm32l4xx_hal_tim_ex.o
+                0x0800396c                HAL_TIMEx_CommutCallback
+ .text.HAL_TIMEx_BreakCallback
+                0x08003980       0x14 stm32l4xx_hal_tim_ex.o
+                0x08003980                HAL_TIMEx_BreakCallback
+ .text.HAL_TIMEx_Break2Callback
+                0x08003994       0x14 stm32l4xx_hal_tim_ex.o
+                0x08003994                HAL_TIMEx_Break2Callback
+ .text.LL_GPIO_SetPinMode
+                0x080039a8       0x7a stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_SetPinOutputType
+                0x08003a22       0x30 stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_SetPinSpeed
+                0x08003a52       0x7a stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_SetPinPull
+                0x08003acc       0x7a stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_SetAFPin_0_7
+                0x08003b46       0x7a stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_SetAFPin_8_15
+                0x08003bc0       0x7e stm32l4xx_ll_gpio.o
+ .text.LL_GPIO_Init
+                0x08003c3e       0xdc stm32l4xx_ll_gpio.o
+                0x08003c3e                LL_GPIO_Init
+ .text.LL_ADC_SetCommonClock
+                0x08003d1a       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_REG_SetSequencerLength
+                0x08003d40       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_IsEnabled
+                0x08003d66       0x26 stm32l4xx_ll_adc.o
+ .text.LL_ADC_CommonInit
+                0x08003d8c       0x3c stm32l4xx_ll_adc.o
+                0x08003d8c                LL_ADC_CommonInit
+ .text.LL_ADC_Init
+                0x08003dc8       0x4c stm32l4xx_ll_adc.o
+                0x08003dc8                LL_ADC_Init
+ .text.LL_ADC_REG_Init
+                0x08003e14       0x94 stm32l4xx_ll_adc.o
+                0x08003e14                LL_ADC_REG_Init
+ .text.HAL_Init
+                0x08003ea8       0x30 stm32l4xx_hal.o
+                0x08003ea8                HAL_Init
+ .text.HAL_IncTick
+                0x08003ed8       0x28 stm32l4xx_hal.o
+                0x08003ed8                HAL_IncTick
+ .text.HAL_RCC_GetHCLKFreq
+                0x08003f00       0x18 stm32l4xx_hal_rcc.o
+                0x08003f00                HAL_RCC_GetHCLKFreq
+ .text.HAL_RCC_GetPCLK1Freq
+                0x08003f18       0x2c stm32l4xx_hal_rcc.o
+                0x08003f18                HAL_RCC_GetPCLK1Freq
+ .text.HAL_RCC_GetClockConfig
+                0x08003f44       0x64 stm32l4xx_hal_rcc.o
+                0x08003f44                HAL_RCC_GetClockConfig
+ .text.__NVIC_SetPriorityGrouping
+                0x08003fa8       0x48 stm32l4xx_hal_cortex.o
+ .text.__NVIC_GetPriorityGrouping
+                0x08003ff0       0x1c stm32l4xx_hal_cortex.o
+ .text.__NVIC_EnableIRQ
+                0x0800400c       0x3c stm32l4xx_hal_cortex.o
+ .text.__NVIC_SetPriority
+                0x08004048       0x54 stm32l4xx_hal_cortex.o
+ .text.NVIC_EncodePriority
+                0x0800409c       0x66 stm32l4xx_hal_cortex.o
+ .text.HAL_NVIC_SetPriorityGrouping
+                0x08004102       0x16 stm32l4xx_hal_cortex.o
+                0x08004102                HAL_NVIC_SetPriorityGrouping
+ .text.HAL_NVIC_SetPriority
+                0x08004118       0x38 stm32l4xx_hal_cortex.o
+                0x08004118                HAL_NVIC_SetPriority
+ .text.HAL_NVIC_EnableIRQ
+                0x08004150       0x1c stm32l4xx_hal_cortex.o
+                0x08004150                HAL_NVIC_EnableIRQ
+ .text.LL_I2C_Enable
+                0x0800416c       0x20 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_Disable
+                0x0800418c       0x20 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_ConfigFilters
+                0x080041ac       0x2e stm32l4xx_ll_i2c.o
+ .text.LL_I2C_SetOwnAddress1
+                0x080041da       0x30 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_EnableOwnAddress1
+                0x0800420a       0x20 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_DisableOwnAddress1
+                0x0800422a       0x20 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_SetTiming
+                0x0800424a       0x1c stm32l4xx_ll_i2c.o
+ .text.LL_I2C_SetMode
+                0x08004266       0x26 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_AcknowledgeNextData
+                0x0800428c       0x26 stm32l4xx_ll_i2c.o
+ .text.LL_I2C_Init
+                0x080042b2       0x78 stm32l4xx_ll_i2c.o
+                0x080042b2                LL_I2C_Init
+ .text.LL_TIM_SetPrescaler
+                0x0800432a       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_SetAutoReload
+                0x08004346       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_SetRepetitionCounter
+                0x08004362       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_OC_SetCompareCH1
+                0x0800437e       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_OC_SetCompareCH2
+                0x0800439a       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_OC_SetCompareCH3
+                0x080043b6       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_OC_SetCompareCH4
+                0x080043d2       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_OC_SetCompareCH5
+                0x080043ee       0x20 stm32l4xx_ll_tim.o
+ .text.LL_TIM_OC_SetCompareCH6
+                0x0800440e       0x1c stm32l4xx_ll_tim.o
+ .text.LL_TIM_GenerateEvent_UPDATE
+                0x0800442a       0x20 stm32l4xx_ll_tim.o
+ *fill*         0x0800444a        0x2 
+ .text.LL_TIM_Init
+                0x0800444c       0xbc stm32l4xx_ll_tim.o
+                0x0800444c                LL_TIM_Init
+ .text.LL_TIM_OC_Init
+                0x08004508       0xbe stm32l4xx_ll_tim.o
+                0x08004508                LL_TIM_OC_Init
+ *fill*         0x080045c6        0x2 
+ .text.LL_TIM_BDTR_Init
+                0x080045c8       0xe0 stm32l4xx_ll_tim.o
+                0x080045c8                LL_TIM_BDTR_Init
+ .text.OC1Config
+                0x080046a8       0xe8 stm32l4xx_ll_tim.o
+ .text.OC2Config
+                0x08004790       0xf0 stm32l4xx_ll_tim.o
+ .text.OC3Config
+                0x08004880       0xf0 stm32l4xx_ll_tim.o
+ .text.OC4Config
+                0x08004970       0xc0 stm32l4xx_ll_tim.o
+ .text.OC5Config
+                0x08004a30       0xb0 stm32l4xx_ll_tim.o
+ .text.OC6Config
+                0x08004ae0       0xb0 stm32l4xx_ll_tim.o
+ .text.LL_USART_IsEnabled
+                0x08004b90       0x26 stm32l4xx_ll_usart.o
+ .text.LL_USART_SetStopBitsLength
+                0x08004bb6       0x26 stm32l4xx_ll_usart.o
+ .text.LL_USART_SetHWFlowCtrl
+                0x08004bdc       0x26 stm32l4xx_ll_usart.o
+ .text.LL_USART_SetBaudRate
+                0x08004c02       0x6e stm32l4xx_ll_usart.o
+ .text.LL_USART_Init
+                0x08004c70       0xb4 stm32l4xx_ll_usart.o
+                0x08004c70                LL_USART_Init
+ .text.LL_RCC_HSI_IsReady
+                0x08004d24       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_LSE_IsReady
+                0x08004d4c       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_MSI_IsEnabledRangeSelect
+                0x08004d74       0x24 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_MSI_GetRange
+                0x08004d98       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_MSI_GetRangeAfterStandby
+                0x08004db4       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetSysClkSource
+                0x08004dd0       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetAHBPrescaler
+                0x08004dec       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetAPB1Prescaler
+                0x08004e08       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetAPB2Prescaler
+                0x08004e24       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetUSARTClockSource
+                0x08004e40       0x28 stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_GetMainSource
+                0x08004e68       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_GetN
+                0x08004e84       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_GetR
+                0x08004ea0       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_PLL_GetDivider
+                0x08004ebc       0x1c stm32l4xx_ll_rcc.o
+ .text.LL_RCC_GetUSARTClockFreq
+                0x08004ed8      0x134 stm32l4xx_ll_rcc.o
+                0x08004ed8                LL_RCC_GetUSARTClockFreq
+ .text.RCC_GetSystemClockFreq
+                0x0800500c      0x120 stm32l4xx_ll_rcc.o
+ .text.RCC_GetHCLKClockFreq
+                0x0800512c       0x2c stm32l4xx_ll_rcc.o
+ .text.RCC_GetPCLK1ClockFreq
+                0x08005158       0x28 stm32l4xx_ll_rcc.o
+ .text.RCC_GetPCLK2ClockFreq
+                0x08005180       0x28 stm32l4xx_ll_rcc.o
+ .text.RCC_PLL_GetFreqDomain_SYS
+                0x080051a8      0x118 stm32l4xx_ll_rcc.o
+ .text.SystemInit
+                0x080052c0       0x24 system_stm32l4xx.o
+                0x080052c0                SystemInit
+ .text.Reset_Handler
+                0x080052e4       0x50 startup_stm32l432kcux.o
+                0x080052e4                Reset_Handler
+ .text.Default_Handler
+                0x08005334        0x2 startup_stm32l432kcux.o
+                0x08005334                RTC_Alarm_IRQHandler
+                0x08005334                EXTI2_IRQHandler
+                0x08005334                TIM1_CC_IRQHandler
+                0x08005334                TSC_IRQHandler
+                0x08005334                TAMP_STAMP_IRQHandler
+                0x08005334                LPTIM2_IRQHandler
+                0x08005334                I2C3_ER_IRQHandler
+                0x08005334                CAN1_RX0_IRQHandler
+                0x08005334                FPU_IRQHandler
+                0x08005334                TIM1_UP_TIM16_IRQHandler
+                0x08005334                SPI1_IRQHandler
+                0x08005334                DMA2_Channel2_IRQHandler
+                0x08005334                DMA1_Channel4_IRQHandler
+                0x08005334                CAN1_RX1_IRQHandler
+                0x08005334                DMA2_Channel1_IRQHandler
+                0x08005334                QUADSPI_IRQHandler
+                0x08005334                I2C1_EV_IRQHandler
+                0x08005334                DMA2_Channel4_IRQHandler
+                0x08005334                RCC_IRQHandler
+                0x08005334                TIM1_TRG_COM_IRQHandler
+                0x08005334                Default_Handler
+                0x08005334                EXTI15_10_IRQHandler
+                0x08005334                TIM7_IRQHandler
+                0x08005334                I2C3_EV_IRQHandler
+                0x08005334                USB_IRQHandler
+                0x08005334                RTC_WKUP_IRQHandler
+                0x08005334                PVD_PVM_IRQHandler
+                0x08005334                CAN1_TX_IRQHandler
+                0x08005334                DMA2_Channel5_IRQHandler
+                0x08005334                CRS_IRQHandler
+                0x08005334                DMA1_Channel5_IRQHandler
+                0x08005334                EXTI4_IRQHandler
+                0x08005334                RNG_IRQHandler
+                0x08005334                DMA1_Channel3_IRQHandler
+                0x08005334                COMP_IRQHandler
+                0x08005334                WWDG_IRQHandler
+                0x08005334                LPUART1_IRQHandler
+                0x08005334                TIM2_IRQHandler
+                0x08005334                EXTI1_IRQHandler
+                0x08005334                DMA1_Channel2_IRQHandler
+                0x08005334                CAN1_SCE_IRQHandler
+                0x08005334                FLASH_IRQHandler
+                0x08005334                USART1_IRQHandler
+                0x08005334                SPI3_IRQHandler
+                0x08005334                I2C1_ER_IRQHandler
+                0x08005334                SWPMI1_IRQHandler
+                0x08005334                LPTIM1_IRQHandler
+                0x08005334                SAI1_IRQHandler
+                0x08005334                DMA2_Channel3_IRQHandler
+                0x08005334                TIM1_BRK_TIM15_IRQHandler
+ .text.memset   0x08005336       0x10 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+                0x08005336                memset
+ *fill*         0x08005346        0x2 
+ .text.__libc_init_array
+                0x08005348       0x48 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+                0x08005348                __libc_init_array
+ *(.glue_7)
+ .glue_7        0x08005390        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x08005390        0x0 linker stubs
+ *(.eh_frame)
+ .eh_frame      0x08005390        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ *(.init)
+ .init          0x08005390        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x08005390                _init
+ .init          0x08005394        0x8 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+ *(.fini)
+ .fini          0x0800539c        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800539c                _fini
+ .fini          0x080053a0        0x8 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x080053a8                        . = ALIGN (0x4)
+                0x080053a8                        _etext = .
+
+.vfp11_veneer   0x080053a8        0x0
+ .vfp11_veneer  0x080053a8        0x0 linker stubs
+
+.v4_bx          0x080053a8        0x0
+ .v4_bx         0x080053a8        0x0 linker stubs
+
+.iplt           0x080053a8        0x0
+ .iplt          0x080053a8        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+
+.rodata         0x080053a8       0x6c
+                0x080053a8                        . = ALIGN (0x4)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.testing_hardware_M
+                0x080053a8        0x4 testing_hardware.o
+                0x080053a8                testing_hardware_M
+ .rodata.CHANNEL_OFFSET_TAB
+                0x080053ac        0x7 main.o
+ *fill*         0x080053b3        0x1 
+ .rodata.OFFSET_TAB_CCMRx
+                0x080053b4        0x9 main.o
+ *fill*         0x080053bd        0x3 
+ .rodata.SHIFT_TAB_OCxx
+                0x080053c0        0x9 main.o
+ *fill*         0x080053c9        0x3 
+ .rodata.AHBPrescTable
+                0x080053cc       0x10 system_stm32l4xx.o
+                0x080053cc                AHBPrescTable
+ .rodata.APBPrescTable
+                0x080053dc        0x8 system_stm32l4xx.o
+                0x080053dc                APBPrescTable
+ .rodata.MSIRangeTable
+                0x080053e4       0x30 system_stm32l4xx.o
+                0x080053e4                MSIRangeTable
+                0x08005414                        . = ALIGN (0x4)
+
+.ARM.extab      0x08005414        0x0
+                0x08005414                        . = ALIGN (0x4)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x08005414                        . = ALIGN (0x4)
+
+.ARM            0x08005414        0x0
+                0x08005414                        . = ALIGN (0x4)
+                0x08005414                        __exidx_start = .
+ *(.ARM.exidx*)
+                0x08005414                        __exidx_end = .
+                0x08005414                        . = ALIGN (0x4)
+
+.preinit_array  0x08005414        0x0
+                0x08005414                        . = ALIGN (0x4)
+                0x08005414                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array*)
+                0x08005414                        PROVIDE (__preinit_array_end = .)
+                0x08005414                        . = ALIGN (0x4)
+
+.init_array     0x08005414        0x4
+                0x08005414                        . = ALIGN (0x4)
+                0x08005414                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array*)
+ .init_array    0x08005414        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x08005418                        PROVIDE (__init_array_end = .)
+                0x08005418                        . = ALIGN (0x4)
+
+.fini_array     0x08005418        0x4
+                0x08005418                        . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+ .fini_array    0x08005418        0x4 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x0800541c                        . = ALIGN (0x4)
+                0x0800541c                        _sidata = LOADADDR (.data)
+
+.rel.dyn        0x0800541c        0x0
+ .rel.iplt      0x0800541c        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+
+.data           0x20000000        0xc load address 0x0800541c
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ *(.data*)
+ .data.uwTickPrio
+                0x20000000        0x4 stm32l4xx_hal.o
+                0x20000000                uwTickPrio
+ .data.uwTickFreq
+                0x20000004        0x1 stm32l4xx_hal.o
+                0x20000004                uwTickFreq
+ *fill*         0x20000005        0x3 
+ .data.SystemCoreClock
+                0x20000008        0x4 system_stm32l4xx.o
+                0x20000008                SystemCoreClock
+ *(.RamFunc)
+ *(.RamFunc*)
+                0x2000000c                        . = ALIGN (0x4)
+                0x2000000c                        _edata = .
+
+.tm_clone_table
+                0x2000000c        0x0 load address 0x08005428
+ .tm_clone_table
+                0x2000000c        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .tm_clone_table
+                0x2000000c        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+
+.igot.plt       0x2000000c        0x0 load address 0x08005428
+ .igot.plt      0x2000000c        0x0 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x2000000c                        . = ALIGN (0x4)
+
+.bss            0x2000000c      0x124 load address 0x08005428
+                0x2000000c                        _sbss = .
+                0x2000000c                        __bss_start__ = _sbss
+ *(.bss)
+ *(.bss*)
+ .bss.completed.1
+                0x2000000c        0x1 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ *fill*         0x2000000d        0x3 
+ .bss.object.0  0x20000010       0x18 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .bss.mw_tim16  0x20000028       0x8c stm_timer_ll.o
+                0x20000028                mw_tim16
+ .bss.IsrOverrun
+                0x200000b4        0x4 ert_main.o
+                0x200000b4                IsrOverrun
+ .bss.OverrunFlag
+                0x200000b8        0x1 ert_main.o
+ .bss.stopRequested
+                0x200000b9        0x1 ert_main.o
+                0x200000b9                stopRequested
+ .bss.runModel  0x200000ba        0x1 ert_main.o
+                0x200000ba                runModel
+ *fill*         0x200000bb        0x1 
+ .bss.testing_hardware_DW
+                0x200000bc       0x14 testing_hardware.o
+                0x200000bc                testing_hardware_DW
+ .bss.testing_hardware_M_
+                0x200000d0        0x4 testing_hardware.o
+ .bss.schdl_counter
+                0x200000d4        0x4 SysTickScheduler.o
+                0x200000d4                schdl_counter
+ .bss.schdl_counter_max
+                0x200000d8        0x4 SysTickScheduler.o
+                0x200000d8                schdl_counter_max
+ .bss.taskToSchedule
+                0x200000dc        0x4 m3m4m4f_multitasking.o
+                0x200000dc                taskToSchedule
+ .bss.htim6     0x200000e0       0x4c stm32l4xx_hal_timebase_tim.o
+                0x200000e0                htim6
+ .bss.uwTick    0x2000012c        0x4 stm32l4xx_hal.o
+                0x2000012c                uwTick
+ *(COMMON)
+                0x20000130                        . = ALIGN (0x4)
+                0x20000130                        _ebss = .
+                0x20000130                        __bss_end__ = _ebss
+
+._user_heap_stack
+                0x20000130      0x600 load address 0x08005428
+                0x20000130                        . = ALIGN (0x8)
+                [!provide]                        PROVIDE (end = .)
+                0x20000130                        PROVIDE (_end = .)
+                0x20000330                        . = (. + _Min_Heap_Size)
+ *fill*         0x20000130      0x200 
+                0x20000730                        . = (. + _Min_Stack_Size)
+ *fill*         0x20000330      0x400 
+                0x20000730                        . = ALIGN (0x8)
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.ARM.attributes
+                0x00000000       0x30
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x22 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crti.o
+ .ARM.attributes
+                0x00000022       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .ARM.attributes
+                0x00000056       0x34 stm_timer_ll.o
+ .ARM.attributes
+                0x0000008a       0x34 ert_main.o
+ .ARM.attributes
+                0x000000be       0x34 testing_hardware.o
+ .ARM.attributes
+                0x000000f2       0x34 SysTickScheduler.o
+ .ARM.attributes
+                0x00000126       0x34 m3m4m4f_multitasking.o
+ .ARM.attributes
+                0x0000015a       0x34 main.o
+ .ARM.attributes
+                0x0000018e       0x34 stm32l4xx_it.o
+ .ARM.attributes
+                0x000001c2       0x34 stm32l4xx_hal_msp.o
+ .ARM.attributes
+                0x000001f6       0x34 stm32l4xx_hal_timebase_tim.o
+ .ARM.attributes
+                0x0000022a       0x34 stm32l4xx_ll_utils.o
+ .ARM.attributes
+                0x0000025e       0x34 stm32l4xx_ll_exti.o
+ .ARM.attributes
+                0x00000292       0x34 stm32l4xx_hal_tim.o
+ .ARM.attributes
+                0x000002c6       0x34 stm32l4xx_hal_tim_ex.o
+ .ARM.attributes
+                0x000002fa       0x34 stm32l4xx_ll_gpio.o
+ .ARM.attributes
+                0x0000032e       0x34 stm32l4xx_ll_adc.o
+ .ARM.attributes
+                0x00000362       0x34 stm32l4xx_hal.o
+ .ARM.attributes
+                0x00000396       0x34 stm32l4xx_hal_rcc.o
+ .ARM.attributes
+                0x000003ca       0x34 stm32l4xx_hal_cortex.o
+ .ARM.attributes
+                0x000003fe       0x34 stm32l4xx_ll_i2c.o
+ .ARM.attributes
+                0x00000432       0x34 stm32l4xx_ll_tim.o
+ .ARM.attributes
+                0x00000466       0x34 stm32l4xx_ll_usart.o
+ .ARM.attributes
+                0x0000049a       0x34 stm32l4xx_ll_rcc.o
+ .ARM.attributes
+                0x000004ce       0x34 system_stm32l4xx.o
+ .ARM.attributes
+                0x00000502       0x21 startup_stm32l432kcux.o
+ .ARM.attributes
+                0x00000523       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+ .ARM.attributes
+                0x00000557       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+ .ARM.attributes
+                0x0000058b       0x34 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtend.o
+ .ARM.attributes
+                0x000005bf       0x22 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtn.o
+OUTPUT(../testing_hardware.elf elf32-littlearm)
+LOAD linker stubs
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libm.a
+LOAD C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libgcc.a
+
+.comment        0x00000000       0x44
+ .comment       0x00000000       0x44 stm_timer_ll.o
+                                 0x45 (size before relaxing)
+ .comment       0x00000044       0x45 ert_main.o
+ .comment       0x00000044       0x45 testing_hardware.o
+ .comment       0x00000044       0x45 SysTickScheduler.o
+ .comment       0x00000044       0x45 m3m4m4f_multitasking.o
+ .comment       0x00000044       0x45 main.o
+ .comment       0x00000044       0x45 stm32l4xx_it.o
+ .comment       0x00000044       0x45 stm32l4xx_hal_msp.o
+ .comment       0x00000044       0x45 stm32l4xx_hal_timebase_tim.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_utils.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_exti.o
+ .comment       0x00000044       0x45 stm32l4xx_hal_tim.o
+ .comment       0x00000044       0x45 stm32l4xx_hal_tim_ex.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_gpio.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_adc.o
+ .comment       0x00000044       0x45 stm32l4xx_hal.o
+ .comment       0x00000044       0x45 stm32l4xx_hal_rcc.o
+ .comment       0x00000044       0x45 stm32l4xx_hal_cortex.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_i2c.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_tim.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_usart.o
+ .comment       0x00000044       0x45 stm32l4xx_ll_rcc.o
+ .comment       0x00000044       0x45 system_stm32l4xx.o
+
+.debug_frame    0x00000000       0x4c
+ .debug_frame   0x00000000       0x20 C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x00000020       0x2c C:/ProgramData/MATLAB/SupportPackages/R2024b/3P.instrset/gnuarm-armcortex.instrset/win/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)

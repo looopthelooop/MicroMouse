@@ -1,0 +1,2 @@
+startup_stm32l432kcux.o: \
+ C:/Repos/MicroMouse/STM32CubeIDE/Application/User/Startup/startup_stm32l432kcux.s

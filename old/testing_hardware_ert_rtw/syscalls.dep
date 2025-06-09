@@ -1,0 +1,2 @@
+syscalls.o: \
+ C:/Repos/MicroMouse/STM32CubeIDE/Application/User/Core/syscalls.c
