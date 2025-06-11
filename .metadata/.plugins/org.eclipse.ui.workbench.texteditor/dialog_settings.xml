@@ -3,6 +3,8 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="GPIOA"/>
+		<item value="HAL_ADC_ConvCpltCallback"/>
 		<item value="20"/>
 		<item value="2"/>
 		<item value="pwm"/>

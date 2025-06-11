@@ -32,8 +32,12 @@
 
 /* USER CODE END 1 */
 
-/** Configure pins
-     PA1   ------> SharedAnalog_PA1
+/** Configure pins as
+        * Analog
+        * Input
+        * Output
+        * EVENT_OUT
+        * EXTI
      PA15   ------> USART2_RX
 */
 void MX_GPIO_Init(void)
@@ -46,23 +50,17 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_Pin|DIRR_Pin|DIRL_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, BUTTON_Pin|DIRR_Pin|DIRL_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(BUTTON_GPIO_Port, BUTTON_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(BUTTONB5_GPIO_Port, BUTTONB5_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED_Pin DIRR_Pin DIRL_Pin */
-  GPIO_InitStruct.Pin = LED_Pin|DIRR_Pin|DIRL_Pin;
+  /*Configure GPIO pins : BUTTON_Pin DIRR_Pin DIRL_Pin */
+  GPIO_InitStruct.Pin = BUTTON_Pin|DIRR_Pin|DIRL_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : L_IR_Pin */
-  GPIO_InitStruct.Pin = L_IR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(L_IR_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RA_Pin AL_Pin */
   GPIO_InitStruct.Pin = RA_Pin|AL_Pin;
@@ -84,12 +82,12 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(BL_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : BUTTON_Pin */
-  GPIO_InitStruct.Pin = BUTTON_Pin;
+  /*Configure GPIO pin : BUTTONB5_Pin */
+  GPIO_InitStruct.Pin = BUTTONB5_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(BUTTON_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(BUTTONB5_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : RB_Pin */
   GPIO_InitStruct.Pin = RB_Pin;

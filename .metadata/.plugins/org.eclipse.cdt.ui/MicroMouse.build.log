@@ -1,17 +1,10 @@
-17:12:42 **** Incremental Build of configuration Debug for project MicroMouse ****
+12:19:30 **** Incremental Build of configuration Debug for project MicroMouse ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32G4xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "MicroMouse.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Repos\MicroMouse\MicroMouse\STM32G431KBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MicroMouse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: MicroMouse.elf
- 
 arm-none-eabi-size  MicroMouse.elf 
-arm-none-eabi-objdump -h -S MicroMouse.elf  > "MicroMouse.list"
    text	   data	    bss	    dec	    hex	filename
-  25592	     44	   2516	  28152	   6df8	MicroMouse.elf
+  28604	     44	   2620	  31268	   7a24	MicroMouse.elf
 Finished building: default.size.stdout
  
-Finished building: MicroMouse.list
- 
 
-17:12:43 Build Finished. 0 errors, 0 warnings. (took 1s.307ms)
+12:19:30 Build Finished. 0 errors, 0 warnings. (took 363ms)
 

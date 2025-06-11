@@ -60,14 +60,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Pin GPIO_PIN_0
-#define LED_GPIO_Port GPIOA
+#define BUTTON_Pin GPIO_PIN_0
+#define BUTTON_GPIO_Port GPIOA
 #define L_IR_Pin GPIO_PIN_1
 #define L_IR_GPIO_Port GPIOA
 #define F_IR_Pin GPIO_PIN_4
 #define F_IR_GPIO_Port GPIOA
-#define L_IRA5_Pin GPIO_PIN_5
-#define L_IRA5_GPIO_Port GPIOA
+#define LF_IR_Pin GPIO_PIN_5
+#define LF_IR_GPIO_Port GPIOA
 #define PWM_L_Pin GPIO_PIN_6
 #define PWM_L_GPIO_Port GPIOA
 #define R_IR_Pin GPIO_PIN_7
@@ -90,8 +90,8 @@ void Error_Handler(void);
 #define AL_EXTI_IRQn EXTI3_IRQn
 #define BL_Pin GPIO_PIN_4
 #define BL_GPIO_Port GPIOB
-#define BUTTON_Pin GPIO_PIN_5
-#define BUTTON_GPIO_Port GPIOB
+#define BUTTONB5_Pin GPIO_PIN_5
+#define BUTTONB5_GPIO_Port GPIOB
 #define RB_Pin GPIO_PIN_6
 #define RB_GPIO_Port GPIOB
 #define RB_EXTI_IRQn EXTI9_5_IRQn
