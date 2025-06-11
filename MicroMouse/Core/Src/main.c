@@ -167,6 +167,13 @@ int main(void)
           float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
           set_motor_pwm_L(pwm_L);
       }
+      if (ir_readings[0] > 1500 || ir_readings[2] > 1500 || ir_readings[3] > 1500)
+      {
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  // Example
+      } else {
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);  // Example
+      }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -276,6 +283,13 @@ void set_motor_pwm_L(float cmd)
         cmd = -cmd;
     }
     __HAL_TIM_SET_COMPARE(&htim16, TIM_CHANNEL_1, (uint16_t)(cmd * 655.35f));
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+    if (hadc->Instance == ADC2) {
+        // e.g., process ir_readings[]
+    }
 }
 /* USER CODE END 4 */
 
