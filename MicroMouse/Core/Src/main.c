@@ -23,6 +23,9 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "floodfill.h"
+#include <math.h>
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -80,6 +83,7 @@ void SystemClock_Config(void);
 float cascaded_control(float pos_target, float pos_current, float vel_current, float *vel_integral);
 void set_motor_pwm_R(float cmd);
 void set_motor_pwm_L(float cmd);
+uint8_t robot_has_reached_next_cell(void);  // ✅ Add this line
 
 /* USER CODE END PFP */
 
@@ -128,7 +132,8 @@ int main(void)
   HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t*)ir_readings, NUM_IR_SENSORS);
-  HAL_Delay(1000);  // Wait 5 seconds before starting control loop
+  floodfill_set_goal(8, 8);   // or whatever cell you want as goal
+  floodfill_init();
   /* USER CODE END 2 */
 
   /* Initialize leds */
@@ -149,60 +154,57 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if (button_mode == 1) {
+		  // Example: read walls from IR sensors
+		  uint8_t front = (ir_readings[0] > 1500);
+		  uint8_t left  = (ir_readings[1] > 1500);
+		  uint8_t right = (ir_readings[2] > 1500);
+		  // Update maze map
+		  floodfill_update_walls(front, left, right);
 
-	  while (button_mode == 1)
-	  {
-		  pos_target_R = 25.0;
-		  pos_target_L = 25.0;
-	      if (HAL_GetTick() - last_control_time >= 10)
-	      {
-	          last_control_time += 10;
+		  // Recompute distances
+		  floodfill_step();
 
-	          float pos_current_R = encoder_ticks_R * kenc;
-	          float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
-	          prev_encoder_ticks_R = encoder_ticks_R;
-	          float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
-	          set_motor_pwm_R(pwm_R);
+		  // Check if finished a cell move
+		  if (robot_has_reached_next_cell()) {
+			  Direction dir = floodfill_next_move();
 
-	          float pos_current_L = encoder_ticks_L * kenc;
-	          float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
-	          prev_encoder_ticks_L = encoder_ticks_L;
-	          float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
-	          set_motor_pwm_L(pwm_L);
-	      }
+			  if (dir == DIR_NORTH) {
+				  pos_target_R = 25.0;
+				  pos_target_L = 25.0;
+			  } else if (dir == DIR_EAST) {
+				  pos_target_R = 8.0;
+				  pos_target_L = -8.0;
+			  } else if (dir == DIR_WEST) {
+				  pos_target_R = -8.0;
+				  pos_target_L = 8.0;
+			  } else if (dir == DIR_SOUTH) {
+				  pos_target_R = -25.0;
+				  pos_target_L = -25.0;
+			  }
 
+			  // Reset encoder for next block tracking
+			  encoder_ticks_R = 0;
+			  encoder_ticks_L = 0;
+		  }
+
+		  // Control loop: only runs if button_mode == 1
+		  if (HAL_GetTick() - last_control_time >= 10) {
+			  last_control_time += 10;
+
+			  float pos_current_R = encoder_ticks_R * kenc;
+			  float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
+			  prev_encoder_ticks_R = encoder_ticks_R;
+			  float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
+			  set_motor_pwm_R(pwm_R);
+
+			  float pos_current_L = encoder_ticks_L * kenc;
+			  float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
+			  prev_encoder_ticks_L = encoder_ticks_L;
+			  float pwm_L = cascaded_control(pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
+			  set_motor_pwm_L(pwm_L);
+		  }
 	  }
-	  encoder_ticks_R = 0;
-	  encoder_ticks_L = 0;
-
-	  while (button_mode == 2)
-	  	  {
-	  		  pos_target_R = 7.0;
-	  		  pos_target_L = -7.0;
-	  	      if (HAL_GetTick() - last_control_time >= 10)
-	  	      {
-	  	          last_control_time += 10;
-
-	  	          float pos_current_R = encoder_ticks_R * kenc;
-	  	          float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
-	  	          prev_encoder_ticks_R = encoder_ticks_R;
-	  	          float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
-	  	          set_motor_pwm_R(pwm_R);
-
-	  	          float pos_current_L = encoder_ticks_L * kenc;
-	  	          float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
-	  	          prev_encoder_ticks_L = encoder_ticks_L;
-	  	          float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
-	  	          set_motor_pwm_L(pwm_L);
-	  	      }
-	  	  }
-
-      if (ir_readings[0] > 1500 || ir_readings[2] > 1500 || ir_readings[3] > 1500)
-      {
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  // Example
-      } else {
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);  // Example
-      }
 
     /* USER CODE END WHILE */
 
@@ -325,6 +327,18 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
         // e.g., process ir_readings[]
     }
 }
+
+uint8_t robot_has_reached_next_cell(void) {
+    float pos_current_R = encoder_ticks_R * kenc;
+    float pos_current_L = encoder_ticks_L * kenc;
+
+    if (fabsf(pos_target_R - pos_current_R) < 0.5f &&
+        fabsf(pos_target_L - pos_current_L) < 0.5f) {
+        return 1;
+    }
+    return 0;
+}
+
 /* USER CODE END 4 */
 
 /**
