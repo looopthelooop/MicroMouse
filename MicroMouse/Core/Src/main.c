@@ -156,9 +156,9 @@ int main(void)
   {
 	  if (button_mode == 1) {
 		  // Example: read walls from IR sensors
-		  uint8_t front = (ir_readings[0] > 1500);
-		  uint8_t left  = (ir_readings[1] > 1500);
-		  uint8_t right = (ir_readings[2] > 1500);
+		  uint8_t front = (ir_readings[2] > 1500);
+		  uint8_t left  = (ir_readings[0] > 1500);
+		  uint8_t right = (ir_readings[3] > 1500);
 		  // Update maze map
 		  floodfill_update_walls(front, left, right);
 
