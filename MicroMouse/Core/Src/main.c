@@ -62,8 +62,8 @@ int32_t prev_encoder_ticks_L = 0;
 float vel_integral_R = 0;
 float vel_integral_L = 0;
 
-float pos_target_R = 18.0f;
-float pos_target_L = 18.0f;
+float pos_target_R = 0.0f;
+float pos_target_L = 0.0f;
 
 uint32_t last_control_time = 0;
 
@@ -150,8 +150,10 @@ int main(void)
   while (1)
   {
 
-	  if (button_mode == 1)
+	  while (button_mode == 1)
 	  {
+		  pos_target_R = 25.0;
+		  pos_target_L = 25.0;
 	      if (HAL_GetTick() - last_control_time >= 10)
 	      {
 	          last_control_time += 10;
@@ -170,6 +172,31 @@ int main(void)
 	      }
 
 	  }
+	  encoder_ticks_R = 0;
+	  encoder_ticks_L = 0;
+
+	  while (button_mode == 2)
+	  	  {
+	  		  pos_target_R = 7.0;
+	  		  pos_target_L = -7.0;
+	  	      if (HAL_GetTick() - last_control_time >= 10)
+	  	      {
+	  	          last_control_time += 10;
+
+	  	          float pos_current_R = encoder_ticks_R * kenc;
+	  	          float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
+	  	          prev_encoder_ticks_R = encoder_ticks_R;
+	  	          float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
+	  	          set_motor_pwm_R(pwm_R);
+
+	  	          float pos_current_L = encoder_ticks_L * kenc;
+	  	          float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
+	  	          prev_encoder_ticks_L = encoder_ticks_L;
+	  	          float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
+	  	          set_motor_pwm_L(pwm_L);
+	  	      }
+	  	  }
+
       if (ir_readings[0] > 1500 || ir_readings[2] > 1500 || ir_readings[3] > 1500)
       {
           HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  // Example
