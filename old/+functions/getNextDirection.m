@@ -1,11 +1,10 @@
 function dir = getNextDirection(maze, walls, pos)
-i = pos(1);
-j = pos(2);
-N = size(maze,1);
+i = pos(1); j = pos(2);
+N = size(maze, 1);
 minVal = inf;
 dir = 0;
 
-moves = [-1 0; 0 1; 1 0; 0 -1];
+moves = [-1 0; 0 1; 1 0; 0 -1];  % N E S W
 for d = 1:4
     ni = i + moves(d,1);
     nj = j + moves(d,2);
@@ -15,5 +14,9 @@ for d = 1:4
         minVal = maze(ni,nj);
         dir = d;
     end
+end
+
+if dir == 0
+    warning("No valid direction from position [%d, %d]", i, j);
 end
 end

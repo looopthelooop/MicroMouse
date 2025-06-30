@@ -71,6 +71,7 @@ uint32_t last_control_time = 0;
 #define NUM_IR_SENSORS 4
 volatile uint16_t ir_readings[NUM_IR_SENSORS];
 
+volatile uint8_t button_mode = 0;
 
 /* USER CODE END PV */
 
@@ -80,7 +81,6 @@ void SystemClock_Config(void);
 float cascaded_control(float pos_target, float pos_current, float vel_current, float *vel_integral);
 void set_motor_pwm_R(float cmd);
 void set_motor_pwm_L(float cmd);
-
 
 /* USER CODE END PFP */
 
@@ -127,9 +127,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
-  HAL_Delay(5000);  // Wait 5 seconds before starting control loop
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t*)ir_readings, NUM_IR_SENSORS);
+  HAL_Delay(1000);  // Wait 5 seconds before starting control loop
   /* USER CODE END 2 */
 
   /* Initialize leds */
@@ -150,29 +150,33 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-      if (HAL_GetTick() - last_control_time >= 10)
-      {
 
-          last_control_time += 10;
+	  while (button_mode == 1)
+	  {
+	      if (HAL_GetTick() - last_control_time >= 10)
+	      {
+	          last_control_time += 10;
 
-          float pos_current_R = encoder_ticks_R * kenc;
-          float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
-          prev_encoder_ticks_R = encoder_ticks_R;
-          float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
-          set_motor_pwm_R(pwm_R);
+	          float pos_current_R = encoder_ticks_R * kenc;
+	          float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
+	          prev_encoder_ticks_R = encoder_ticks_R;
+	          float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
+	          set_motor_pwm_R(pwm_R);
 
-          float pos_current_L = encoder_ticks_L * kenc;
-          float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
-          prev_encoder_ticks_L = encoder_ticks_L;
-          float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
-          set_motor_pwm_L(pwm_L);
-      }
-      if (ir_readings[0] > 1500 || ir_readings[2] > 1500 || ir_readings[3] > 1500)
-      {
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  // Example
-      } else {
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);  // Example
-      }
+	          float pos_current_L = encoder_ticks_L * kenc;
+	          float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
+	          prev_encoder_ticks_L = encoder_ticks_L;
+	          float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
+	          set_motor_pwm_L(pwm_L);
+	      }
+	      if (ir_readings[0] > 1500 || ir_readings[2] > 1500 || ir_readings[3] > 1500)
+	      {
+	          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  // Example
+	      } else {
+	          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);  // Example
+	      }
+	  }
+
 
     /* USER CODE END WHILE */
 
@@ -261,7 +265,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
         uint8_t currB = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4);
         encoder_ticks_L += (currA == currB) ? -1 : +1;
     }
+    else if (GPIO_Pin == GPIO_PIN_5){
+    	button_mode += 1;
+    }
 }
+
 
 void set_motor_pwm_R(float cmd)
 {
