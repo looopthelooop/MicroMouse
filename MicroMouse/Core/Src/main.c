@@ -67,8 +67,6 @@ float pos_target_L = 18.0f;
 
 uint32_t last_control_time = 0;
 
-sdfsdf
-
 #define NUM_IR_SENSORS 4
 volatile uint16_t ir_readings[NUM_IR_SENSORS];
 
@@ -152,7 +150,7 @@ int main(void)
   while (1)
   {
 
-	  while (button_mode == 1)
+	  if (button_mode == 1)
 	  {
 	      if (HAL_GetTick() - last_control_time >= 10)
 	      {
@@ -170,14 +168,14 @@ int main(void)
 	          float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
 	          set_motor_pwm_L(pwm_L);
 	      }
-	      if (ir_readings[0] > 1500 || ir_readings[2] > 1500 || ir_readings[3] > 1500)
-	      {
-	          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  // Example
-	      } else {
-	          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);  // Example
-	      }
-	  }
 
+	  }
+      if (ir_readings[0] > 1500 || ir_readings[2] > 1500 || ir_readings[3] > 1500)
+      {
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);  // Example
+      } else {
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);  // Example
+      }
 
     /* USER CODE END WHILE */
 
