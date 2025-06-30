@@ -32,3 +32,4 @@
 # macOS and Windows trash
 .DS_Store
 Thumbs.db
+/.metadata
