@@ -1,2 +1,34 @@
 # Eclipse/STM32CubeIDE workspace files
 .metadata/
+
+/Debug/
+/Release/
+*.elf
+*.map
+*.list
+*.o
+*.mk
+
+
+# CubeMX auto backup files
+*.ioc~*
+*.iocbackup
+
+# Object dumps and compiler intermediates
+*.d
+*.dep
+
+# Logs
+*.log
+
+# Generated binary and hex files
+*.bin
+*.hex
+
+# IDE indexer and caches
+.settings/
+*.launch
+
+# macOS and Windows trash
+.DS_Store
+Thumbs.db
