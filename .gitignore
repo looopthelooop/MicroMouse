@@ -26,7 +26,6 @@
 *.hex
 
 # IDE indexer and caches
-.settings/
 *.launch
 
 # macOS and Windows trash
