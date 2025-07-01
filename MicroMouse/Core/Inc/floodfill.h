@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define MAZE_SIZE 16
+#define MAZE_SIZE 4
 
 typedef enum {
     DIR_NORTH = 0,
@@ -23,6 +23,7 @@ void floodfill_update_walls(uint8_t front, uint8_t left, uint8_t right);
 
 // Propagate distances
 void floodfill_step(void);
+
 
 // Decide next move + update pose
 Direction floodfill_next_move(void);

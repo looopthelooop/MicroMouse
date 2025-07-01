@@ -114,11 +114,18 @@ Direction floodfill_next_move(void) {
         if (walls[pos_y][pos_x] & (1 << d)) continue;
 
         int nx = pos_x, ny = pos_y;
-        if (d == DIR_NORTH && ny + 1 < MAZE_SIZE) ny++;
-        else if (d == DIR_EAST && nx + 1 < MAZE_SIZE) nx++;
-        else if (d == DIR_SOUTH && ny > 0) ny--;
-        else if (d == DIR_WEST && nx > 0) nx--;
-        else continue;
+
+        if (d == DIR_NORTH && ny + 1 < MAZE_SIZE) {
+            ny++;
+        } else if (d == DIR_EAST) {
+            // turn in place — no nx++
+        } else if (d == DIR_SOUTH && ny > 0) {
+            ny--;
+        } else if (d == DIR_WEST) {
+            // turn in place — no nx--
+        } else {
+            continue;
+        }
 
         if (flood[ny][nx] < min) {
             min = flood[ny][nx];
@@ -127,13 +134,19 @@ Direction floodfill_next_move(void) {
     }
 
     if (min != 255) {
-        if (best == DIR_NORTH) pos_y++;
-        else if (best == DIR_EAST) pos_x++;
-        else if (best == DIR_SOUTH) pos_y--;
-        else if (best == DIR_WEST) pos_x--;
-
-        heading = best;
+        if (best == DIR_NORTH) {
+            pos_y++;
+            heading = DIR_NORTH;
+        } else if (best == DIR_EAST) {
+            heading = DIR_EAST;
+        } else if (best == DIR_SOUTH) {
+            pos_y--;
+            // keep heading unchanged for backward move
+        } else if (best == DIR_WEST) {
+            heading = DIR_WEST;
+        }
     }
 
     return best;
 }
+
