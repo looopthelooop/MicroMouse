@@ -132,7 +132,7 @@ int main(void)
   HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t*)ir_readings, NUM_IR_SENSORS);
-  floodfill_set_goal(3, 3);   // or whatever cell you want as goal
+  floodfill_set_goal(2, 1);   // or whatever cell you want as goal
   floodfill_init();
   /* USER CODE END 2 */
 
@@ -154,11 +154,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (button_mode == 1) {
+	  if (1) {
 		  // Example: read walls from IR sensors
-		  uint8_t front = (ir_readings[2] > 1500);
-		  uint8_t left  = (ir_readings[0] > 1500);
-		  uint8_t right = (ir_readings[3] > 1500);
+		  uint8_t front = (ir_readings[2] > 500);
+		  uint8_t left  = (ir_readings[0] > 500);
+		  uint8_t right = (ir_readings[3] > 500);
 		  // Update maze map
 		  floodfill_update_walls(front, left, right);
 
@@ -175,11 +175,11 @@ int main(void)
 			  pos_target_R = 20.0;
 			  pos_target_L = 20.0;
 		  } else if (dir == DIR_EAST) {
-			  pos_target_R = -4.0;
-			  pos_target_L = 4.0;
+			  pos_target_R = -6.0;
+			  pos_target_L = 6.0;
 		  } else if (dir == DIR_WEST) {
-			  pos_target_R = 4.0;
-			  pos_target_L = -4.0;
+			  pos_target_R = 6.0;
+			  pos_target_L = -6.0;
 		  } else if (dir == DIR_SOUTH) {
 			  pos_target_R = -20.0;
 			  pos_target_L = -20.0;
@@ -206,6 +206,8 @@ int main(void)
 		  // Reset encoder for next block tracking
 		  encoder_ticks_R = 0;
 		  encoder_ticks_L = 0;
+		  vel_integral_R = 0;
+		  vel_integral_L = 0;
 	  }
 
     /* USER CODE END WHILE */
