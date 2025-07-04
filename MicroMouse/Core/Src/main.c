@@ -54,8 +54,8 @@ COM_InitTypeDef BspCOMInit;
 /* USER CODE BEGIN PV */
 
 float kpp = 1.0f;
-float kvp = 5.0f;
-float kvi = 1.5f;
+float kvp = 6.0f;
+float kvi = 4.0f;
 float kenc = 0.015259f;
 
 volatile int32_t encoder_ticks_R = 0;
@@ -64,9 +64,6 @@ int32_t prev_encoder_ticks_R = 0;
 int32_t prev_encoder_ticks_L = 0;
 float vel_integral_R = 0;
 float vel_integral_L = 0;
-
-float pos_target_R = 0.0f;
-float pos_target_L = 0.0f;
 
 uint32_t last_control_time = 0;
 
@@ -83,7 +80,7 @@ void SystemClock_Config(void);
 float cascaded_control(float pos_target, float pos_current, float vel_current, float *vel_integral);
 void set_motor_pwm_R(float cmd);
 void set_motor_pwm_L(float cmd);
-uint8_t robot_has_reached_next_cell(void);  // ✅ Add this line
+uint8_t robot_has_reached_next_cell(float pos_target_R, float pos_target_L);
 
 /* USER CODE END PFP */
 
@@ -132,8 +129,18 @@ int main(void)
   HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t*)ir_readings, NUM_IR_SENSORS);
-  floodfill_set_goal(2, 1);   // or whatever cell you want as goal
+  floodfill_set_goal(1, 0);   // or whatever cell you want as goal
   floodfill_init();
+
+  // Give sensors time to stabilize
+  HAL_Delay(500);  // 500ms is sufficient
+
+  // NOW read the initial walls
+  uint8_t front = (ir_readings[2] > 500);
+  uint8_t left  = (ir_readings[0] > 500);
+  uint8_t right = (ir_readings[3] > 500);
+  floodfill_update_walls(front, left, right);
+  floodfill_step();
   /* USER CODE END 2 */
 
   /* Initialize leds */
@@ -152,71 +159,94 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (1) {
-		  // Example: read walls from IR sensors
-		  uint8_t front = (ir_readings[2] > 500);
-		  uint8_t left  = (ir_readings[0] > 500);
-		  uint8_t right = (ir_readings[3] > 500);
-		  // Update maze map
-		  floodfill_update_walls(front, left, right);
+      // Only do wall sensing during exploration (before goal is reached)
+      if (!floodfill_is_goal_reached()) {
+          uint8_t front = (ir_readings[2] > 500);
+          uint8_t left  = (ir_readings[0] > 500);
+          uint8_t right = (ir_readings[3] > 500);
+          floodfill_update_walls(front, left, right);
+          floodfill_step();
+      }
 
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-		  HAL_Delay(500);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+      static uint8_t goal_flash_done = 0;
 
-		  // Recompute distances
-		  floodfill_step();
+      // Flash LED when goal is first reached
+      if (floodfill_is_goal_reached() && !goal_flash_done) {
+          goal_flash_done = 1;
+          // Quick double flash to indicate goal reached
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+          HAL_Delay(150);
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+          HAL_Delay(100);
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+          HAL_Delay(150);
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+      }
 
-		  Direction dir = floodfill_next_move();
+      // Check if we've completed the return journey
+      if (floodfill_is_goal_reached() &&
+          floodfill_get_pos_x() == 0 &&
+          floodfill_get_pos_y() == 0) {
+          // Robot has returned to start - celebration sequence
+          for(int i = 0; i < 5; i++) {
+              HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+              HAL_Delay(200);
+              HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+              HAL_Delay(200);
+          }
+          break; // Exit or restart as needed
+      }
 
-		  if (dir == DIR_NORTH) {
-			  pos_target_R = 20.0;
-			  pos_target_L = 20.0;
-		  } else if (dir == DIR_EAST) {
-			  pos_target_R = -6.0;
-			  pos_target_L = 6.0;
-		  } else if (dir == DIR_WEST) {
-			  pos_target_R = 6.0;
-			  pos_target_L = -6.0;
-		  } else if (dir == DIR_SOUTH) {
-			  pos_target_R = -20.0;
-			  pos_target_L = -20.0;
-		  }
+      float pos_target_R = 0, pos_target_L = 0;
+      uint8_t has_move = floodfill_next_motor_targets(&pos_target_R, &pos_target_L);
 
-		  while (!robot_has_reached_next_cell()) {
-			  if (HAL_GetTick() - last_control_time >= 10) {
-				  last_control_time += 10;
-				  // Control loop keeps running
-				  float pos_current_R = encoder_ticks_R * kenc;
-				  float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
-				  prev_encoder_ticks_R = encoder_ticks_R;
-				  float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
-				  set_motor_pwm_R(pwm_R);
+      if (!has_move) {
+          HAL_Delay(10);
+          continue;
+      }
 
-				  float pos_current_L = encoder_ticks_L * kenc;
-				  float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
-				  prev_encoder_ticks_L = encoder_ticks_L;
-				  float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
-				  set_motor_pwm_L(pwm_L);
-			  }
-		  }
+      // Reset encoder and control variables for the next move
+      encoder_ticks_R = 0;
+      encoder_ticks_L = 0;
+      prev_encoder_ticks_R = 0;
+      prev_encoder_ticks_L = 0;
+      vel_integral_R = 0;
+      vel_integral_L = 0;
 
-		  // Reset encoder for next block tracking
-		  encoder_ticks_R = 0;
-		  encoder_ticks_L = 0;
-		  vel_integral_R = 0;
-		  vel_integral_L = 0;
-	  }
+      uint32_t timeout = HAL_GetTick() + 5000;
 
-    /* USER CODE END WHILE */
+      while (!robot_has_reached_next_cell(pos_target_R, pos_target_L)) {
+          if (HAL_GetTick() - last_control_time >= 10) {
+              last_control_time += 10;
+
+              float pos_current_R = encoder_ticks_R * kenc;
+              float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
+              prev_encoder_ticks_R = encoder_ticks_R;
+              float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
+              set_motor_pwm_R(pwm_R);
+
+              float pos_current_L = encoder_ticks_L * kenc;
+              float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
+              prev_encoder_ticks_L = encoder_ticks_L;
+              float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
+              set_motor_pwm_L(pwm_L);
+          }
+          if (HAL_GetTick() > timeout) break;
+      }
+
+      set_motor_pwm_R(0);
+      set_motor_pwm_L(0);
+  	  }
+	  /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
   }
   /* USER CODE END 3 */
-}
 
 /**
   * @brief System Clock Configuration
@@ -332,15 +362,15 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
     }
 }
 
-uint8_t robot_has_reached_next_cell(void) {
-    float pos_current_R = encoder_ticks_R * kenc;
-    float pos_current_L = encoder_ticks_L * kenc;
+uint8_t robot_has_reached_next_cell(float pos_target_R, float pos_target_L) {
+  float pos_current_R = encoder_ticks_R * kenc;
+  float pos_current_L = encoder_ticks_L * kenc;
 
-    if (fabsf(pos_target_R - pos_current_R) < 1.0f &&
-        fabsf(-pos_target_L - pos_current_L) < 1.0f) {
-        return 1;
-    }
-    return 0;
+  if (fabsf(pos_target_R - pos_current_R) < 1.0f &&
+      fabsf(-pos_target_L - pos_current_L) < 1.0f) {
+    return 1;
+  }
+  return 0;
 }
 
 /* USER CODE END 4 */
@@ -366,24 +396,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
   /* USER CODE END Callback 1 */
 }
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
 
 /**
   * @}
