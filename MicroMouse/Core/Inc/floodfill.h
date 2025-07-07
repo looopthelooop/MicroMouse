@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define MAZE_SIZE 16
+#define MAZE_SIZE 4
 
 typedef enum {
     DIR_NORTH = 0,

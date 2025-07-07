@@ -11,12 +11,14 @@ static Direction heading = DIR_NORTH;
 static uint8_t goal_x = MAZE_SIZE / 2;
 static uint8_t goal_y = MAZE_SIZE / 2;
 
-// Path planning for return journey
-static uint8_t return_path[MAZE_SIZE * MAZE_SIZE][2];  // [x, y] coordinates
-static uint8_t path_length = 0;
-static uint8_t path_index = 0;
+// Path tracking for return journey
+static uint8_t exploration_path[MAZE_SIZE * MAZE_SIZE][2];  // [x, y] coordinates during exploration
+static uint8_t exploration_path_length = 0;
+static uint8_t return_path_index = 0;
 static uint8_t goal_reached = 0;
 static uint8_t return_mode = 0;
+static uint8_t forward = 21.0f;
+static uint8_t turn = 8.75f;
 
 void floodfill_set_goal(uint8_t gx, uint8_t gy) {
     if (gx < MAZE_SIZE && gy < MAZE_SIZE) {
@@ -43,8 +45,13 @@ void floodfill_init(void) {
     heading = DIR_NORTH;
     goal_reached = 0;
     return_mode = 0;
-    path_length = 0;
-    path_index = 0;
+    exploration_path_length = 0;
+    return_path_index = 0;
+
+    // Record starting position
+    exploration_path[0][0] = 0;
+    exploration_path[0][1] = 0;
+    exploration_path_length = 1;
 }
 
 static void set_wall(uint8_t x, uint8_t y, Direction dir) {
@@ -102,56 +109,23 @@ void floodfill_step(void) {
     } while (changed);
 }
 
-// Calculate complete optimal path from current position to start
-static void calculate_return_path(void) {
-    // Save current heading to preserve robot's actual orientation
-    Direction saved_heading = heading;
-
-    // Set goal to start position and recalculate flood fill
-    floodfill_set_goal(0, 0);
-    floodfill_step();
-
-    // Restore the actual heading
-    heading = saved_heading;
-
-    // Build path by following flood fill gradient
-    path_length = 0;
-    uint8_t cx = pos_x, cy = pos_y;
-
-    while ((cx != 0 || cy != 0) && path_length < (MAZE_SIZE * MAZE_SIZE - 1)) {
-        uint8_t best_x = cx, best_y = cy;
-        uint8_t min_flood = flood[cy][cx];
-
-        // Find neighboring cell with lowest flood value
-        for (Direction d = 0; d < 4; d++) {
-            if (walls[cy][cx] & (1 << d)) continue;
-
-            uint8_t nx = cx, ny = cy;
-            if (d == DIR_NORTH && ny + 1 < MAZE_SIZE) ny++;
-            else if (d == DIR_EAST && nx + 1 < MAZE_SIZE) nx++;
-            else if (d == DIR_SOUTH && ny > 0) ny--;
-            else if (d == DIR_WEST && nx > 0) nx--;
-            else continue;
-
-            if (flood[ny][nx] < min_flood) {
-                min_flood = flood[ny][nx];
-                best_x = nx;
-                best_y = ny;
+// Record position in exploration path (with backtrack cleaning)
+static void record_position(uint8_t x, uint8_t y) {
+    if (exploration_path_length < MAZE_SIZE * MAZE_SIZE) {
+        // Check if we're revisiting a previous position (backtracking)
+        for (int i = exploration_path_length - 1; i >= 0; i--) {
+            if (exploration_path[i][0] == x && exploration_path[i][1] == y) {
+                // We've been here before - remove the loop by cutting back to this position
+                exploration_path_length = i + 1;
+                return;
             }
         }
 
-        if (best_x == cx && best_y == cy) break; // Stuck
-
-        // Add to path
-        return_path[path_length][0] = best_x;
-        return_path[path_length][1] = best_y;
-        path_length++;
-
-        cx = best_x;
-        cy = best_y;
+        // New position - add it to the path
+        exploration_path[exploration_path_length][0] = x;
+        exploration_path[exploration_path_length][1] = y;
+        exploration_path_length++;
     }
-
-    path_index = 0;
 }
 
 // Get direction needed to move from current position to target position
@@ -168,7 +142,8 @@ uint8_t floodfill_next_motor_targets(float *pos_target_R, float *pos_target_L) {
     if (!goal_reached && pos_x == goal_x && pos_y == goal_y) {
         goal_reached = 1;
         return_mode = 1;
-        calculate_return_path();
+        // Start return from the second-to-last position (since we're already at the goal)
+        return_path_index = exploration_path_length - 2;
     }
 
     // Exploration mode - allow forward, backward, left, right (NO U-TURN)
@@ -198,40 +173,42 @@ uint8_t floodfill_next_motor_targets(float *pos_target_R, float *pos_target_L) {
         // Execute movement based on required direction vs current heading
         if (best == heading) {
             // Move forward
-            *pos_target_R = 21.0f;
-            *pos_target_L = 21.0f;
+            *pos_target_R = forward;
+            *pos_target_L = forward;
             if (heading == DIR_NORTH) pos_y++;
             else if (heading == DIR_EAST) pos_x++;
             else if (heading == DIR_SOUTH) pos_y--;
             else if (heading == DIR_WEST) pos_x--;
+            record_position(pos_x, pos_y);
         } else if (best == (heading + 1) % 4) {
             // Turn right (90° clockwise)
-            *pos_target_R = -7.0f;
-            *pos_target_L = 7.0f;
+            *pos_target_R = -(turn-0.5f);
+            *pos_target_L = turn;
             heading = best;
         } else if (best == (heading + 3) % 4) {
             // Turn left (90° counter-clockwise)
-            *pos_target_R = 7.0f;
-            *pos_target_L = -7.0f;
+            *pos_target_R = turn;
+            *pos_target_L = -(turn+0.5f);
             heading = best;
         } else if (best == (heading + 2) % 4) {
             // Backward movement (NO heading change, just reverse motors)
-            *pos_target_R = -21.0f;
-            *pos_target_L = -21.0f;
+            *pos_target_R = -forward;
+            *pos_target_L = -forward;
             // Update position but keep same heading
             if (heading == DIR_NORTH) pos_y--;
             else if (heading == DIR_EAST) pos_x--;
             else if (heading == DIR_SOUTH) pos_y++;
             else if (heading == DIR_WEST) pos_x++;
+            record_position(pos_x, pos_y);
         }
         return 1;
     }
 
-    // Return mode - follow calculated path (allow backward movement, no U-turn)
-    if (path_index >= path_length) return 0;
+    // Return mode - follow the recorded exploration path in reverse
+    if (return_path_index < 0) return 0; // Reached start
 
-    uint8_t target_x = return_path[path_index][0];
-    uint8_t target_y = return_path[path_index][1];
+    uint8_t target_x = exploration_path[return_path_index][0];
+    uint8_t target_y = exploration_path[return_path_index][1];
 
     // Get required direction for this move
     Direction required_dir = get_move_direction(pos_x, pos_y, target_x, target_y);
@@ -240,19 +217,19 @@ uint8_t floodfill_next_motor_targets(float *pos_target_R, float *pos_target_L) {
     uint8_t cells_to_move = 1;
     uint8_t final_x = target_x;
     uint8_t final_y = target_y;
-    uint8_t temp_index = path_index + 1;
+    int temp_index = return_path_index - 1;
 
     // Look ahead for consecutive moves in same direction
-    while (temp_index < path_length) {
-        uint8_t next_target_x = return_path[temp_index][0];
-        uint8_t next_target_y = return_path[temp_index][1];
+    while (temp_index >= 0) {
+        uint8_t next_target_x = exploration_path[temp_index][0];
+        uint8_t next_target_y = exploration_path[temp_index][1];
         Direction next_dir = get_move_direction(final_x, final_y, next_target_x, next_target_y);
 
         if (next_dir == required_dir) {
             cells_to_move++;
             final_x = next_target_x;
             final_y = next_target_y;
-            temp_index++;
+            temp_index--;
         } else {
             break;
         }
@@ -261,25 +238,25 @@ uint8_t floodfill_next_motor_targets(float *pos_target_R, float *pos_target_L) {
     // Determine movement type
     if (heading == required_dir) {
         // Move forward
-        *pos_target_R = 21.0f * cells_to_move;
-        *pos_target_L = 21.0f * cells_to_move;
+        *pos_target_R = forward * cells_to_move;
+        *pos_target_L = forward * cells_to_move;
     } else if (required_dir == (heading + 2) % 4) {
         // Move backward (no heading change)
-        *pos_target_R = -21.0f * cells_to_move;
-        *pos_target_L = -21.0f * cells_to_move;
+        *pos_target_R = -forward * cells_to_move;
+        *pos_target_L = -forward * cells_to_move;
     } else {
         // Need to turn first (left or right only)
         int turn_diff = (required_dir - heading + 4) % 4;
 
         if (turn_diff == 1) {
             // Turn right
-            *pos_target_R = -7.0f;
-            *pos_target_L = 7.0f;
+            *pos_target_R = -(turn-0.5f);
+            *pos_target_L = turn;
             heading = required_dir;
         } else if (turn_diff == 3) {
             // Turn left
-            *pos_target_R = 7.0f;
-            *pos_target_L = -7.0f;
+            *pos_target_R = turn;
+            *pos_target_L = -(turn+0.5f);
             heading = required_dir;
         }
         return 1;
@@ -288,7 +265,7 @@ uint8_t floodfill_next_motor_targets(float *pos_target_R, float *pos_target_L) {
     // Update position and path index
     pos_x = final_x;
     pos_y = final_y;
-    path_index = temp_index;
+    return_path_index = temp_index;
 
     return 1;
 }

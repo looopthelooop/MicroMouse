@@ -54,9 +54,21 @@ COM_InitTypeDef BspCOMInit;
 /* USER CODE BEGIN PV */
 
 float kpp = 1.0f;
-float kvp = 6.0f;
-float kvi = 4.0f;
+float kvp = 20.0f;
+float kvi = 10.0f;
 float kenc = 0.015259f;
+float dt = 0.001f;
+
+// Wall centering parameters
+float wall_centering_gain = 20.0f;  // Adjust this for centering strength
+uint16_t close_threshold = 1500;  // Add this line
+float turn_threshold = 15.0f;       // Threshold to detect turns vs straight moves
+uint16_t front_threshold = 2700;
+
+// Rate limiter parameters
+static float prev_vel_ref_R = 0;
+static float prev_vel_ref_L = 0;
+static float max_vel_change = 100.0f;  // mm/s per control cycle (adjust as needed)
 
 volatile int32_t encoder_ticks_R = 0;
 volatile int32_t encoder_ticks_L = 0;
@@ -77,10 +89,14 @@ volatile uint8_t button_mode = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-float cascaded_control(float pos_target, float pos_current, float vel_current, float *vel_integral);
+float rate_limit_velocity(float new_vel_ref, float prev_vel_ref, float max_change);
+float cascaded_control_with_vel_rate_limit(float pos_target, float pos_current,
+                                          float vel_current, float *vel_integral,
+                                          float *prev_vel_ref);
 void set_motor_pwm_R(float cmd);
 void set_motor_pwm_L(float cmd);
 uint8_t robot_has_reached_next_cell(float pos_target_R, float pos_target_L);
+float calculate_wall_centering(float pos_target_R, float pos_target_L);
 
 /* USER CODE END PFP */
 
@@ -129,13 +145,13 @@ int main(void)
   HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t*)ir_readings, NUM_IR_SENSORS);
-  floodfill_set_goal(1, 0);   // or whatever cell you want as goal
+  floodfill_set_goal(3, 3);   // or whatever cell you want as goal
   floodfill_init();
 
   // Give sensors time to stabilize
   HAL_Delay(500);  // 500ms is sufficient
 
-  // NOW read the initial walls
+  // NOW read the initial walls (using higher threshold for reliable detection)
   uint8_t front = (ir_readings[2] > 500);
   uint8_t left  = (ir_readings[0] > 500);
   uint8_t right = (ir_readings[3] > 500);
@@ -163,6 +179,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	   if (!floodfill_is_goal_reached() && floodfill_get_pos_x() == floodfill_get_goal_x() && floodfill_get_pos_y() == floodfill_get_goal_y()) {
+		  // Signal that goal was reached (LED blinks)
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+		  HAL_Delay(200);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+		  HAL_Delay(200);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+		  HAL_Delay(200);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	   }
       // Only do wall sensing during exploration (before goal is reached)
       if (!floodfill_is_goal_reached()) {
           uint8_t front = (ir_readings[2] > 500);
@@ -170,21 +196,6 @@ int main(void)
           uint8_t right = (ir_readings[3] > 500);
           floodfill_update_walls(front, left, right);
           floodfill_step();
-      }
-
-      static uint8_t goal_flash_done = 0;
-
-      // Flash LED when goal is first reached
-      if (floodfill_is_goal_reached() && !goal_flash_done) {
-          goal_flash_done = 1;
-          // Quick double flash to indicate goal reached
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-          HAL_Delay(150);
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-          HAL_Delay(100);
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-          HAL_Delay(150);
-          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
       }
 
       // Check if we've completed the return journey
@@ -205,7 +216,7 @@ int main(void)
       uint8_t has_move = floodfill_next_motor_targets(&pos_target_R, &pos_target_L);
 
       if (!has_move) {
-          HAL_Delay(10);
+          HAL_Delay(1);
           continue;
       }
 
@@ -216,24 +227,41 @@ int main(void)
       prev_encoder_ticks_L = 0;
       vel_integral_R = 0;
       vel_integral_L = 0;
+      // Reset velocity reference rate limiter
+      prev_vel_ref_R = 0;
+      prev_vel_ref_L = 0;
 
       uint32_t timeout = HAL_GetTick() + 5000;
 
       while (!robot_has_reached_next_cell(pos_target_R, pos_target_L)) {
-          if (HAL_GetTick() - last_control_time >= 10) {
-              last_control_time += 10;
+          if (HAL_GetTick() - last_control_time >= 1) {
+              last_control_time += 1;
 
               float pos_current_R = encoder_ticks_R * kenc;
-              float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / 0.01f;
+              float vel_current_R = (encoder_ticks_R - prev_encoder_ticks_R) * kenc / dt;
               prev_encoder_ticks_R = encoder_ticks_R;
-              float pwm_R = cascaded_control(pos_target_R, pos_current_R, vel_current_R, &vel_integral_R);
-              set_motor_pwm_R(pwm_R);
 
               float pos_current_L = encoder_ticks_L * kenc;
-              float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / 0.01f;
+              float vel_current_L = (encoder_ticks_L - prev_encoder_ticks_L) * kenc / dt;
               prev_encoder_ticks_L = encoder_ticks_L;
-              float pwm_L = cascaded_control(-pos_target_L, pos_current_L, vel_current_L, &vel_integral_L);
-              set_motor_pwm_L(pwm_L);
+
+              // Use rate-limited cascaded control
+              float pwm_R = cascaded_control_with_vel_rate_limit(pos_target_R, pos_current_R,
+                                                                vel_current_R, &vel_integral_R,
+                                                                &prev_vel_ref_R);
+              float pwm_L = cascaded_control_with_vel_rate_limit(-pos_target_L, pos_current_L,
+                                                                vel_current_L, &vel_integral_L,
+                                                                &prev_vel_ref_L);
+
+              // Calculate wall centering command (pass the targets to detect turns)
+              float centering_cmd = calculate_wall_centering(pos_target_R, pos_target_L);
+
+              // Apply differential centering (Method 2)
+              float pwm_R_centered = pwm_R + centering_cmd;  // Right motor
+              float pwm_L_centered = pwm_L + centering_cmd;  // Left motor (opposite)
+
+              set_motor_pwm_R(pwm_R_centered);
+              set_motor_pwm_L(pwm_L_centered);
           }
           if (HAL_GetTick() > timeout) break;
       }
@@ -296,23 +324,96 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
-float cascaded_control(float pos_target, float pos_current, float vel_current, float *vel_integral)
-{
-    float vel_ref = kpp * (pos_target - pos_current);
+// Rate limiter function
+float rate_limit_velocity(float new_vel_ref, float prev_vel_ref, float max_change) {
+    float delta = new_vel_ref - prev_vel_ref;
+    if (delta > max_change) {
+        return prev_vel_ref + max_change;
+    } else if (delta < -max_change) {
+        return prev_vel_ref - max_change;
+    }
+    return new_vel_ref;
+}
+
+// Modified cascaded_control function with velocity rate limiting
+float cascaded_control_with_vel_rate_limit(float pos_target, float pos_current,
+                                          float vel_current, float *vel_integral,
+                                          float *prev_vel_ref) {
+    // Calculate desired velocity reference from position error
+    float vel_ref_desired = kpp * (pos_target - pos_current);
+
+    // Apply rate limiting to velocity reference
+    float vel_ref = rate_limit_velocity(vel_ref_desired, *prev_vel_ref, max_vel_change);
+    *prev_vel_ref = vel_ref;
+
+    // Continue with normal velocity control
     float vel_error = vel_ref - vel_current;
-    *vel_integral += vel_error * 0.01f;
+    *vel_integral += vel_error * dt;
 
     float pwm = kvp * vel_error + kvi * (*vel_integral);
 
+    // Anti-windup
     if (pwm > 100.0f) {
         pwm = 100.0f;
-        *vel_integral -= vel_error * 0.01f;
+        *vel_integral -= vel_error * dt;
     } else if (pwm < -100.0f) {
         pwm = -100.0f;
-        *vel_integral -= vel_error * 0.01f;
+        *vel_integral -= vel_error * dt;
     }
 
     return pwm;
+}
+
+float calculate_wall_centering(float pos_target_R, float pos_target_L)
+{
+    float left_sensor = ir_readings[0];   // Left wall sensor
+    float right_sensor = ir_readings[3];  // Right wall sensor
+
+    float centering_command = 0;
+
+    if (fabsf(pos_target_R) < turn_threshold || fabsf(pos_target_L) < turn_threshold) {
+        // This is a turn - no centering applied
+        return 0;
+    }
+
+    // Determine if we're moving forward or backward
+    uint8_t moving_backward = (pos_target_R < 0 && pos_target_L < 0);
+
+    if (left_sensor > close_threshold && right_sensor > close_threshold) {
+        // Both walls present - center between them
+        float left_closeness = (left_sensor - close_threshold) * (3.3f/4095);
+        float right_closeness = (right_sensor - close_threshold) * (3.3f/4095);
+
+        // Positive = steer left, Negative = steer right (for forward movement)
+        centering_command = wall_centering_gain * (right_closeness - left_closeness);
+
+        // Invert for backward movement
+        if (moving_backward) {
+            centering_command = -centering_command;
+        }
+    } else if (left_sensor > close_threshold) {
+        // Only left wall - steer right (for forward movement)
+        centering_command = -wall_centering_gain * ((left_sensor - close_threshold) * (3.3f/4095));
+
+        // Invert for backward movement (steer left when going backward)
+        if (moving_backward) {
+            centering_command = -centering_command;
+        }
+    } else if (right_sensor > close_threshold) {
+        // Only right wall - steer left (for forward movement)
+        centering_command = wall_centering_gain * ((right_sensor - close_threshold) * (3.3f/4095));
+
+        // Invert for backward movement (steer right when going backward)
+        if (moving_backward) {
+            centering_command = -centering_command;
+        }
+    }
+
+    // Limit the centering command
+    if (centering_command > 35.0f) centering_command = 35.0f;
+    if (centering_command < -35.0f) centering_command = -35.0f;
+
+    return centering_command;
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
@@ -332,9 +433,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     }
 }
 
-
 void set_motor_pwm_R(float cmd)
 {
+    if (cmd > 100.0f) {
+        cmd = 100.0f;
+    } else if (cmd < -100.0f) {
+        cmd = -100.0f;
+    }
     if (cmd >= 0) {
         HAL_GPIO_WritePin(DIRR_GPIO_Port, DIRR_Pin, GPIO_PIN_SET);
     } else {
@@ -346,6 +451,11 @@ void set_motor_pwm_R(float cmd)
 
 void set_motor_pwm_L(float cmd)
 {
+    if (cmd > 100.0f) {
+        cmd = 100.0f;
+    } else if (cmd < -100.0f) {
+        cmd = -100.0f;
+    }
     if (cmd >= 0) {
         HAL_GPIO_WritePin(DIRL_GPIO_Port, DIRL_Pin, GPIO_PIN_SET);
     } else {
@@ -370,6 +480,12 @@ uint8_t robot_has_reached_next_cell(float pos_target_R, float pos_target_L) {
       fabsf(-pos_target_L - pos_current_L) < 1.0f) {
     return 1;
   }
+
+  float distance_moved = fmaxf(fabsf(pos_current_R), fabsf(pos_current_L));
+  if (distance_moved > 10.0f && ir_readings[2] > front_threshold) {
+      return 1;
+  }
+
   return 0;
 }
 
