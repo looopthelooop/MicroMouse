@@ -14,11 +14,11 @@ static uint8_t goal_y = MAZE_SIZE / 2;
 // Path tracking for return journey
 static uint8_t exploration_path[MAZE_SIZE * MAZE_SIZE][2];  // [x, y] coordinates during exploration
 static uint8_t exploration_path_length = 0;
-static uint8_t return_path_index = 0;
+static int8_t return_path_index = 0;
 static uint8_t goal_reached = 0;
 static uint8_t return_mode = 0;
-static uint8_t forward = 21.0f;
-static uint8_t turn = 8.75f;
+static float forward = 21.0f;
+static float turn = 8.0f;
 
 void floodfill_set_goal(uint8_t gx, uint8_t gy) {
     if (gx < MAZE_SIZE && gy < MAZE_SIZE) {
@@ -99,6 +99,8 @@ void floodfill_step(void) {
 
                     if (flood[ny][nx] < min_val) min_val = flood[ny][nx];
                 }
+
+                if (min_val == 255) continue;  // Skip isolated cells
                 uint8_t new_val = min_val + 1;
                 if (new_val != flood[y][x]) {
                     flood[y][x] = new_val;
@@ -182,13 +184,13 @@ uint8_t floodfill_next_motor_targets(float *pos_target_R, float *pos_target_L) {
             record_position(pos_x, pos_y);
         } else if (best == (heading + 1) % 4) {
             // Turn right (90° clockwise)
-            *pos_target_R = -(turn-0.5f);
+            *pos_target_R = -(turn);
             *pos_target_L = turn;
             heading = best;
         } else if (best == (heading + 3) % 4) {
             // Turn left (90° counter-clockwise)
             *pos_target_R = turn;
-            *pos_target_L = -(turn+0.5f);
+            *pos_target_L = -(turn);
             heading = best;
         } else if (best == (heading + 2) % 4) {
             // Backward movement (NO heading change, just reverse motors)

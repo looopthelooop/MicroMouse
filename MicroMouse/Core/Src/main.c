@@ -361,6 +361,19 @@ float cascaded_control_with_vel_rate_limit(float pos_target, float pos_current,
         *vel_integral -= vel_error * dt;
     }
 
+    // Add minimum PWM to prevent stalling near target
+    float min_pwm = 60.0f;  // Adjust this value (try 10-25)
+    float pos_error = pos_target - pos_current;
+
+    // Only apply minimum PWM if we're still far from target (> 2mm error)
+    if (fabsf(pos_error) > 0.0f) {
+        if (pwm > 0 && pwm < min_pwm) {
+            pwm = min_pwm;
+        } else if (pwm < 0 && pwm > -min_pwm) {
+            pwm = -min_pwm;
+        }
+    }
+
     return pwm;
 }
 
